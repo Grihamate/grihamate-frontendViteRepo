@@ -1,0 +1,191 @@
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #100E2C;
+    padding: 45px 55px;
+    gap: 30px;
+}
+
+.line {
+    width: 100%;
+    height: 0px;
+    border-top: 1px solid #FFFFFF;
+}
+
+.upper-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+}
+
+.lower-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.left-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    width: 45%;
+    min-width: 300px;
+   
+}
+
+.right-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 40%;
+    min-width: 250px;
+
+}
+
+.footer-logo-box {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.company-logo {
+    width: 65px;
+    height: 52px;
+    background-color: #fff;
+    padding: 8px 10px;
+}
+
+.footer-logo-box > p {
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 17px;
+    color: #fff;
+}
+
+.right-box > p {
+    color: #fff;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    max-width: 400px;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-box, .links-box, .property-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400;
+}
+
+.property-box p, .links-box p, .icon-text {
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+}
+
+.links-box > h1, .property-box > h1, .contact-box > h1 {
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.box-left {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    color: #fff;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* -------- Responsive Breakpoints -------- */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .upper-box {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .left-box {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .right-box {
+        width: 100%;
+    }
+}
+
+/* Mobile (up to 768px) */
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 30px 20px;
+    }
+
+    .upper-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .left-box {
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+    }
+
+    .right-box {
+        width: 100%;
+    }
+
+    .footer-logo-box > p {
+        font-size: 15px;
+    }
+
+    .right-box > p {
+        font-size: 13px;
+        width: 100%;
+    }
+
+    .links-box > h1, .property-box > h1, .contact-box > h1 {
+        font-size: 16px;
+    }
+
+    .property-box p, .links-box p {
+        font-size: 13px;
+    }
+
+    .box-left {
+        gap: 15px;
+        font-size: 13px;
+        justify-content: flex-start;
+    }
+
+    .lower-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

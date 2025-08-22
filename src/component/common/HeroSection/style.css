@@ -1,0 +1,70 @@
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../assets/heroImg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transform: scaleX(-1); /* Mirror only the image */
+  z-index: 0;
+}
+
+/* Content layer */
+.hero-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;  
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  
+ 
+}
+
+.hero-content h1 {
+  color: #fff;
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 5vw;
+}
+
+.hero-content > p {
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+    font-size: 1.5vw;
+  line-height: 1.5;
+}
+
+
+@media  (max-width:992px) {
+
+  .hero-bg{
+    display: none;
+  }
+  .hero-content > h1 , .hero-content > p {
+     display: none;
+  }
+  .hero-container{
+    height: fit-content;
+    padding-block: 30px;
+   
+  }
+  
+}

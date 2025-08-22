@@ -1,0 +1,180 @@
+
+
+
+ .property-card {
+  width: 100%;
+  max-width: 420px;
+  max-height: 620px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #DEE2E6;
+  background: #fff;
+  box-shadow: 0px 4px 12px 0px #00000012;
+  transition: transform 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+}
+
+.property-card > img {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+}
+
+.property-details {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.property-details h3 {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  color: #000;
+}
+
+.location {
+  font-size: 0.85rem;
+  color: #7A7474;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.location img {
+  width: 14px;
+  height: 14px;
+}
+
+.para {
+  font-family: "Inter";
+  color: #7A7474;
+  font-size: 0.85rem;
+  line-height: 1.2rem;
+}
+
+.price {
+  font-size: 1rem;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+
+.icons-bar {
+  padding: 5px 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.icon-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon-box img {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-bar > p {
+  font-family: "Gantari";
+  font-size: 0.8rem;
+  color: #100E2C;
+}
+
+.property-buttons {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 0 10px;
+  flex-wrap: wrap;
+}
+
+.share-btn, .contact-btn {
+  flex: 1;
+  height: 44px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.share-btn {
+  background: #fff;
+  border: 1px solid #000;
+}
+
+.contact-btn {
+  background: #FBDB5B;
+  border: none;
+}
+
+/* ---------------- Responsive ---------------- */
+
+/* Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .property-card {
+    max-width: 100%;
+    gap: 15px;
+  }
+
+  .property-details h3 {
+    font-size: 1rem;
+  }
+
+  .para {
+    font-size: 0.8rem;
+  }
+
+  .icons-bar {
+    justify-content: center;
+  }
+
+  .icon-bar {
+    min-width: 50px;
+  }
+
+  .share-btn, .contact-btn {
+    flex: 100%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .property-card {
+    max-width: 90%;
+  }
+
+  .property-details h3 {
+    font-size: 1.05rem;
+  }
+
+  .para {
+    font-size: 0.85rem;
+  }
+}

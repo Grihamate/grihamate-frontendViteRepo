@@ -1,0 +1,129 @@
+.city-photo{
+    width: 100%;
+height: auto;
+gap: 24px;
+
+} 
+
+
+
+.city-container {
+  width: 100%;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.city-text {
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.city-text h1 {
+  font-family: "Gantari";
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.city-text p {
+  font-family: "Inter";
+  font-size: 1rem;
+  color: #555;
+}
+
+.city-photo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 260px);
+  gap: 10px;
+  width: 90%;
+}
+
+/* Specific card positioning to match screenshot */
+.card-1 {
+  grid-column: span 2; /* New Delhi wide */
+}
+.card-2 {
+  grid-column: span 1;
+}
+.card-3 {
+  grid-row: span 2; /* Goa tall */
+}
+.card-4 {
+  grid-column: span 1;
+}
+.card-5 {
+  grid-column: span 1;
+}
+
+/* Card common styles */
+.city-card {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.overlay{
+    width: 155px;
+    height: 37px;
+    gap: 10px;
+}
+
+
+
+.city-card .overlay {
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  color: white;
+}
+
+.city-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: "Gantari";
+font-weight: 700;
+line-height: 20px;
+letter-spacing: 0%;
+
+}
+
+.city-card p {
+    height: 11px;
+  font-size: 0.9rem;
+  font-family: "Gantari";
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0%;
+
+}
+
+@media (max-width: 1024px) {
+  .city-photo {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .card-1,
+  .card-3 {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .city-photo {
+    grid-template-columns: 1fr;
+  }
+  .city-card {
+    height: 200px;
+  }
+}

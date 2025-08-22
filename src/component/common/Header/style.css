@@ -1,0 +1,117 @@
+
+:root {
+  font-size: 16px; /* 1rem = 16px, zoom change hone par ye scale hoga */
+}
+
+.header {
+  padding-block:10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1440px;
+  height: clamp(3.5rem, 8vh, 5.6rem);
+  margin: auto;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: clamp(2.5rem, 4vw, 5.6rem);
+  height: 80%;
+  padding: auto;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 2rem);
+  flex-wrap: wrap;
+}
+
+.links .link {
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: clamp(0.55rem, 1vw, 1rem);
+  color: #151515;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.login-btn,
+.list-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  font-size: clamp(0.71rem, 1vw, 5rem);
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.login-btn > img, .list-btn > img{
+ width: 10px;
+ height: 10px;
+}
+
+.login-btn {
+  color: #100E2C;
+  border: 1px solid #100E2C;
+  background-color: #fff;
+}
+
+.list-btn {
+  background-color: #FBDB5B;
+  color: #100E2C;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between;
+    gap: 0.8rem;
+    height: auto;
+    padding: 1rem 0;
+  }
+  
+  .links {
+    width: 30%;
+    display: none;
+  }
+
+  
+  .actions {
+    order: 2;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+    .links {
+     display: none;
+
+  }
+
+}

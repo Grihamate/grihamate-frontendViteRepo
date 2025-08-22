@@ -1,0 +1,138 @@
+.contact-section {
+  width: 100%;
+  min-height: 730px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  gap: 40px;
+}
+
+.contact-form {
+  width: 45%;
+  background-color: #100e2c;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-radius: 12px;
+  gap: 20px;
+  padding: 40px;
+}
+
+.form-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-text > h2 {
+  font-family: "Gantari";
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  color: #fff;
+}
+
+.form-text > p {
+  color: #fff;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  height: 50px;
+  padding: 9px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1.2rem;
+  background-color: #fff;
+}
+
+.contact-form textarea {
+  height: 148px;
+}
+
+.contact-form button {
+  background: #0057ff;
+  width: fit-content;
+  padding: 12px 20px;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-text {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  color: #fff;
+}
+
+.contact-text h1 {
+  font-family: "Gantari";
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 3rem;
+}
+
+.contact-text p {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .contact-container {
+    width: 90%;
+    gap: 20px;
+  }
+  .contact-text h1 {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .contact-form,
+  .contact-text {
+    width: 100%;
+    max-width: 600px;
+  }
+  .contact-text h1 {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
+
+    .contact-form > input{
+      height: 40px;
+      padding: 10px;
+    }
+
+    .contact-form > textarea{
+      height: 80px;
+    }
+}
