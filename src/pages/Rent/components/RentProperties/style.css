@@ -75,12 +75,12 @@ color: #100E2C;
 .filters-card-conatiner{
   width: 100%;
   display: grid;
-  align-items: center;
+  /* align-items: center;
   justify-content: center;
     align-items: center;
-    justify-items: center; 
+    justify-items: center;  */
   gap: 30px;
-  grid-template-columns: repeat(2, 30%);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 600px 600px;  
 }
 

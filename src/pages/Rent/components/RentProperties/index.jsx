@@ -68,7 +68,7 @@ const RentProperties = () => {
                       </div>  
                       <div className="filters-icons-box">
                             <select>
-                               <option>Neiwest First</option>
+                               <option>Newest First</option>
                             </select>
                             <div className="filter-icon-left">
                                  <img src={listIcon}/>

@@ -1,9 +1,9 @@
-.rent-page{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 50px;
+.rent-page {
+  /* max-width: 1318px;
+margin: auto;
+width: 100%; */
+  margin-top: 51px;
+  /* gap: 10px;
+  padding: 0px 16px; */
+  margin-bottom: 26px;
 }

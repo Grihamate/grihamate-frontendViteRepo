@@ -1,3 +1,12 @@
+
 .main-content {
   padding-top: 80px;
+  padding-right: 16px;
+  padding-left: 16px;   /* ✅ Add left padding for balance */
+  margin: 0 auto;       /* ✅ shorthand for centering horizontally */
+  max-width: 1318px;    /* ✅ cap container on big screens */
+  width: 100%;          /* ✅ allow it to shrink on smaller screens */
+  margin-bottom: 26px;
+  box-sizing: border-box; /* ✅ ensures padding is included inside width */
 }
+
