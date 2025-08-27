@@ -9,11 +9,14 @@
 
 
 .filter-sidebar {
+
   display: flex;
   flex-direction: column;
-  align-items: end;
-  flex: 0 0 350px;        
+  align-items: end;       
   gap: 20px;
+  width: 26%;          /* har screen ke hisaab se adjust hoga */
+  min-width: 200px;
+ 
 }
 
 .cards-section {
@@ -24,6 +27,7 @@
   border-radius: 8px;
   gap: 59px;
   padding-top:40px;
+
 }
 
 .filter-bar{
@@ -31,7 +35,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
   height: 58px;
 
 }
@@ -41,12 +44,13 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  width: 60%;
   height: 100%;
+  gap: 24px;
  
 }
 
 .cards-tittle > p{
+width: 70%;  
 font-family: "Inter";
 font-weight: 400;
 font-size: 16px;
@@ -68,19 +72,16 @@ color: #100E2C;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width:30%;
-  height: 100%;
+ width: 292px;
 }
 
 .filters-card-conatiner{
   width: 100%;
   display: grid;
-  /* align-items: center;
-  justify-content: center;
-    align-items: center;
-    justify-items: center;  */
-  gap: 30px;
-  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center; 
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 600px 600px;  
 }
 
@@ -313,14 +314,69 @@ line-height: 1rem;
 }
 
 
-@media (max-width: 800px) {
+
+
+@media (max-width: 1400px) and (min-width: 1000px) {
   .filters-card-conatiner {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    grid-template-columns: repeat(2, 1.3fr);
   }
+
+
+    .cards-section{
+     gap:45px
+   }
+
+
 }
 
-@media (max-width: 500px) {
-  .filters-card-conatiner{
-    grid-template-columns: 1fr; /* 1 column on mobile */
+
+@media (max-width: 1000px) and (min-width: 800px) {
+  .filters-card-conatiner {
+    grid-template-columns: repeat(1, 1fr);
+   
   }
+   .cards-tittle h1{
+    font-size: 28px;
+    flex-wrap: nowrap;
+   
+   }
+
+   .cards-section{
+     gap:50px
+   }
+}
+
+
+@media (max-width: 800px) and (min-width: 500px) {
+  .filters-card-conatiner {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+
+   .cards-tittle p{
+   display: none;
+   }
+
+   .cards-section{
+     gap:35px
+   }
+   .cards-tittle h1{
+    font-size: 24px;
+    flex-wrap: nowrap;
+   
+   }
+}
+
+
+@media (max-width: 500px) {
+  .filters-card-conatiner {
+    grid-template-columns: 1fr;
+  }
+
+
+
+  .cards-tittle p{
+   display: none;
+   }
+   
 }
