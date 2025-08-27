@@ -1,0 +1,82 @@
+
+
+.container-auth {
+  max-width: 540px;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 100%;
+
+  border-radius: 10px;
+
+  padding: 20px; /* optional */
+  margin: auto;
+  
+}
+.wrapper {
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
+  min-height: 100vh;        /* full viewport height */
+  background: white;      /* optional background */
+}
+
+.inner-container{
+    max-width: 482px;
+    width: 100%;
+    margin: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 55px;
+
+}
+.heading{
+    font-weight: 600;
+    font-size: 32px;
+    color: #282828;
+    padding-bottom: 2px;
+    text-align: center;
+}
+.subheading{
+    font-weight: 500;
+    font-size: 16px;
+    color: #919299;
+    margin-bottom: 30px;
+    text-align: center;
+}
+form label{
+    font-weight: 500;
+    font-size: 16px;
+    color: #282828;
+}
+form input{
+    border-radius: 8px;
+    border: 1px solid #C4C4D6;
+    width: 100%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    padding-left: 8px;
+}
+.btn{
+    background: #3749A6;
+color: white;
+}
+.confirmation{
+    font-size: 14px;
+    font-weight: 400;
+    color: #282828;
+    text-align: center;
+    margin-bottom: 78px;
+}
+.description{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+
+}
+.description h1{
+    font-size: 32px;
+    font-weight: 600;
+    color:#282828;
+}

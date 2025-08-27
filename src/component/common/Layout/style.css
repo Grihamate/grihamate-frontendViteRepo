@@ -1,12 +1,29 @@
-
+/* 
 .main-content {
   padding-top: 80px;
+  padding-left: 16px;
   padding-right: 16px;
-  padding-left: 16px;   /* ✅ Add left padding for balance */
-  margin: 0 auto;       /* ✅ shorthand for centering horizontally */
-  max-width: 1318px;    /* ✅ cap container on big screens */
-  width: 100%;          /* ✅ allow it to shrink on smaller screens */
+  margin: 0 auto;
+  max-width: 1318px;
+  width: 100%;
+  box-sizing: border-box;
   margin-bottom: 26px;
-  box-sizing: border-box; /* ✅ ensures padding is included inside width */
+} */
+ .main-content {
+  max-width: 1318px;
+  width: 100%;
+  padding: 80px 16px 26px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
+
+/* On very small screens, reduce side padding */
+@media (max-width: 480px) {
+  .main-content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+
 
