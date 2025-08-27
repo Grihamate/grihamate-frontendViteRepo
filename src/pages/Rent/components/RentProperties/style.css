@@ -9,14 +9,12 @@
 
 
 .filter-sidebar {
-
+  padding-top: 10px;
   display: flex;
-  flex-direction: column;
-  align-items: end;       
+  flex-direction: column;  
   gap: 20px;
-  width: 26%;          /* har screen ke hisaab se adjust hoga */
+  width: 25%;          
   min-width: 200px;
- 
 }
 
 .cards-section {
@@ -25,7 +23,7 @@
   align-items: center;
   flex: 1;                
   border-radius: 8px;
-  gap: 59px;
+  gap: 40px;
   padding-top:40px;
 
 }
@@ -36,6 +34,7 @@
   flex-direction: row;
   justify-content: space-between;
   height: 58px;
+  margin-top: 20px;
 
 }
 
@@ -44,18 +43,21 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  width: 60%;
   height: 100%;
   gap: 24px;
  
 }
 
 .cards-tittle > p{
-width: 70%;  
-font-family: "Inter";
+width: 80%;  
+font-family: "poppins";
 font-weight: 400;
 font-size: 16px;
 line-height: 20px;
 color: #100E2C;
+white-space: nowrap;
+text-overflow: ellipsis;
 }
 
 .cards-tittle > h1{
@@ -251,7 +253,7 @@ line-height: 20px;
   border-radius: 6px;
   cursor: pointer;
   gap: 10px;
-  margin-left: 15%;
+
 }
 
 

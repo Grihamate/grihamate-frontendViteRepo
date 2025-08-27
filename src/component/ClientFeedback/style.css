@@ -1,5 +1,5 @@
 .comr-cards-container{
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -7,12 +7,14 @@
   overflow-x: auto;       
   gap: 1rem;           
   scrollbar-width: none;
-  padding: 20px;
 }
 
 .client-container {
   width: 100%;
   padding-top: 50px;
+   padding-left: 4.31%;
+  padding-right: 4.31%;
+  padding-block:60px ;
 }
 
 .client-info {
