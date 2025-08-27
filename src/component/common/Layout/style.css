@@ -1,11 +1,29 @@
-
+/* 
 .main-content {
-  padding-top: 77px;
-  padding-right: 5%;
-  padding-left: 5%;   
-  width: 100%;          
-  box-sizing: border-box; 
-} 
+  padding-top: 80px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 0 auto;
+  max-width: 1318px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 26px;
+} */
+ .main-content {
+  max-width: 1318px;
+  width: 100%;
+  padding: 80px 16px 26px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* On very small screens, reduce side padding */
+@media (max-width: 480px) {
+  .main-content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
 
 
 
