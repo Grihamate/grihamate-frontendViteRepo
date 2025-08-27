@@ -7,6 +7,7 @@
   padding-top: 40px;
   padding-left: 4.31%;
   padding-right: 4.31%;
+
 }
 
 .property-section {
@@ -16,11 +17,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
 }
 
 .section-header {
   width: 60%;
-  margin-left: 30% ;
+  margin-left: 35% ;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,19 +81,11 @@
 }
 
 
-/* .cards-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 10px;
-} */
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 20px;
   padding: 10px;
 }
