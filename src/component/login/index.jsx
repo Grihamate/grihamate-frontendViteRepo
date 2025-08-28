@@ -4,6 +4,7 @@ import AuthLayout from "../AuthLayout";
 import AuthHeader from "../AuthHeader";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../service/Registeruser";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [phone, setPhone] = useState("");
@@ -24,10 +25,12 @@ const Login = () => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
-      alert(data.message);
-      navigate("/dashboard"); // or wherever you want
+      toast.success(data.message);
+
+
+      navigate("/"); // or wherever you want
     } catch (err) {
-      setError(err.message || "Login failed");
+  toast.error(err.message)
     } finally {
       setLoading(false);
     }

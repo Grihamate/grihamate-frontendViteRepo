@@ -52,6 +52,7 @@ import "./style.css";
 import AuthLayout from "../AuthLayout";
 import AuthHeader from "../AuthHeader";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { registerUser } from "../../service/Registeruser";
 
@@ -82,11 +83,14 @@ const Register = () => {
       const result = await registerUser(formData);
       console.log("Register Success:", result);
 
-      alert("Registration successful!");
+      toast.success("Registration successful!");
       navigate("/login"); // redirect to login
     } catch (error) {
-      alert("Registration failed. Try again.");
-    }
+
+
+  toast.error(error.message); 
+  }
+
   };
 
   return (
@@ -98,7 +102,7 @@ const Register = () => {
         <p className="subheading">Join us to find your perfect property</p>
 
         <form onSubmit={handleSubmit}>
-          <label>Full Name</label>
+          <label>Full Name*</label>
           <br />
           <input
             type="text"
@@ -110,7 +114,7 @@ const Register = () => {
           />
           <br />
 
-          <label>E-mail</label>
+          <label>E-mail*</label>
           <br />
           <input
             type="email"
@@ -122,7 +126,7 @@ const Register = () => {
           />
           <br />
 
-          <label>Phone</label>
+          <label>Phone*</label>
           <br />
           <input
             type="number"
@@ -134,7 +138,7 @@ const Register = () => {
           />
           <br />
 
-          <label>Password</label>
+          <label>Password*</label>
           <br />
           <input
             type="password"

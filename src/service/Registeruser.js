@@ -12,17 +12,27 @@ export const registerUser = async (userData) => {
       body: JSON.stringify(userData),
     });
 
-    if (!response.ok) {
-      throw new Error("Failed to register user");
+    const contentType = response.headers.get("content-type");
+    let data = {};
+
+    // ✅ Try to parse JSON only if it's JSON
+    if (contentType && contentType.includes("application/json")) {
+      data = await response.json();
     }
 
-    const data = await response.json();
-    return data; // { message, user }
+    if (!response.ok) {
+      // 🔁 If backend sent a message, show it
+      throw new Error(data.message || "Failed to register user");
+    }
+
+    return data; // success { message, user }
   } catch (error) {
     console.error("Register Error:", error);
     throw error;
   }
 };
+
+
 // src/services/authService.js
 
 const API_URl = "http://localhost:5000/api/user/login"; // Replace with your backend URL
@@ -37,15 +47,23 @@ export const loginUser = async (phone, password) => {
       body: JSON.stringify({ phone, password }),
     });
 
-    const data = await response.json();
+    const contentType = response.headers.get("content-type");
+    let data = {};
 
+    // ✅ Parse JSON only if response is valid JSON
+    if (contentType && contentType.includes("application/json")) {
+      data = await response.json();
+    }
+
+    // ❌ Handle backend errors properly
     if (!response.ok) {
       throw new Error(data.message || "Something went wrong");
     }
 
-    return data; // { message, token, user }
+    return data; // ✅ Successful response: { message, token, user }
   } catch (error) {
-    console.error(error);
+    console.error("Login error:", error);
     throw error;
   }
 };
+

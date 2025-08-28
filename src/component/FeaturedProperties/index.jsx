@@ -20,13 +20,7 @@ const FeaturedProperties = () => {
 
             <div className="cards-container">
                 <PropertyCard/>
-                <PropertyCard/>
-                <PropertyCard/>
-                <PropertyCard/>
-                <PropertyCard/>
-                <PropertyCard/>
-                 <PropertyCard/>
-                <PropertyCard/>
+        
                 
 
             </div>

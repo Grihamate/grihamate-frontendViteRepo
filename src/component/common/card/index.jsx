@@ -1,87 +1,3 @@
-// import React from "react";
-// import locationIcon from "../../../assets/loactionIcon.png"
-// import bedroomIcon from "../../../assets/bedrromIcon.png"
-// import bathroomIcon from "../../../assets/bathroomIcon.png"
-// import areaIcon from "../../../assets/areaIcon.png"
-// import garageIcon from "../../../assets/garagesIcon.png"
-// import shareIcon from "../../../assets/shareIcon.png"
-// import contactIcon from "../../../assets/contactIcon.png"
-// import "./style.css";
-
-// const PropertyCard = () => {
-//   return (
-//     <div className="property-card">
-
-    
-//         <img
-//           src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800"
-//           alt="Property"
-//         />
-
-//       <div className="property-details">
-//         <h3>Luxury 3BHK Apartment</h3>
-//         <p className="location">
-//           <img src={locationIcon}
-//           />
-//           New Delhi, India
-//         </p>
-//         <p className="para">Beautiful apartment with modern amenities, close to metro station and shopping centers. Perfect for families.
-//         </p>
-        
-//         <p className="price">₹ 15,000/month</p>
-//       </div>
-
-//       <div className="icons-bar">
-//           <div className="icon-bar">
-//             <div className="icon-box">
-//                <img src={bedroomIcon}/>
-//                <p>3</p>   
-//             </div>
-//             <p className="text">Bedrooms</p>
-//           </div> 
-
-//            <div className="icon-bar">
-//             <div className="icon-box">
-//                <img src={bathroomIcon}/>
-//                <p>2</p>   
-//             </div>
-//             <p className="text">Bathrooms</p>
-//           </div> 
-
-
-//            <div className="icon-bar">
-//             <div className="icon-box">
-//                <img src={areaIcon}/>
-//                <p>3</p>   
-//             </div>
-//             <p className="text">total area</p>
-//           </div> 
-
-//            <div className="icon-bar">
-//             <div className="icon-box">
-//                <img src={garageIcon}/>
-//                <p>3</p>   
-//             </div>
-//             <p className="text">Bedrooms</p>
-//           </div> 
-
-          
-//       </div>
-
-//       <div className="property-buttons">
-//           <button className="share-btn">
-//             <img src={shareIcon} alt="login" /> share
-//           </button>
-
-//           <button className="contact-btn">
-//             <img src={contactIcon} alt="login" /> contact now
-//           </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default PropertyCard;
 import React, { useEffect, useState } from "react";
 import locationIcon from "../../../assets/loactionIcon.png";
 import bedroomIcon from "../../../assets/bedrromIcon.png";
@@ -96,33 +12,51 @@ const PropertyCard = () => {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const propertiesPerPage = 8;
+useEffect(() => {
+  const fetchProperties = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/property/all");
+      if (!response.ok) throw new Error("Failed to fetch properties");
 
-  useEffect(() => {
-    const fetchProperties = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/property/all");
-        if (!response.ok) throw new Error("Failed to fetch properties");
+      const data = await response.json();
+      console.log("API Response:", data); // Inspect API data
 
-        const data = await response.json();
-        console.log("API Response:", data); // Check the result in console
-        setProperties(data.allProperties || []);
-      } catch (err) {
-        console.error(err);
-        setError("Failed to fetch properties");
-      } finally {
-        setLoading(false);
-      }
-    };
+      const propertiesArray = data.allProperties || [];
+      console.log("Total properties received:", propertiesArray.length);  // <-- This logs the total number of properties
 
-    fetchProperties();
-  }, []);
+      setProperties(propertiesArray);
+    } catch (err) {
+      console.error(err);
+      setError("Failed to fetch properties");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchProperties();
+}, []);
 
   if (loading) return <p>Loading properties...</p>;
   if (error) return <p>{error}</p>;
 
+  // Calculate pagination indices
+  const indexOfLastProperty = currentPage * propertiesPerPage;
+  const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
+
+  // Slice the data for current page only
+  const currentProperties = properties.slice(indexOfFirstProperty, indexOfLastProperty);
+
+  // Calculate total pages based on total properties
+  const totalPages = Math.ceil(properties.length / propertiesPerPage);
+
+  // Log total properties and total pages to help backend coordination
+  console.log("Total properties:", properties.length, "Total pages:", totalPages);
+
   return (
-    <div>
-      {properties.map((property) => (
+    <>
+      {currentProperties.map((property) => (
         <div className="property-card" key={property._id}>
           <img src={property.images[0]} alt="Property" />
 
@@ -164,7 +98,7 @@ const PropertyCard = () => {
             <div className="icon-bar">
               <div className="icon-box">
                 <img src={garageIcon} alt="Garage" />
-                <p>2</p> {/* You can update if API has garage info */}
+                <p>2</p> {/* Update if API provides garage info */}
               </div>
               <p className="text">Garage</p>
             </div>
@@ -181,9 +115,40 @@ const PropertyCard = () => {
           </div>
         </div>
       ))}
-    </div>
+
+      {/* Pagination Controls */}
+      {totalPages > 1 && (
+        <div className="pagination">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
+
+          {/* Page Numbers */}
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i + 1)}
+              className={currentPage === i + 1 ? "active-page" : ""}
+            >
+              {i + 1}
+            </button>
+          ))}
+
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
+    </>
   );
 };
 
 export default PropertyCard;
+
 
