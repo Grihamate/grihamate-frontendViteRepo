@@ -1,15 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import headerLogo from "../../../assets/headerLogo.png"
 import loginIcon from "../../../assets/loginIcon.png"
 import plusIcon from "../../../assets/plusIcon.png"
+import AddPropertyModal from "../AddPropertyForm";
 import "./style.css";
 
 const Header = () => {
-
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+  
+  const showModal = () => setIsModalOpen(!isModalOpen);  
+
+  console.log("--->",isModalOpen);
+
 
   const handleLoginClick = () => {
     navigate("/login"); // login page par le jayega
@@ -44,11 +49,18 @@ const Header = () => {
           <button className="login-btn" onClick={handleLoginClick}>
             <img src={loginIcon} alt="login" /> Login
           </button>
-          <button className="list-btn">
+          <button className="list-btn" onClick={showModal}>
             <img src={plusIcon} alt="plus" /> List Property
           </button>
         </div>
       </div>
+      {
+        isModalOpen && (
+            <div className="modal-backdrop">
+             <AddPropertyModal setIsModalOpen={setIsModalOpen}/>
+            </div>
+        )
+      }
     </header>
   );
 };

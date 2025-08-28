@@ -15,8 +15,9 @@ function App() {
             <Route index element={<HomePage />} /> 
             <Route path="rent" element={<RentPage/>} />
           </Route>
+      
           <Route path="/login" element={<Login/>} />
-            <Route path="/register" element={<Register />} /> {/* 👈 add route */}
+          <Route path="/register" element={<Register />} /> {/* 👈 add route */}
         </Routes>
       </BrowserRouter>
     </div>
