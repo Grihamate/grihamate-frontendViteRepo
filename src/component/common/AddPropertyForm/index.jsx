@@ -4,9 +4,12 @@ import "./style.css"
 
 const AddPropertyModal = ({setIsModalOpen}) => {
     return (
-        <div className="modal-container">
+        <div className="modal-container"
+             onClick={(e) => e.stopPropagation()}
+        >
              <div className="property-form">
-                <h2 className="l">Add Your property</h2>
+                <h2>Add Your property</h2>
+                <div className="form-scroll">
                 <form>
                     <div className="form-group">
                             <label className="form-label">Property Type</label>
@@ -14,14 +17,16 @@ const AddPropertyModal = ({setIsModalOpen}) => {
                             <div className="radio-group">
                                 {
                                     ["Apartment", "Villa", "Office", "Shop", "Independent house"].map((type) => (
-                                        <lebel  className="radio-lebel" key={type}>
+                                        <label htmlFor={type} className="radio-lebel" key={type}>
                                             <input
                                                type="radio"
                                                name="propertyType"
-                                               
+                                               id={type}
+                                               value={type}
                                             />
                                             <span>{type}</span>
-                                        </lebel>
+                                        </label>
+                                        
                                     ))
                                 }
                             </div>
@@ -33,14 +38,15 @@ const AddPropertyModal = ({setIsModalOpen}) => {
                             <div className="radio-group">
                                 {
                                     ["For Rent"].map((type) => (
-                                        <lebel  className="radio-lebel" key={type}>
+                                        <label htmlFor={type} className="radio-lebel" key={type}>
                                             <input
                                                type="radio"
-                                               name="propertyType"
-                                               
+                                               name="listingType"
+                                               id={type}
+                                               value={type}
                                             />
                                             <span>{type}</span>
-                                        </lebel>
+                                        </label>
                                     ))
                                 }
                             </div>
@@ -51,7 +57,7 @@ const AddPropertyModal = ({setIsModalOpen}) => {
 
                         <div className="basic-filter">
                             <div className="filter-group">
-                                    <label for="property">Property Title *</label>
+                                    <label htmlFor="property">Property Title *</label>
                                     <select id="property" class="custom-select">
                                             <option>eg. spacious 2BHK in Delhi</option>
                                         
@@ -126,7 +132,7 @@ const AddPropertyModal = ({setIsModalOpen}) => {
 
                         <div className="basic-filter">
                             <div className="filter-group">
-                                    <label for="city">City *</label>
+                                    <label htmlFor="city">City *</label>
                                     <select id="city" class="custom-select">
                                             <option>Select</option>
                                         
@@ -144,15 +150,15 @@ const AddPropertyModal = ({setIsModalOpen}) => {
          
                         <div className="textarea-filter">
                            
-                                <label htmlFor="locality">Description</label>
-                                <textarea id="locality" placeholder="Enter your city details..." />
+                                <label htmlFor="desc">Description</label>
+                                <textarea id="desc" placeholder="Enter your city details..." />
                         
                         </div>
 
                         <div className="textarea-filter">
                           
-                                <label htmlFor="property">City *</label>
-                                <textarea placeholder="Enter your city details..." />
+                                <label htmlFor="city-text">City *</label>
+                                <textarea id="city-text" placeholder="Enter your city details..." />
                           
                         </div>
                        <div className="textarea-filter">
@@ -167,13 +173,13 @@ const AddPropertyModal = ({setIsModalOpen}) => {
                         <label className="form-group-label">Contact Information</label>       
                         <div className="basic-filter">
                             <div className="filter-group">
-                                    <label for="city">City *</label>
-                                    <input className="custom-input"id="city" placeholder="owner" />                      
+                                    <label for="city-input">City *</label>
+                                    <input className="custom-input"id="city-input" placeholder="owner" />                      
                             </div>
 
                             <div className="filter-group">
-                                    <label for="property">Locality *</label>
-                                    <input className="custom-input"id="property" placeholder="Enter Phone Number" />
+                                    <label for="locality">Locality *</label>
+                                    <input className="custom-input"id="locality" placeholder="Enter Phone Number" />
                                                    
                             </div>
                             
@@ -188,12 +194,15 @@ const AddPropertyModal = ({setIsModalOpen}) => {
 
                     
                  
-                   <div className="property-form-btn">
+              
+                </form>
+                </div>
+
+                      <div className="property-form-btn">
                         <button className="cancel-btn" onClick={() => setIsModalOpen(false)}>close This</button>
                         <button className="add-property-btn" onClick={() => setIsModalOpen(false)}>List Property</button>
                         
-                   </div>
-                </form>
+                     </div>
 
              </div>
            

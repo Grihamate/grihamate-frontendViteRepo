@@ -1,7 +1,12 @@
 .modal-container{
-  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
   max-width: 1000px;
-  position: fixed; /* ya absolute agar parent relative ho */
+  height: 70vh;
+  position: fixed; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -9,33 +14,44 @@
   border-radius: 8px;
   padding-block: 34px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  z-index: 1000; /* background ke upar dikhane ke liye */
+  z-index: 1000; 
+  border-radius: 20px;
+  
+ 
 }
 
 .property-form{  
-width: 100%;          
+width: 100%;        
 display: flex;
 align-items: center;
 flex-direction: column;    
 gap: 33px;
-
-/* background-color: green; */
+ height: 100%;  
 }
 
-/* 
-.property-type-heading{
-
-} */
-
-
-
-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+.form-scroll {
+  flex: 1;            
+  width: 100%;
+  overflow-y: auto;   
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
 }
+
+.form-scroll::-webkit-scrollbar {
+  display: none;        
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;  
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
 
 .form-group{
   display: flex;
@@ -218,18 +234,10 @@ font-weight: 500;
 .property-form-btn .add-property-btn{
   width: 142px;
   height: 56px;
-background-color:  #3749A6;
+  background-color:  #3749A6;
   border: 1px solid #727A90;
   border-radius: 10px;
 }
 
 
-
-
-@media (max-width: 1200px) {
-   
-    .radio-group{
-        flex-wrap: wrap;
-    }
-}
 

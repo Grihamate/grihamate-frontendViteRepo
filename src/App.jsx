@@ -5,11 +5,14 @@ import Layout from "./component/common/Layout/layout"
 import Login from "./component/login";
 import RentPage from "./pages/Rent";
 import Register from "./component/register";
+import { ModalProvider } from "./context/ModalContext";
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+       <ModalProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} /> 
@@ -19,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register />} /> {/* 👈 add route */}
         </Routes>
+        </ModalProvider>
       </BrowserRouter>
     </div>
   );
