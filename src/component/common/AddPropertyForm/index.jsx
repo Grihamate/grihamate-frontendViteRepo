@@ -10,7 +10,7 @@ const AddPropertyModal = ({setIsModalOpen}) => {
              <div className="property-form">
                 <h2>Add Your property</h2>
                 <div className="form-scroll">
-                <form>
+                <form className="input-form">
                     <div className="form-group">
                             <label className="form-label">Property Type</label>
                             
@@ -199,7 +199,7 @@ const AddPropertyModal = ({setIsModalOpen}) => {
                 </div>
 
                       <div className="property-form-btn">
-                        <button className="cancel-btn" onClick={() => setIsModalOpen(false)}>close This</button>
+                        <button className="cancel-btn" onClick={() => setIsModalOpen(false)}>Cancel</button>
                         <button className="add-property-btn" onClick={() => setIsModalOpen(false)}>List Property</button>
                         
                      </div>

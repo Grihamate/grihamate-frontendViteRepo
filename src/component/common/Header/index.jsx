@@ -8,9 +8,8 @@ import { useModal } from "../../../context/ModalContext";
 import "./style.css";
 
 const Header = () => {
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const { setIsModalOpen } = useModal();  
 
 
