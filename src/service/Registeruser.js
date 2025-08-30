@@ -1,9 +1,11 @@
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 
+
 export const registerUser = async (userData) => {
   try {
-    const response = await fetch(`${BASE_URL}api/user/register`, {
+    // Ensure the base URL ends with a slash so we can concatenate correctly
+    const response = await fetch(`${BASE_URL}/api/user/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,9 +32,10 @@ export const registerUser = async (userData) => {
 };
 
 
+
 export const loginUser = async (phone, password) => {
   try {
-    const response = await fetch(`${BASE_URL}api/user/login`, {
+    const response = await fetch(`${BASE_URL}/api/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

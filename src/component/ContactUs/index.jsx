@@ -1,4 +1,3 @@
-// import React, { useState } from 'react';
 import "./style.css";
 import bgImage from "../../assets/contactImg.png";
 import { sendContactMessage } from "../../service/contactService";
@@ -12,15 +11,19 @@ export default function ContactSection() {
 
   const handleSubmit = async () => {
     try {
+      // Call the updated sendContactMessage function
       const response = await sendContactMessage({ fullname, email, phone, message });
+      
+      // Success alert
       alert(response.message || "Message sent!");
       
-      // Optional: Clear form
+      // Optional: Clear form fields after successful submission
       setFullname('');
       setEmail('');
       setPhone('');
       setMessage('');
     } catch (err) {
+      // Show error if something went wrong
       alert(err.message || "Something went wrong.");
     }
   };
@@ -38,6 +41,8 @@ export default function ContactSection() {
               Leo morbi faucibus mattis pharetra tellus velit ultricies duis rhoncus
             </p>
           </div>
+
+          {/* Form fields */}
           <input
             type="text"
             placeholder="Your name"
@@ -61,6 +66,8 @@ export default function ContactSection() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
+
+          {/* Submit button */}
           <button onClick={handleSubmit}>Send message</button>
         </div>
 

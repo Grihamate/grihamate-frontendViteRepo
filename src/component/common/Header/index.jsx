@@ -1,59 +1,47 @@
-import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import headerLogo from "../../../assets/headerLogo.png"
-import loginIcon from "../../../assets/loginIcon.png"
-import plusIcon from "../../../assets/plusIcon.png"
-import { useModal } from "../../../context/ModalContext";
-import "./style.css";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 import { fetchUserProfile } from "../../../service/fetchuserdetail";
 import { deleteUserAccount } from "../../../service/deleteUser";
-import { useRef ,useEffect } from "react";
+import headerLogo from "../../../assets/headerLogo.png";
+import loginIcon from "../../../assets/loginIcon.png";
+import plusIcon from "../../../assets/plusIcon.png";
+import ConfirmationModal from "../../ConfirmationModal";
+import AddPropertyModal from "../AddPropertyForm";
+import "./style.css";
 
 const Header = () => {
   const [user, setUser] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isAddPropertyModalOpen, setIsAddPropertyModalOpen] = useState(false); // State for Add Property Modal
+  const [isConfirmDeleteModalOpen, setIsConfirmDeleteModalOpen] = useState(false); // State for Confirmation Modal
+  const [message, setMessage] = useState(""); // Modal message
   const navigate = useNavigate();
   const dropdownRef = useRef();
 
   useEffect(() => {
-    // const getUser = async () => {
-    //   try {
-    //     const userData = await fetchUserProfile();
-        
-    //     setUser(userData);
-    //   } catch (error) {
-    //     console.error("Failed to fetch user:", error);
-    //     setUser(null);
-    //   }
-    // };
     const getUser = async () => {
-  try {
-    const userData = await fetchUserProfile();
-    console.log("User data:", userData);  // 👈 Add this
-    setUser(userData);
-  } catch (error) {
-    console.error("Failed to fetch user:", error);
-    setUser(null);
-  }
-};
-
+      try {
+        const userData = await fetchUserProfile();
+        setUser(userData);
+      } catch (error) {
+        console.error("Failed to fetch user:", error);
+        setUser(null);
+      }
+    };
 
     getUser();
   }, []);
 
   useEffect(() => {
-    function handleClickOutside(event) {
+    const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDropdownOpen(false);
       }
-    }
+    };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-  const { setIsModalOpen } = useModal();  
-
-
 
   const handleLoginClick = () => {
     navigate("/login");
@@ -66,15 +54,16 @@ const Header = () => {
     navigate("/login");
   };
 
-  const handleRemoveAccount = async () => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete your account? This action cannot be undone."
-    );
-    if (!confirmed) return;
+  const handleRemoveAccount = () => {
+    setMessage("This action cannot be undone.");
+    setIsConfirmDeleteModalOpen(true); // Open confirmation modal for account deletion
+  };
+
+  const confirmDeleteAccount = async () => {
+    if (!user) return;
 
     try {
-    const result = await deleteUserAccount(user.id); // ✅ Correct
-
+      const result = await deleteUserAccount(user.id);
       alert(result.message || "Account deleted");
       localStorage.removeItem("token");
       setUser(null);
@@ -82,6 +71,8 @@ const Header = () => {
     } catch (err) {
       alert(err.message || "Failed to delete account");
     }
+
+    setIsConfirmDeleteModalOpen(false); // Close the confirmation modal after action
   };
 
   return (
@@ -183,15 +174,26 @@ const Header = () => {
             </button>
           )}
 
-          <button className="list-btn" onClick={() => setIsModalOpen(true)}>
+          <button className="list-btn" onClick={() => setIsAddPropertyModalOpen(true)}>
             <img src={plusIcon} alt="plus" /> List Property
           </button>
         </div>
       </div>
-    
+
+      {/* Render AddPropertyModal when isAddPropertyModalOpen is true */}
+      {isAddPropertyModalOpen && <AddPropertyModal setIsModalOpen={setIsAddPropertyModalOpen} />}
+
+      {/* Render Confirmation Modal when isConfirmDeleteModalOpen is true */}
+      {isConfirmDeleteModalOpen && (
+        <ConfirmationModal
+          isOpen={isConfirmDeleteModalOpen}
+          onClose={() => setIsConfirmDeleteModalOpen(false)}
+          onConfirm={confirmDeleteAccount}
+          message={message}
+        />
+      )}
     </header>
   );
 };
 
 export default Header;
-
