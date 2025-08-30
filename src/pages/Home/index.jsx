@@ -58,20 +58,14 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      {/* Show user info if available */}
-      {!loading && user && (
-        <div className="welcome-message">
-          <h2>Welcome back, {user.fullname}!</h2>
-          <p>Phone: {user.phone}</p>
-        </div>
-      )}
+  
 
       {/* Optional: loading or guest message */}
-      {!loading && !user && (
+      {/* {!loading && !user && (
         <div className="guest-message">
           <p>Please log in to view your profile details.</p>
         </div>
-      )}
+      )} */}
 
       <HeroSection />
       <FeaturedProperties />

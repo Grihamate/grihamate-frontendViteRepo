@@ -5,9 +5,27 @@ import headerLogo from "../../../assets/headerLogo.png"
 import loginIcon from "../../../assets/loginIcon.png"
 import plusIcon from "../../../assets/plusIcon.png"
 import "./style.css";
+import { User } from "lucide-react";
+import { fetchUserProfile } from "../../../service/fetchuserdetail";
+import { useState ,useEffect } from "react";
 
 const Header = () => {
+ const [user, setUser] = useState(null);
+  
 
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const userData = await fetchUserProfile();
+        setUser(userData);
+      } catch (error) {
+        console.error("Failed to fetch user:", error);
+        setUser(null);
+      }
+    };
+
+    getUser();
+  }, []);
 
   const navigate = useNavigate();
 
@@ -16,6 +34,7 @@ const Header = () => {
   };
 
   return (
+    
     <header className="header">
       <div className="navbar">
         <div className="logo-section">
@@ -41,9 +60,28 @@ const Header = () => {
         </nav>
 
         <div className="actions">
-          <button className="login-btn" onClick={handleLoginClick}>
+     
+          {
+            user ? (
+<div style={{ display: 'flex', flexDirection:'column' ,alignItems: 'center', gap: '8px' }}>
+  <img
+    src={user.profileImage || '/assets/default-avatar.png'}
+    alt="User Avatar"
+    style={{
+      width: '32px',
+      height: '32px',
+      borderRadius: '50%',
+      objectFit: 'cover',
+    }}
+  />
+  <span >{user.fullname}</span>
+</div>
+
+            ):
+           <button className="login-btn" onClick={handleLoginClick}>
             <img src={loginIcon} alt="login" /> Login
           </button>
+          }
           <button className="list-btn">
             <img src={plusIcon} alt="plus" /> List Property
           </button>
