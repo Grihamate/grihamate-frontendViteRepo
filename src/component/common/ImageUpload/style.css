@@ -1,0 +1,41 @@
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 183px;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #333;
+    resize: vertical; 
+    outline: none;
+    transition: all 0.2s ease;
+    gap:20px;
+}
+
+.custom-btn{
+
+    padding: 12px 34px;
+    border-radius: 6px;
+background-color: #FFFFFF;
+  border: 1px solid #C4C4D6
+}
+
+
+
+.upload-box:hover {
+  border-color: #4a90e2;
+}
+
+.upload-icon {
+  margin-bottom: 10px;
+  color: #4a90e2;
+}
+
+.file-preview {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+} 

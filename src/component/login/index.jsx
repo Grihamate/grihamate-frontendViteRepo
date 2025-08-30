@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "./style.css";
 import AuthLayout from "../AuthLayout";
 import AuthHeader from "../AuthHeader";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { toast } from "react-toastify";
+// import { loginUser } from "../../service/authService"; // ✅ Make sure this path is correct
 
 const Login = () => {
   const [phone, setPhone] = useState("");
@@ -12,28 +13,28 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
-  //   setLoading(true);
-  //   setError("");
+    setLoading(true);
+    setError("");
 
-  //   try {
-  //     const data = await loginUser(phone, password);
+    // try {
+    //   const data = await loginUser(phone, password);
 
-  //     // Save token and user in localStorage
-  //     localStorage.setItem("token", data.token);
-  //     localStorage.setItem("user", JSON.stringify(data.user));
+    //   // Save token and user in localStorage
+    //   localStorage.setItem("token", data.token);
+    //   localStorage.setItem("user", JSON.stringify(data.user));
 
-  //     toast.success(data.message);
-
-
-  //     navigate("/"); // or wherever you want
-  //   } catch (err) {
-  // toast.error(err.message)
-  //   } finally {
-  //     setLoading(false);
-  //   }
+    //   toast.success(data.message || "Login successful");
+    //   navigate("/"); // Redirect to homepage
+    // } catch (err) {
+    //   setError(err.message || "Login failed");
+    //   toast.error(err.message || "Login failed");
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   return (
@@ -84,4 +85,3 @@ const Login = () => {
 };
 
 export default Login;
-

@@ -1,71 +1,23 @@
-// import React from "react";
-// import "./style.css";
-// import AuthLayout from "../AuthLayout";
-// import AuthHeader from "../AuthHeader";
-// import { Link } from "react-router-dom";
-
-
-
-// const Register = () => {
-//   return (
-//     <AuthLayout>
-//       <div className="inner-container">
-   
-//         <AuthHeader/>
-
-//         <p className="heading">Create Account</p>
-//         <p className="subheading">Join us to find your perfect property</p>
-
-//         <form>
-//              <label>Full Name</label>
-//           <br />
-//           <input type="text" placeholder="Enter your name..." />
-//           <br />
-//            <label>E-mail</label>
-//           <br />
-//           <input type="email" placeholder="Enter your email address..." />
-//           <br />
-//           <label>Phone</label>
-//           <br />
-//           <input type="number" placeholder="Enter here..." />
-//           <br />
-//           <label>Password</label>
-//           <br />
-//           <input type="password" placeholder="Enter password..." />
-//           <br />
-//           <input type="submit" value="Create Account" className="btn" />
-//         </form>
-
-//         <div className="confirmation">
-//           <span>
-//             Already have an account? <Link to='/login'>Sign in</Link>
-//           </span>
-//         </div>
-//       </div>
-//     </AuthLayout>
-//   );
-// };
-
-// export default Register;
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "./style.css";
 import AuthLayout from "../AuthLayout";
 import AuthHeader from "../AuthHeader";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { useState } from "react";
 import { registerUser } from "../../service/Registeruser";
 
 const Register = () => {
   const navigate = useNavigate();
 
-  // State for form data
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
     phone: "",
     password: "",
   });
+
+  const [loading, setLoading] = useState(false);
 
   // Handle input change
   const handleChange = (e) => {
@@ -78,19 +30,19 @@ const Register = () => {
   // Handle submit
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const result = await registerUser(formData);
       console.log("Register Success:", result);
 
       toast.success("Registration successful!");
-      navigate("/login"); // redirect to login
+      navigate("/login");
     } catch (error) {
-
-
-  toast.error(error.message); 
-  }
-
+      toast.error(error.message || "Registration failed.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -133,7 +85,7 @@ const Register = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="Enter here..."
+            placeholder="Enter phone number..."
             required
           />
           <br />
@@ -150,7 +102,12 @@ const Register = () => {
           />
           <br />
 
-          <input type="submit" value="Create Account" className="btn" />
+          <input
+            type="submit"
+            value={loading ? "Creating Account..." : "Create Account"}
+            className="btn"
+            disabled={loading}
+          />
         </form>
 
         <div className="confirmation">
