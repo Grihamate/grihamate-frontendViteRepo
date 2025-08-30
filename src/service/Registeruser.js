@@ -28,3 +28,33 @@ export const registerUser = async (userData) => {
     throw error;
   }
 };
+
+
+export const loginUser = async (phone, password) => {
+  try {
+    const response = await fetch(`${BASE_URL}api/user/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ phone, password }),
+    });
+
+    const contentType = response.headers.get("content-type");
+    let data = {};
+
+    if (contentType && contentType.includes("application/json")) {
+      data = await response.json();
+    }
+
+    if (!response.ok) {
+      throw new Error(data.message || "Login failed");
+    }
+
+    // Response will include: message, token, and user
+    return data;
+  } catch (error) {
+    console.error("Login Error:", error);
+    throw error;
+  }
+};
