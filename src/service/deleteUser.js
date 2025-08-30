@@ -1,6 +1,7 @@
 import { getToken } from "../utils/authUtils";
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 export const deleteUserAccount = async (userId) => {
   const token = getToken();
