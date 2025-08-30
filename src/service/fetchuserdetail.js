@@ -2,6 +2,8 @@
 
 import { getToken } from "../utils/authUtils";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 export const fetchUserProfile = async () => {
   const token = getToken();
 
@@ -9,7 +11,7 @@ export const fetchUserProfile = async () => {
     throw new Error("No token found");
   }
 
-  const res = await fetch("http://localhost:5000/api/user/profile", {
+  const res = await fetch(`${BASE_URL}/api/user/profile`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,

@@ -1,11 +1,14 @@
 import { getToken } from "../utils/authUtils";
+
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 export const sendContactMessage = async ({ fullname, email, phone, message }) => {
   const token = getToken();
   console.log('Token:', token);
   console.log('Payload:', { fullname, email, phone, message });
 
   try {
-    const response = await fetch('http://localhost:5000/api/user/getintouch', {
+    const response = await fetch(`${BASE_URL}/api/user/getintouch`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,4 +30,5 @@ export const sendContactMessage = async ({ fullname, email, phone, message }) =>
     throw error;
   }
 };
+
 

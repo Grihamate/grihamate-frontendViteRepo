@@ -1,15 +1,15 @@
-const url='http://localhost:5000/api/property/all';
-export const getProperty =async()=>{
-    try{
-        const response= await fetch(url)
-        if(!response.ok){
-            throw new Error('there is some error in the api')
-        }
-        const data=response.json()
-        return data;
-    }
-    catch(error){
-        console.log('there is some error in the api')
-    }
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
-}
+export const getProperty = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/property/all`);
+    if (!response.ok) {
+      throw new Error("There is some error in the API");
+    }
+    const data = await response.json();  // Added await here
+    return data;
+  } catch (error) {
+    console.error("There is some error in the API:", error);
+    throw error;  // It's better to throw error so calling code can handle it
+  }
+};
