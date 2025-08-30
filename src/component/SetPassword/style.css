@@ -65,23 +65,23 @@
 }
 
 
-.forgot-form  input:first-of-type {
-    border-radius: 8px;
-    width: 100%;
-    padding: 12px 16px;
-    background-color: #F4F5F7;
-    padding-left: 8px;
-    border: none;
-    margin-bottom: 40px;
+.forgot-form input[type="text"] {
+  border-radius: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #F4F5F7;
+  border: none;
+  margin-bottom: 20px;
 }
+
 
 .btn{
     border-radius: 8px;
     border: 1px solid #C4C4D6;
     width: 100%;
     padding-top: 16px;
+    margin-top: 20px;
     padding-bottom: 16px;
-    margin-bottom: 16px;
     padding-left: 8px;
     background-color: #2A3A68;
 ;

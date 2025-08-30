@@ -6,7 +6,7 @@
   background: white;
 }
 
-.container-auth-head{
+.reset-container{
   display: flex;
   flex-direction: column;
   align-items: center; 
@@ -17,33 +17,21 @@
   border-radius: 10px;
   padding: 20px; /* optional */
   margin: auto;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);  /* soft shadow */
+  padding-block: 130px;
 }
 
 
-.inner-container-pass{
-    width: 391px;
+.pass-reset-inner-container{
+    max-width: 391px;
+    width: 100%;
     padding: 10px;
     display: flex;
-   flex-direction: column;
-   align-items: center; 
-   gap: 70px;
-  
-
+    flex-direction: column;
+    align-items: center; 
 }
 
-
-.forgot-heading > .subheading{
-    max-width: 281px;
-    padding-top: 10px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #919299;
-    text-align: center;
-}
-
-.forgot-heading > .heading{
-    font-weight: 600;
+.reset-heading > .heading{
+    font-weight: 700;
     font-size: 32px;
     color: #282828;
     padding-bottom: 2px;
@@ -51,24 +39,90 @@
 
 }
 
-.reset-form{
-    gap: 40px;
+.reset-heading > .subheading{
+    padding-top: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #919299;
+    text-align: center;
 }
 
+.reset-heading > .subheading >span{
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+}
 
-.forgot-form  input:first-of-type {
+.pass-reset-inner-container .reset-form{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+} 
+
+
+
+
+.reset-form .btn{
+    margin-top: 40px;
+    width: 100%;
+    background: #2A3A68;
+    color: white;
     border-radius: 8px;
     width: 100%;
     padding: 12px 16px;
-    background-color: #F4F5F7;
     padding-left: 8px;
     border: none;
-    margin-bottom: 40px;
 }
 
-.btn{
-    background: #2A3A68;
-    color: white;
+
+.otp-box-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.otp-box-bar input{ 
+  max-width: 66px;
+  height: 68px;
+  background-color:#FFFFFF;
+  border: 2px solid transparent;
+  border-radius: 8px; /* optional */
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(180deg, #C7C3FE 0%, #C0FCE2 100%) border-box;
+
+  padding: 20px 25px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+
+
+.reset-bottom-desc{  
+    display: flex;
+    flex-direction: column;
+    text-align: center;   
+    gap: 30px;
+    margin-top: 40px;
+}   
+
+.reset-bottom-desc > div{
+    font-weight: 500px;
+    font-size: 14px;
+    color: #696C74;
+
+}
+
+
+.reset-bottom-desc span{
+    font-weight: 600px;
+    font-size: 14px;
+    color:  #4475F2;
+;
+
 }
 
 
@@ -78,15 +132,3 @@
     font-size: 14px;
 }
 
-
-
-/* //reset css */
-
-.reset-subheading{
-     color: #919299;
-}
-
-.reset-subheading > span{
-  color: black;
-  
-}

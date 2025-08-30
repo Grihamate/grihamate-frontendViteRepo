@@ -131,7 +131,7 @@ const Login = () => {
         <p className="heading">Welcome Back</p>
         <p className="subheading">Sign in to your account to continue</p>
 
-        <form onSubmit={handleLogin}>
+        <form className="login-form" onSubmit={handleLogin}>
           <label>Phone</label>
           <br />
           <input
