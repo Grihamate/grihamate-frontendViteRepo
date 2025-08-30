@@ -3,7 +3,7 @@ import "./style.css";
 import AuthLayout from "../AuthLayout";
 import AuthHeader from "../AuthHeader";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../../service/Registeruser";
+
 import { toast } from "react-toastify";
 
 const Login = () => {
@@ -15,25 +15,25 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
+  //   setLoading(true);
+  //   setError("");
 
-    try {
-      const data = await loginUser(phone, password);
+  //   try {
+  //     const data = await loginUser(phone, password);
 
-      // Save token and user in localStorage
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
+  //     // Save token and user in localStorage
+  //     localStorage.setItem("token", data.token);
+  //     localStorage.setItem("user", JSON.stringify(data.user));
 
-      toast.success(data.message);
+  //     toast.success(data.message);
 
 
-      navigate("/"); // or wherever you want
-    } catch (err) {
-  toast.error(err.message)
-    } finally {
-      setLoading(false);
-    }
+  //     navigate("/"); // or wherever you want
+  //   } catch (err) {
+  // toast.error(err.message)
+  //   } finally {
+  //     setLoading(false);
+  //   }
   };
 
   return (
