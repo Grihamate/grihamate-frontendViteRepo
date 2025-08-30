@@ -1,28 +1,30 @@
-.wrapper{
+
+ .wrapper{
   display: flex;
-  justify-content: center;  /* center horizontally */
-  align-items: center;      /* center vertically */
-  min-height: 100vh;        /* full viewport height */
+  justify-content: center;  
+  align-items: center;    
+  min-height: 100vh;       
   background: white;
 }
 
-.container-auth-head{
+
+
+.pass-success-container{
+   max-width: 540px;
+   padding-bottom: 250px;
+   padding-top: 250px;
   display: flex;
   flex-direction: column;
   align-items: center; 
-  max-width: 540px;
-  padding-left: 16px;
-  padding-right: 16px;
+  justify-content: center;
   width: 100%;
   border-radius: 10px;
-  padding: 20px; /* optional */
-  margin: auto;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);  /* soft shadow */
+  margin: auto; 
 }
 
 
+
 .reset-success-inner-cont{
-    background-color: yellow;
     width: 391px;
     padding: 10px;
     display: flex;
@@ -48,6 +50,7 @@
     text-align: center;
 
 }
+
 
 
 

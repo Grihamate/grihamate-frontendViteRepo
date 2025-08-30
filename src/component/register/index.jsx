@@ -53,7 +53,7 @@ const Register = () => {
         <p className="heading">Create Account</p>
         <p className="subheading">Join us to find your perfect property</p>
 
-        <form onSubmit={handleSubmit}>
+        <form className="register-form" onSubmit={handleSubmit}>
           <label>Full Name*</label>
           <br />
           <input

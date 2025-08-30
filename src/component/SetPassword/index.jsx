@@ -1,23 +1,28 @@
 import "./style.css"
 
-const ForgotPassword = () => {
+const SetPassword = () => {
     return (
         <div className="wrapper">
             <div className="container-auth-head">
                <div className="inner-container-pass">
                 <div className="forgot-heading">
-                   <p className="heading">Forgot Password?</p>
-                   <p className="subheading">No Worries. We’ll send you reset instructions.</p>
+                   <p className="heading">Set New Password</p>
+                   <p className="subheading">Your new password must by different to 
+                     previously used passwords.</p>
                 </div>
                 <form className="forgot-form" >
                     <input
                         type="text"
-                        placeholder="Enter your email"
+                        placeholder="Password"
+                   /> 
+                    <input
+                        type="text"
+                        placeholder="Confirm Password"
                    /> 
                    <input
                     type="submit"
                     className="btn"
-                    value={"Rest Password"}
+                    value={"Continue"}
                    />
                 </form>
                </div>
@@ -28,7 +33,7 @@ const ForgotPassword = () => {
 }
 
 
-export default ForgotPassword;
+export default SetPassword;
 
 
 

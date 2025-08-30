@@ -3,17 +3,18 @@ import "./style.css"
  const ResetSuccessPage = () => {
     return (
           <div className="wrapper">
-            <div className="reset-container">
+            <div className="pass-success-container">
                <div className="reset-success-inner-cont">
-                <div className="reset-success-heading">
+                <div className="reset-success-heading ">
                    <p className="heading">Password Reset</p>
-                   <p className="subheading">We sent a Code to <span>prajapapatipooja232@gmail.com</span></p>
+                   <p className="subheading">Your password has been successfully reset.
+                    Click below to log in magically.</p>
                 </div>
                    
                    <input
                     type="submit"
                     className="reset-btn"
-                    value={"Rest Password"}
+                    value={"Go to login"}
                 />
         
                </div>

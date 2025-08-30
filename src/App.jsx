@@ -7,10 +7,11 @@ import RentPage from "./pages/Rent";
 import Register from "./component/register";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import ForgotPasswordPassWord from "./component/ForgotPassword";
+import ForgotPassword from "./component/ForgotPassword";
 import { ModalProvider } from "./context/ModalContext";
 import  PasswordReset from "./component/RestPassword/index"
 import ResetSuccessPage from "./component/ResetSuccessPage";
+import SetPassword from  "./component/SetPassword/index"
 
 function App() {
   return (
@@ -38,8 +39,9 @@ function App() {
           </Route>
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register />} /> {/* 👈 add route */}
-          <Route path="/forgotPassword" element={<ForgotPasswordPassWord/>}/>
-          <Route path="/passwordReset" element={<PasswordReset/>}/>
+          <Route path="/forgotPassword" element={<ForgotPassword/>}/>
+          <Route path="/resetPassword" element={<PasswordReset/>}/>
+          <Route path="/setPassword" element={<SetPassword/>}/>
           <Route path="/resetSuccess" element={<ResetSuccessPage/>}/>
         </Routes>
         </ModalProvider>

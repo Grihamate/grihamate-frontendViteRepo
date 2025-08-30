@@ -43,12 +43,12 @@
     margin-bottom: 30px;
     text-align: center;
 }
-form label{
+.register-form label{
     font-weight: 500;
     font-size: 16px;
     color: #282828;
 }
-form input{
+.register-form input{
     border-radius: 8px;
     border: 1px solid #C4C4D6;
     width: 100%;

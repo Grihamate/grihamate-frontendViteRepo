@@ -72,7 +72,6 @@ const Home = () => {
       <ClientFeedback />
       <ContactSection />
       <City />
-      <Footer />
     </div>
   );
 };
