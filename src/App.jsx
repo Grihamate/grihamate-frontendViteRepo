@@ -41,7 +41,7 @@ function App() {
           <Route path="/register" element={<Register />} /> {/* 👈 add route */}
           <Route path="/forgotPassword" element={<ForgotPassword/>}/>
           <Route path="/resetPassword" element={<PasswordReset/>}/>
-          <Route path="/setPassword" element={<SetPassword/>}/>
+       <Route path="/resetPassword/:token" element={<SetPassword />} />
           <Route path="/resetSuccess" element={<ResetSuccessPage/>}/>
         </Routes>
         </ModalProvider>
