@@ -1,17 +1,35 @@
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { resetPassword } from "../services/authService"; 
+import { toast } from "react-toastify"; // ✅ Import toast
 import "./style.css";
 
 const SetPassword = () => {
-  const { token } = useParams();   // ✅ get token from URL
+  const { token } = useParams();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: Call your API here with the token + new password
-    console.log("Reset token:", token);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-    // after success redirect
-    navigate("/resetSuccess");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match!");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await resetPassword(token, password, confirmPassword);
+      toast.success("Password reset successful!");
+      setTimeout(() => navigate("/login"), 2000); // wait for toast before redirect
+    } catch (err) {
+      toast.error(err.message || "Password reset failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -27,15 +45,22 @@ const SetPassword = () => {
           <input
             type="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
           />
           <input
             type="password"
             placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
           />
           <input
             type="submit"
             className="btn"
-            value="Continue"
+            value={loading ? "Processing..." : "Continue"}
+            disabled={loading}
           />
         </form>
         <p className="arrow-back" onClick={() => navigate("/login")}>
