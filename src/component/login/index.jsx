@@ -84,6 +84,7 @@ const Login = () => {
         {error && <p className="error">{error}</p>}
 
         <div className="confirmation">
+        <Link to='/forgotpassword'>forgot password</Link>
           <span>
             Don’t have an account? <Link to="/register">Register now</Link>
           </span>

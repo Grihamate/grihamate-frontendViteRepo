@@ -1,8 +1,8 @@
 .wrapper{
   display: flex;
-  justify-content: center;  /* center horizontally */
-  align-items: center;      /* center vertically */
-  min-height: 100vh;        /* full viewport height */
+  justify-content: center;  
+  align-items: center;      
+  min-height: 100vh;
   background: white;
 }
 
@@ -90,7 +90,7 @@
   height: 68px;
   background-color:#FFFFFF;
   border: 2px solid transparent;
-  border-radius: 8px; /* optional */
+  border-radius: 8px; 
   background: linear-gradient(white, white) padding-box,
               linear-gradient(180deg, #C7C3FE 0%, #C0FCE2 100%) border-box;
 
