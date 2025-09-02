@@ -117,7 +117,7 @@ import FeaturedProperties from "../../component/FeaturedProperties";
 import ClientFeedback from "../../component/ClientFeedback";
 import ContactSection from "../../component/ContactUs/index";
 import City from "../../component/City/index";
-import Footer from "../../component/common/Footer";
+import "./style.css";
 
 const Home = () => {
   const [filters, setFilters] = useState({});
@@ -133,7 +133,6 @@ const Home = () => {
       <ClientFeedback />
       <ContactSection />
       <City />
-      <Footer />
     </div>
   );
 };

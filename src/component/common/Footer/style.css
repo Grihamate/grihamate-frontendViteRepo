@@ -35,9 +35,9 @@
     flex-wrap: wrap;
     gap: 50px;
     width: 45%;
-    min-width: 300px;
-   
+    min-width: 300px;   
 }
+
 
 .right-box {
     display: flex;
@@ -111,12 +111,12 @@
     margin-bottom: 10px;
 }
 
-.box-left {
+.box-left, .lower-box > p {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     color: #fff;
-    font-family: Poppins;
+    font-family: "Poppins";
     font-weight: 600;
     font-size: 14px;
 }

@@ -1,7 +1,6 @@
 
 import { createContext, useContext, useState } from "react";
 import AddPropertyModal from "../component/common/AddPropertyForm";
-import "./style.css"
 
 const ModalContext = createContext();
 

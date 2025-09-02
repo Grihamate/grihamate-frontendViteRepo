@@ -81,6 +81,7 @@ gap: 24px;
 
 
 .city-card .overlay {
+  width: 150px;
   position: absolute;
   bottom: 30px;
   left: 10px;
@@ -90,6 +91,7 @@ gap: 24px;
 }
 
 .city-card h3 {
+  width: 150px;
   margin: 0;
   font-size: 1.3rem;
   font-weight: bold;
@@ -111,6 +113,9 @@ letter-spacing: 0%;
 }
 
 @media (max-width: 1024px) {
+  .city-container{
+    display: none;
+  }
   .city-photo {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;

@@ -20,7 +20,7 @@ const cities = [
      img: stateImg,
   },
   { 
-    name: "Uttar Pradesh", 
+    name: "Pune", 
     properties: 32, 
      img: stateImg,
   },
@@ -30,7 +30,7 @@ const cities = [
      img: stateImg,
   },
   { 
-    name: "UP", 
+    name: "Uttar Pradesh", 
     properties: 56, 
      img: stateImg,
   },

@@ -42,7 +42,6 @@ const Footer = () => {
                         <p>Retail Space</p>
                         <p>Appartments</p>
                         <p>Villas</p>
-                        <p>Contact</p>
                     </div>
                      <div className='contact-box'>
                         <h1>Contact us</h1>

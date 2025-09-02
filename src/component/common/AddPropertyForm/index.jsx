@@ -85,6 +85,7 @@ furnishingStatus: "Furnished",
 
 
   return (
+  
     <div className="modal-container" onClick={(e) => e.stopPropagation()}>
       <div className="property-form">
         <h2>Add Your Property</h2>
@@ -348,7 +349,8 @@ furnishingStatus: "Furnished",
           </form>
         </div>
       </div>
-    </div>
+      </div>
+
   );
 };
 

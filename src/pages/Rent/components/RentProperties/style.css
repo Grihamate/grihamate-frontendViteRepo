@@ -51,7 +51,6 @@
 
 .cards-tittle > p{
 width: 80%;  
-font-family: "poppins";
 font-weight: 400;
 font-size: 16px;
 line-height: 20px;
@@ -61,7 +60,6 @@ text-overflow: ellipsis;
 }
 
 .cards-tittle > h1{
-font-family: "Poppins";
 font-weight: 600;
 font-size: 32px;
 line-height: 20px;
@@ -78,13 +76,9 @@ color: #100E2C;
 }
 
 .filters-card-conatiner{
-  width: 100%;
-  display: grid;
-  align-items: center;
-  justify-items: center; 
-  gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 600px 600px;  
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
 }
 
 .filters-icons-box > select{
@@ -93,7 +87,6 @@ border-radius:10px;
 padding: 12px 14px;
 border: 1px solid #DCDEE3;
 color:#727A90;
-font-family: "Inter";
 font-weight: 500;
 font-size: 14px;
 line-height: 20px;
@@ -160,7 +153,6 @@ border-width: 1px;
   width: 100%;
   display: flex;
   gap: 10px;
-  font-family: "Inter";
 font-weight: 500;
 font-style: Medium;
 font-size: 16px;
@@ -179,7 +171,6 @@ line-height: 20px;
 
 .filter-section p {
   font-weight: 500;
-  font-family: "Inter";
   font-size: 1rem;
   line-height: 24px;
   margin-bottom: 5px;
@@ -300,7 +291,7 @@ padding: 5px;
 }
 
 .page-location p{
-font-family: "Inter";
+
 font-weight: 400;
 font-size: 1rem;
 line-height: 1rem;
@@ -318,14 +309,10 @@ line-height: 1rem;
 
 
 
-@media (max-width: 1400px) and (min-width: 1000px) {
-  .filters-card-conatiner {
-    grid-template-columns: repeat(2, 1.3fr);
-  }
+@media (max-width: 1200px) and (min-width: 1000px) {
 
-
-    .cards-section{
-     gap:45px
+    .filters-card-conatiner{
+     gap: 20px !important;
    }
 
 
@@ -334,7 +321,8 @@ line-height: 1rem;
 
 @media (max-width: 1000px) and (min-width: 800px) {
   .filters-card-conatiner {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1.3fr);
+    gap: 48px !important;
    
   }
    .cards-tittle h1{
@@ -343,9 +331,6 @@ line-height: 1rem;
    
    }
 
-   .cards-section{
-     gap:50px
-   }
 }
 
 

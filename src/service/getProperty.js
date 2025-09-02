@@ -25,7 +25,7 @@ export const getProperty = async (filters = {}) => {
     if (filters.category) query.append("category", filters.category);
     if (filters.rentOrBuy) query.append("listingType", filters.rentOrBuy); // backend expects listingType
     if (filters.priceRange) query.append("priceRange", filters.priceRange);
-    if (filters.bedrooms) query.append("bhkType", filters.bedrooms);
+    if (filters.bedrooms) query.append("bhkType", filters.bedrooms+"bhk");
 
     const response = await fetch(`${BASE_URL}/api/property/all?${query.toString()}`);
     if (!response.ok) throw new Error("API error");

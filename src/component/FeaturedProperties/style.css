@@ -5,7 +5,7 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding-top: 40px;
+  padding-top: 52px;
   padding-left: 4.31%;
   padding-right: 4.31%;
 }
@@ -17,16 +17,19 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+}
+
+.section-header-wrapper{
+  display: flex;
+  justify-content: end;
+  width: 100%;
 }
 
 .section-header {
-  width: 60%;
-  margin-left: 30% ;
+  max-width: 939px ;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
+  gap: 130px;
 }
 
 .detail-box {
@@ -38,8 +41,7 @@
 }
 
 .section-header h5 {
-  font-family: 'Gantari', sans-serif;
-  font-size: 36px;
+  font-size: 50px;
   font-weight: 700;
   line-height: 1.2;
   margin: 0;
@@ -97,9 +99,10 @@
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  padding: 10px;
+  padding-top: 40px;
+  /* padding: 10px; */
 }
 
 
@@ -107,6 +110,24 @@
 @media (max-width: 1000px) {
   .cards-container {
     grid-template-columns: repeat(2, 1fr); /* 2 column */
+  }
+  
+  .section-header {
+    gap: 50px
+  }
+  .section-header h5{
+    font-size: 26px;
+    font-weight: 600px;
+  }
+  .section-header h5{
+    font-size: 26px;
+  }
+   .feature-btn>img{
+    width: 20px;
+    height: 20px;
+   }
+  .feature-btn > p{
+    font-size: 16px;
   }
 }
 

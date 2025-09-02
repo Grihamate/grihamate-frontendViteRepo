@@ -290,22 +290,17 @@ import areaIcon from "../../../assets/areaIcon.png";
 import garageIcon from "../../../assets/garagesIcon.png";
 import shareIcon from "../../../assets/shareIcon.png";
 import contactIcon from "../../../assets/contactIcon.png";
+import defaultImage from "../../../assets/defaultImage.png";
+import callIcon from "../../../assets/callIcon.png"
 import "./style.css";
 
-const PropertyCard = ({ properties }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const propertiesPerPage = 8;
-
-  const indexOfLastProperty = currentPage * propertiesPerPage;
-  const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
-  const currentProperties = properties.slice(indexOfFirstProperty, indexOfLastProperty);
-  const totalPages = Math.ceil(properties.length / propertiesPerPage);
-
+const PropertyCard = ({ property }) => {
+ 
   return (
     <>
-      {currentProperties.map((property) => (
         <div className="property-card" key={property._id}>
-          <img src={property.images[0] || "/placeholder.png"} alt="Property" /> {/* handle empty image */}
+          <img src={property.images && property.images.length > 0 ? property.images[0] : defaultImage } alt="Property" />
+
           <div className="property-details">
             <h3>{property.basicDetails.title}</h3>
             <p className="location">
@@ -349,40 +344,15 @@ const PropertyCard = ({ properties }) => {
 
           <div className="property-buttons">
             <button className="share-btn">
-              <img src={shareIcon} alt="share" /> Share
+              <img src={contactIcon} alt="share" /> Share
             </button>
             <button className="contact-btn">
-              <img src={contactIcon} alt="contact" /> Contact Now
+              <img src={callIcon} alt="contact" /> Contact Now
             </button>
           </div>
         </div>
-      ))}
-
-      {totalPages > 1 && (
-        <div className="pagination">
-          <button
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
-          >
-            Prev
-          </button>
-          {Array.from({ length: totalPages }, (_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentPage(i + 1)}
-              className={currentPage === i + 1 ? "active-page" : ""}
-            >
-              {i + 1}
-            </button>
-          ))}
-          <button
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-            disabled={currentPage === totalPages}
-          >
-            Next
-          </button>
-        </div>
-      )}
+      
+    
     </>
   );
 };

@@ -35,17 +35,18 @@ font-weight: 400;
 font-style: "Regular";
 color:#000000;
 line-height: 1.2rem;
-font-size: 0.9em;
+font-size: 16px;
 }
 
 
 
 .search-filter select {
   width: 100%;
+  font-weight: 400;
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 16px;
   outline: none;
   background-color: #fff;
 }

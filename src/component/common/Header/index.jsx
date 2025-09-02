@@ -19,19 +19,19 @@ const Header = () => {
   const navigate = useNavigate();
   const dropdownRef = useRef();
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const userData = await fetchUserProfile();
-        setUser(userData);
-      } catch (error) {
-        console.error("Failed to fetch user:", error);
-        setUser(null);
-      }
-    };
+  // useEffect(() => {
+  //   const getUser = async () => {
+  //     try {
+  //       const userData = await fetchUserProfile();
+  //       setUser(userData);
+  //     } catch (error) {
+  //       console.error("Failed to fetch user:", error);
+  //       setUser(null);
+  //     }
+  //   };
 
-    getUser();
-  }, []);
+  //   getUser();
+  // }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -90,6 +90,7 @@ const Header = () => {
           <Link to="/contact"><p className="link">Contact us</p></Link>
         </nav>
 
+        
         <div className="actions">
           {user ? (
             <div
@@ -169,19 +170,33 @@ const Header = () => {
               )}
             </div>
           ) : (
-            <button className="login-btn" onClick={handleLoginClick}>
-              <img src={loginIcon} alt="login" /> Login
-            </button>
+            <div className="actions">
+              <button className="list-btn" onClick={() => setIsAddPropertyModalOpen(true)}>
+                <img src={plusIcon} alt="plus" /> List Property
+              </button>
+              <button className="login-btn" onClick={handleLoginClick}>
+                <img src={loginIcon} alt="login" /> Login
+              </button>
+            </div>
+         
           )}
 
-          <button className="list-btn" onClick={() => setIsAddPropertyModalOpen(true)}>
-            <img src={plusIcon} alt="plus" /> List Property
-          </button>
+        
         </div>
       </div>
 
       {/* Render AddPropertyModal when isAddPropertyModalOpen is true */}
-      {isAddPropertyModalOpen && <AddPropertyModal setIsModalOpen={setIsAddPropertyModalOpen} />}
+     {isAddPropertyModalOpen && (
+        <div
+          className="modal-backdrop"
+          onClick={() => setIsAddPropertyModalOpen(false)}  // backdrop click → close
+          >
+      
+            <AddPropertyModal setIsModalOpen={setIsAddPropertyModalOpen} />
+        
+        </div>
+        )
+      }
 
       {/* Render Confirmation Modal when isConfirmDeleteModalOpen is true */}
       {isConfirmDeleteModalOpen && (
