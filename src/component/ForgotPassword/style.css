@@ -45,6 +45,10 @@
     font-size: 16px;
     color: #919299;
     text-align: center;
+  
+}
+.subheading{
+  margin-bottom: 0px;
 }
 
 .forgot-heading > .heading{
@@ -71,8 +75,12 @@
     padding: 12px 16px;
     background-color: #F4F5F7;
     padding-left: 8px;
-    border: none;
+    border: 1px solid #F4F5F7;
+    background: #F4F5F7;
     margin-bottom: 40px;
+}
+.forgot-password{
+  border: 1px solid #F4F5F7 !important;
 }
 
 .btn{
@@ -92,6 +100,20 @@
     color: #18191F;
     font-weight: 400;
     font-size: 14px;
+}
+.forgot-form input:first-of-type {
+    border-radius: 8px;
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #F4F5F7;
+    padding-left: 8px;
+    border: 1px solid #C4C4D6;   /* ✅ Added visible border */
+    margin-bottom: 40px;
+}
+
+.forgot-password {
+  border: 1px solid #C4C4D6 !important;  /* ✅ Stronger border */
+  background: #F4F5F7;
 }
 
 

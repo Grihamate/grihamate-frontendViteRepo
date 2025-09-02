@@ -84,10 +84,13 @@ const Login = () => {
         {error && <p className="error">{error}</p>}
 
         <div className="confirmation">
-        <Link to='/forgotpassword'>forgot password</Link>
-          <span>
-            Don’t have an account? <Link to="/register">Register now</Link>
-          </span>
+       
+        <Link to="/forgotpassword" style={{ color: "#3749A6", textDecoration:'underline' }}>Forgot Password</Link>
+         <div>
+        
+            Don’t have an account? <Link to="/register" style={{ color: "#3749A6", textDecoration:'underline' }}>Register now</Link>
+         
+         </div>
         </div>
       </div>
     </AuthLayout>

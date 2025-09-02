@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { forgotPassword } from "../../service/forgotPassword";
+import { Link } from "react-router-dom";
 // adjust path if needed
 
 const ForgotPassword = () => {
@@ -25,32 +26,41 @@ const ForgotPassword = () => {
   return (
     <div className="wrapper">
       <div className="container-auth-head">
-        <div className="inner-container-pass">
+       <div className="inner-container-pass" style={{ gap: "0px" }}>
           <div className="forgot-heading">
             <p className="heading">Forgot Password?</p>
             <p className="subheading">No Worries. We’ll send you reset instructions.</p>
           </div>
 
-          <form className="forgot-form" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              type="submit"
-              className="btn"
-              value="Reset Password"
-            />
-          </form>
+     <form className="forgot-form" onSubmit={handleSubmit}>
+  <input
+    type="email"
+    placeholder="Enter your email"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    required
+    style={{
+      borderRadius: "8px",
+      width: "100%",
+      padding: "12px 16px",
+      backgroundColor: "#F4F5F7",
+      border: "1px solid #C4C4D6",
+      marginBottom: "10px",
+    }}
+  />
+  <input
+    type="submit"
+    className="btn"
+    value="Submit"
+  />
+</form>
+
 
           {/* Show success or error messages */}
           {message && <p style={{ color: "green" }}>{message}</p>}
           {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
-        <p className="arrow-back">&larr; &nbsp; Back to log in</p>
+        <Link to='/login' className="arrow-back">&larr; &nbsp; Back to log in</Link>
       </div>
     </div>
   );

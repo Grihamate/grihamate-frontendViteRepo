@@ -111,9 +111,12 @@ const Register = () => {
         </form>
 
         <div className="confirmation">
-          <span>
-            Already have an account? <Link to="/login">Sign in</Link>
-          </span>
+ <span>
+  Already have an account?{" "}
+  <Link to="/login" style={{ color: "#3749A6" ,textDecoration:'underline' }}>
+    Sign in
+  </Link>
+</span>
         </div>
       </div>
     </AuthLayout>

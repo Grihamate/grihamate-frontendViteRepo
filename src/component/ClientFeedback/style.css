@@ -127,7 +127,7 @@
 font-family: "Gantari";
 font-weight: 700;
 font-size: 2rem;
-line-height: 1.2rem;
+line-height: 34px;
 letter-spacing: 0%;
 width: 100%;
 height: auto;
@@ -137,6 +137,7 @@ justify-content: center;
 padding: 2px;
 color: #100E2C;
 flex-wrap: nowrap;
+text-align: center;
 
 }
 
