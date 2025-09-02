@@ -57,6 +57,7 @@
 .actions {
   display: flex;
   gap: 58px;
+  align-items: center;
 }
 
 .login-btn,
