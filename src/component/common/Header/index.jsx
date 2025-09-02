@@ -19,19 +19,19 @@ const Header = () => {
   const navigate = useNavigate();
   const dropdownRef = useRef();
 
-  // useEffect(() => {
-  //   const getUser = async () => {
-  //     try {
-  //       const userData = await fetchUserProfile();
-  //       setUser(userData);
-  //     } catch (error) {
-  //       console.error("Failed to fetch user:", error);
-  //       setUser(null);
-  //     }
-  //   };
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const userData = await fetchUserProfile();
+        setUser(userData);
+      } catch (error) {
+        console.error("Failed to fetch user:", error);
+        setUser(null);
+      }
+    };
 
-  //   getUser();
-  // }, []);
+    getUser();
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
