@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { resetPassword } from "../../service/changePassword";
-import { toast } from "react-toastify"; // ✅ Import toast
+import { toast } from "react-toastify";
 import "./style.css";
 
 const SetPassword = () => {
@@ -24,7 +24,7 @@ const SetPassword = () => {
     try {
       await resetPassword(token, password, confirmPassword);
       toast.success("Password reset successful!");
-      setTimeout(() => navigate("/login"), 2000); // wait for toast before redirect
+      setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
       toast.error(err.message || "Password reset failed");
     } finally {
@@ -33,39 +33,43 @@ const SetPassword = () => {
   };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <div className="forgot-heading">
-          <p className="heading">Set New Password</p>
-          <p className="subheading">
-            Your new password must be different from previously used passwords.
+    <div className="wrapper">
+      <div className="container-auth-head">
+        <div className="inner-container-pass">
+          <div className="forgot-heading">
+            <p className="heading">Set New Password</p>
+            <p className="subheading">
+              Your new password must be different from previously used passwords.
+            </p>
+          </div>
+
+          <form className="forgot-form" onSubmit={handleSubmit}>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+            <input
+              type="submit"
+              className="btn"
+              value={loading ? "Processing..." : "Continue"}
+              disabled={loading}
+            />
+          </form>
+
+          <p className="arrow-back" onClick={() => navigate("/login")}>
+            &larr; &nbsp; Back to log in
           </p>
         </div>
-        <form className="forgot-form" onSubmit={handleSubmit}>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-          <input
-            type="submit"
-            className="btn"
-            value={loading ? "Processing..." : "Continue"}
-            disabled={loading}
-          />
-        </form>
-        <p className="arrow-back" onClick={() => navigate("/login")}>
-          &larr; &nbsp; Back to log in
-        </p>
       </div>
     </div>
   );

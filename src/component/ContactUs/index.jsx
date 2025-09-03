@@ -7,27 +7,60 @@ import { toast } from "react-toastify";
 export default function ContactSection() {
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState(''); // new state for email error
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
-  const [loading, setLoading] = useState(false); // new loading state
+  const [loading, setLoading] = useState(false);
+
+  // Real-time email validation
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(value)) {
+      setEmailError("Please enter a valid email address");
+    } else {
+      setEmailError(""); // clear error if valid
+    }
+  };
+
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.slice(0, 10); 
+    setPhone(value.replace(/\D/g, ""));
+  };
 
   const handleSubmit = async () => {
-    // Mobile number validation
-    const phonePattern = /^[0-9]{10}$/; // exactly 10 digits
+    if (!email) {
+      toast.error("Email is required");
+      return;
+    }
+    if (emailError) {
+      toast.error(emailError);
+      return;
+    }
+
+    const phonePattern = /^[0-9]{10}$/;
     if (!phonePattern.test(phone)) {
       toast.error("Please enter a valid 10-digit mobile number");
       return;
     }
 
-    setLoading(true); // start loading
+    if (!fullname.trim()) {
+      toast.error("Please enter your name");
+      return;
+    }
+
+    if (!message.trim()) {
+      toast.error("Please enter a message");
+      return;
+    }
+
+    setLoading(true);
 
     try {
       const response = await sendContactMessage({ fullname, email, phone, message });
-
-      // Show success toast
       toast.success(response.message || "Message sent successfully!");
-
-      // Clear form fields
       setFullname('');
       setEmail('');
       setPhone('');
@@ -35,31 +68,19 @@ export default function ContactSection() {
     } catch (err) {
       toast.error(err.message || "Something went wrong.");
     } finally {
-      setLoading(false); // stop loading
+      setLoading(false);
     }
   };
 
-  // Limit input to 10 digits
-  const handlePhoneChange = (e) => {
-    const value = e.target.value.slice(0, 10); // max 10 characters
-    setPhone(value.replace(/\D/g, "")); // remove non-numeric characters
-  };
-
   return (
-    <div
-      className="contact-section"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
+    <div className="contact-section" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="contact-container">
         <div className="contact-form">
           <div className="form-text">
             <h2>Get in touch</h2>
-            <p>
-              Leo morbi faucibus mattis pharetra tellus velit ultricies duis rhoncus
-            </p>
+            <p>Leo morbi faucibus mattis pharetra tellus velit ultricies duis rhoncus</p>
           </div>
 
-          {/* Form fields */}
           <input
             type="text"
             placeholder="Your name"
@@ -68,10 +89,12 @@ export default function ContactSection() {
           />
           <input
             type="email"
-            placeholder="Your mail"
+            placeholder="Your email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleEmailChange}
           />
+          {emailError && <p style={{ color: "red", fontSize: "12px" }}>{emailError}</p>} {/* show error */}
+
           <input
             type="text"
             placeholder="Your phone"
@@ -84,7 +107,6 @@ export default function ContactSection() {
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
 
-          {/* Submit button */}
           <button onClick={handleSubmit} disabled={loading}>
             {loading ? "Sending..." : "Send message"}
           </button>
@@ -92,9 +114,7 @@ export default function ContactSection() {
 
         <div className="contact-text">
           <h1>Putting a plan to action, to assure your satisfaction!</h1>
-          <p>
-            Arcu laoreet malesuada nunc eget. Fermentum ut dui etiam aliquam habitant elit
-          </p>
+          <p>Arcu laoreet malesuada nunc eget. Fermentum ut dui etiam aliquam habitant elit</p>
         </div>
       </div>
     </div>
