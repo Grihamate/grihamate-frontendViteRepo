@@ -19,6 +19,14 @@ const Login = () => {
     setLoading(true);
     setError("");
 
+    // ✅ Validation: Phone must be exactly 10 digits
+    if (!/^\d{10}$/.test(phone)) {
+      setLoading(false);
+      setError("Phone number must be exactly 10 digits");
+      toast.error("Phone number must be exactly 10 digits");
+      return;
+    }
+
     try {
       const data = await loginUser(phone, password);
 
@@ -36,64 +44,87 @@ const Login = () => {
     }
   };
 
+  // Prevent more than 10 digits in input
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/\D/g, ""); // allow only numbers
+    if (value.length <= 10) {
+      setPhone(value);
+    }
+  };
+
   return (
     <>
-     <Link to="/" className="back-btn" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: '16px' ,marginTop:'30px' }}>
-  <ArrowLeft size={24} />
-  <span>Back To Home</span>
-</Link>
-    <AuthLayout>
-      <div className="inner-container">
-        {/* Back Button */}
-   
+      <Link
+        to="/"
+        className="back-btn"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          marginLeft: "16px",
+          marginTop: "30px",
+        }}
+      >
+        <ArrowLeft size={24} />
+        <span>Back To Home</span>
+      </Link>
+      <AuthLayout>
+        <div className="inner-container">
+          <AuthHeader />
 
-        <AuthHeader />
+          <p className="heading">Welcome Back</p>
+          <p className="subheading">Sign in to your account to continue</p>
 
-        <p className="heading">Welcome Back</p>
-        <p className="subheading">Sign in to your account to continue</p>
+          <form className="login-form" onSubmit={handleLogin}>
+            <label>Phone</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Enter here..."
+              value={phone}
+              onChange={handlePhoneChange}
+              required
+            />
+            <br />
+            <label>Password</label>
+            <br />
+            <input
+              type="password"
+              placeholder="Enter password..."
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <br />
+            <input
+              type="submit"
+              value={loading ? "Logging in..." : "Login"}
+              className="btn"
+              disabled={loading}
+            />
+          </form>
 
-        <form className="login-form" onSubmit={handleLogin}>
-          <label>Phone</label>
-          <br />
-          <input
-            type="number"
-            placeholder="Enter here..."
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-          />
-          <br />
-          <label>Password</label>
-          <br />
-          <input
-            type="password"
-            placeholder="Enter password..."
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <br />
-          <input
-            type="submit"
-            value={loading ? "Logging in..." : "Login"}
-            className="btn"
-            disabled={loading}
-          />
-        </form>
+          {error && <p className="error">{error}</p>}
 
-        {error && <p className="error">{error}</p>}
-
-        <div className="confirmation">
-       
-        <Link to="/forgotpassword" style={{ color: "#3749A6", textDecoration:'underline' }}>Forgot Password</Link>
-         <div>
-        
-            Don’t have an account? <Link to="/register" style={{ color: "#3749A6", textDecoration:'underline' }}>Register now</Link>
-         
-         </div>
+          <div className="confirmation">
+            <Link
+              to="/forgotpassword"
+              style={{ color: "#3749A6", textDecoration: "underline" }}
+            >
+              Forgot Password
+            </Link>
+            <div>
+              Don’t have an account?{" "}
+              <Link
+                to="/register"
+                style={{ color: "#3749A6", textDecoration: "underline" }}
+              >
+                Register now
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-    </AuthLayout>
+      </AuthLayout>
     </>
   );
 };

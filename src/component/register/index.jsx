@@ -1,4 +1,3 @@
-// import React, { useState } from "react";
 import "./style.css";
 import AuthLayout from "../AuthLayout";
 import AuthHeader from "../AuthHeader";
@@ -21,16 +20,30 @@ const Register = () => {
 
   // Handle input change
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+
+    if (name === "phone") {
+      // ✅ Allow only numbers and max 10 digits
+      const numericValue = value.replace(/\D/g, "");
+      if (numericValue.length <= 10) {
+        setFormData({ ...formData, phone: numericValue });
+      }
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   // Handle submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    // ✅ Phone validation
+    if (!/^\d{10}$/.test(formData.phone)) {
+      toast.error("Phone number must be exactly 10 digits");
+      setLoading(false);
+      return;
+    }
 
     try {
       const result = await registerUser(formData);
@@ -81,7 +94,7 @@ const Register = () => {
           <label>Phone*</label>
           <br />
           <input
-            type="number"
+            type="text"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
@@ -111,12 +124,15 @@ const Register = () => {
         </form>
 
         <div className="confirmation">
- <span>
-  Already have an account?{" "}
-  <Link to="/login" style={{ color: "#3749A6" ,textDecoration:'underline' }}>
-    Sign in
-  </Link>
-</span>
+          <span>
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              style={{ color: "#3749A6", textDecoration: "underline" }}
+            >
+              Sign in
+            </Link>
+          </span>
         </div>
       </div>
     </AuthLayout>

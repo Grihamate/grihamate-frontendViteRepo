@@ -128,14 +128,14 @@ const SearchBox = ({ onSearch }) => {
           </select>
         </div>
 
-        <div className="filter-option">
+        {/* <div className="filter-option">
           <p className="filter-text">Category</p>
           <select name="category" onChange={handleChange}>
             <option value="">Select Type</option>
             <option value="Residential">Residential</option>
             <option value="Commercial">Commercial</option>
           </select>
-        </div>
+        </div> */}
 
         <div className="filter-option">
           <p className="filter-text">Location</p>
