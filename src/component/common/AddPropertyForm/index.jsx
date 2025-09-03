@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ImageUpload from "../../../component/common/ImageUpload";
 import { addProperty } from "../../../service/addProperty";
+import { toast } from "react-toastify"; // ✅ Toastify import
+import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 
-import { useEffect } from "react";
+
+
 const AddPropertyModal = ({ setIsModalOpen }) => {
   const [formData, setFormData] = useState({
     propertyType: "Apartment",
@@ -24,6 +27,7 @@ const AddPropertyModal = ({ setIsModalOpen }) => {
     securityDeposit: "",
     maintenanceCharge: "",
   });
+
   useEffect(() => {
     document.body.classList.add("modal-open");
     return () => {
@@ -31,58 +35,93 @@ const AddPropertyModal = ({ setIsModalOpen }) => {
     };
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const missingFields = [];
-    if (!formData.propertyTitle) missingFields.push("Property Title");
-    if (!formData.area) missingFields.push("Area");
-    if (!formData.bhkType) missingFields.push("BHK/Type");
-    if (!formData.monthlyRent) missingFields.push("Monthly Rent");
-    if (!formData.securityDeposit) missingFields.push("Security Deposit");
-    if (!formData.maintenanceCharge) missingFields.push("Maintenance Charge");
-    if (!formData.contactName) missingFields.push("Owner Name");
-    if (!formData.phoneNumber) missingFields.push("Phone Number");
-    if (!formData.email) missingFields.push("Email Address");
-    if (!formData.city) missingFields.push("City");
-    if (!formData.locality) missingFields.push("Locality");
+  // ✅ Only check if token exists
+  const token = localStorage.getItem("token");
+  if (!token) {
+    toast.error("Please login first to post the property!", {
+      position: "top-center",
+      autoClose: 2000,
+    });
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 2000);
+    return;
+  }
 
-    if (missingFields.length > 0) {
-      alert(`Please fill in the following fields: ${missingFields.join(", ")}`);
-      return;
-    }
+  // Validate required fields
+  const missingFields = [];
+  if (!formData.propertyTitle) missingFields.push("Property Title");
+  if (!formData.area) missingFields.push("Area");
+  if (!formData.bhkType) missingFields.push("BHK/Type");
+  if (!formData.monthlyRent) missingFields.push("Monthly Rent");
+  if (!formData.securityDeposit) missingFields.push("Security Deposit");
+  if (!formData.maintenanceCharge) missingFields.push("Maintenance Charge");
+  if (!formData.contactName) missingFields.push("Owner Name");
+  if (!formData.phoneNumber) missingFields.push("Phone Number");
+  if (!formData.email) missingFields.push("Email Address");
+  if (!formData.city) missingFields.push("City");
+  if (!formData.locality) missingFields.push("Locality");
 
-    try {
-      const propertyData = {
-        propertyType: formData.propertyType,
-        listingType: formData.listingType,
-        title: formData.propertyTitle,
-        area: formData.area,
-        bhkType: formData.bhkType,
-        bathrooms: formData.bathrooms,
-        furnishingStatus: formData.furnishingStatus,
-        monthlyRent: formData.monthlyRent,
-        securityDeposit: formData.securityDeposit,
-        maintenanceCharges: formData.maintenanceCharge,
-        city: formData.city,
-        locality: formData.locality,
-        fullAddress: formData.fullAddress || "",
-        description: formData.description,
-        owner: formData.contactName,
-        phone: formData.phoneNumber,
-        email: formData.email,
-        images: formData.images,
-      };
+  if (missingFields.length > 0) {
+    toast.warning(`Please fill in the following fields: ${missingFields.join(", ")}`, {
+      position: "top-center",
+      autoClose: 3000,
+    });
+    return;
+  }
 
-      const response = await addProperty(propertyData);
-      console.log("Property added successfully:", response);
-      alert("Property listed successfully!");
-      setIsModalOpen(false);
-    } catch (error) {
-      console.error("Error adding property:", error);
-      alert(error.message || "Something went wrong. Please try again.");
-    }
-  };
+  // Phone number validation
+  const phoneRegex = /^\d{10}$/;
+  if (!phoneRegex.test(formData.phoneNumber)) {
+    toast.error("Phone number must be 10 digits!", {
+      position: "top-center",
+      autoClose: 3000,
+    });
+    return;
+  }
+
+  try {
+    const propertyData = {
+      propertyType: formData.propertyType,
+      listingType: formData.listingType,
+      title: formData.propertyTitle,
+      area: formData.area,
+      bhkType: formData.bhkType,
+      bathrooms: formData.bathrooms,
+      furnishingStatus: formData.furnishingStatus,
+      monthlyRent: formData.monthlyRent,
+      securityDeposit: formData.securityDeposit,
+      maintenanceCharges: formData.maintenanceCharge,
+      city: formData.city,
+      locality: formData.locality,
+      fullAddress: formData.fullAddress || "",
+      description: formData.description,
+      owner: formData.contactName,
+      phone: formData.phoneNumber,
+      email: formData.email,
+      images: formData.images,
+    };
+
+    const response = await addProperty(propertyData, token);
+
+    toast.success("Property listed successfully!", {
+      position: "top-center",
+      autoClose: 2000,
+    });
+    setTimeout(() => setIsModalOpen(false), 2000);
+
+  } catch (error) {
+    console.error("Error adding property:", error);
+    toast.error(error.message || "Something went wrong. Please try again.", {
+      position: "top-center",
+      autoClose: 3000,
+    });
+  }
+};
+
 
   return (
     <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
