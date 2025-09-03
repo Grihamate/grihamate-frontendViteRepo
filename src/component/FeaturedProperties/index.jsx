@@ -49,7 +49,7 @@ const FeaturedProperties = ({ filters }) => {
                 <p>Discover the best properties handpicked for you</p>
               </div>
 
-                <button className="feature-btn">
+                <button className="feature-btn" onClick={() => setIsAddPropertyModalOpen(true)}>
                    <img src={plusIcon} alt="plus" /> 
                    <p>Post your Property</p>
                  </button>
@@ -59,7 +59,7 @@ const FeaturedProperties = ({ filters }) => {
 
             <div className="cards-container">
               { currentProperties.map((property) => (
-                    <PropertyCard id={property.id} property={property}/>
+                    <PropertyCard id={property._id} property={property}/>
                 ))
               }
                 
@@ -103,7 +103,7 @@ const FeaturedProperties = ({ filters }) => {
         onClick={() => setIsAddPropertyModalOpen(false)}  
         >
     
-            <AddPropertyModal setIsModalOpen={setIsAddPropertyModalOpen} />
+            <AddPropertyModal  setIsModalOpen={setIsAddPropertyModalOpen}  />
         
         </div>
         )

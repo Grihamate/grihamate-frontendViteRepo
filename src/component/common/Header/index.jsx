@@ -8,6 +8,7 @@ import loginIcon from "../../../assets/loginIcon.png";
 import plusIcon from "../../../assets/plusIcon.png";
 import ConfirmationModal from "../../ConfirmationModal";
 import AddPropertyModal from "../AddPropertyForm";
+import GuestIcon from "../../../assets/GuestIcon.jpg"
 import "./style.css";
 
 const Header = () => {
@@ -19,19 +20,19 @@ const Header = () => {
   const navigate = useNavigate();
   const dropdownRef = useRef();
 
-  // useEffect(() => {
-  //   const getUser = async () => {
-  //     try {
-  //       const userData = await fetchUserProfile();
-  //       setUser(userData);
-  //     } catch (error) {
-  //       console.error("Failed to fetch user:", error);
-  //       setUser(null);
-  //     }
-  //   };
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const userData = await fetchUserProfile();
+        setUser(userData);
+      } catch (error) {
+        console.error("Failed to fetch user:", error);
+        setUser(null);
+      }
+    };
 
-  //   getUser();
-  // }, []);
+    getUser();
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -107,7 +108,9 @@ const Header = () => {
                 }}
               >
                 <img
-                  src={user.profileImage || "/assets/default-avatar.png"}
+                  src={user?.profileImage
+                  ? user.profileImage
+                  : GuestIcon }
                   alt="User Avatar"
                   style={{
                     width: "32px",
@@ -117,7 +120,7 @@ const Header = () => {
                   }}
                 />
                 <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                  <span>{user.fullname}</span>
+                  <span>{user?.fullname}</span>
                   <ChevronDown size={16} />
                 </div>
               </div>
@@ -180,7 +183,6 @@ const Header = () => {
             </div>
          
           )}
-
         
         </div>
       </div>

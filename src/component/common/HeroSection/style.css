@@ -67,11 +67,16 @@
 }
 
 
-@media  (max-width:1000px) {
+@media  (max-width:1100px) {
 
 
   .hero-content > h1 {
-     font-size: 5vw;
+     font-size: 35px;
+  }
+
+  .hero-content > p {
+    font-size: 14px;
+    font-weight: 400;
   }
   .hero-content{
     height: auto;
@@ -82,4 +87,35 @@
    
   }
   
+}
+
+
+@media  (max-width:660px) {
+
+
+  .hero-content > h1 {
+     font-size: 40px;
+  }
+
+  .hero-content > p {
+    font-size: 16px;
+  }
+}
+
+
+@media  (max-width:650px) {
+
+
+  .hero-content > h1 {
+     width: 80%;
+     font-size: 30px;
+     font-weight: 500;
+  }
+
+  .hero-content > p {
+    width: 80%;
+    font-size: 14px;
+  }
+
+
 }

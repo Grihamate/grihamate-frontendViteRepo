@@ -29,6 +29,7 @@
 .section-header {
   max-width: 939px ;
   display: flex;
+  flex-wrap: wrap;
   gap: 130px;
 }
 
@@ -113,7 +114,10 @@
   }
   
   .section-header {
-    gap: 50px
+    gap: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .section-header h5{
     font-size: 26px;

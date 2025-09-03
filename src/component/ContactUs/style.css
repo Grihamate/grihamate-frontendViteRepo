@@ -1,26 +1,25 @@
 .contact-section {
   width: 100%;
   max-width: 1440px;
-  min-height: 730px;
   background-size: cover;
   background-position: center;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 50px;
+  padding-block: 60px;
+  background-color: red;
 }
 
 .contact-container {
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  width: 80%;
+  max-width: 1050px;
   gap: 40px;
+  justify-content: space-between;
 }
 
 .contact-form {
-  width: 45%;
+  max-width: 416px;
   background-color: #100e2c;
   display: flex;
   flex-direction: column;
@@ -28,6 +27,16 @@
   border-radius: 12px;
   gap: 20px;
   padding: 40px;
+
+}
+
+.contact-text {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  color: #fff;
 }
 
 .form-text {
@@ -77,14 +86,7 @@
   cursor: pointer;
 }
 
-.contact-text {
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 30px;
-  color: #fff;
-}
+
 
 .contact-text h1 {
   font-family: "Gantari";
@@ -101,39 +103,26 @@
 }
 
 @media (max-width: 1024px) {
-  .contact-container {
-    width: 90%;
-    gap: 20px;
-  }
-  .contact-text h1 {
-    font-size: 1.8rem;
-    line-height: 2.5rem;
-  }
-}
-
-
-@media (max-width: 768px) {
-  .contact-container {
+   .contact-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  .contact-form,
-  .contact-text {
-    width: 100%;
-    max-width: 600px;
+
+  .contact-container {
+    width: 90%;
+    gap: 40px;
   }
   .contact-text h1 {
-    font-size: 1.6rem;
-    line-height: 2.2rem;
+    font-size: 1.8rem;
   }
-
-    .contact-form > input{
-      height: 40px;
-      padding: 10px;
-    }
-
-    .contact-form > textarea{
-      height: 80px;
-    }
 }
+
+
+
+@media (max-width: 500px) {
+  .contact-form{
+    padding: 20px;
+  }
+}
+

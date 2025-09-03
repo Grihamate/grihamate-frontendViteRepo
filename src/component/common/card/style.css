@@ -4,7 +4,6 @@
  .property-card {
   width: 100%;
   max-width: 420px;
-  max-height: 620px;
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -23,7 +22,7 @@
 
 .property-card > img {
   width: 100%;
-  height: 309px;         /* fixed height */
+  height: 220px;         /* fixed height */
   object-fit: cover;
 }
 .property-details {
@@ -55,11 +54,17 @@
   height: 14px;
 }
 
-.para {
-  font-family: "Inter";
+
+.para{
+  min-height: 20px;       
+  max-height:40px;  
   color: #7A7474;
   font-size: 0.85rem;
-  line-height: 1.2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .price {
@@ -74,14 +79,16 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px 20px;
+
 }
 
 .icon-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 60px;
+  min-width: 80px;
+ 
 }
 
 .icon-box {
@@ -138,7 +145,7 @@
 @media (max-width: 480px) {
   .property-card {
     max-width: 100%;
-    gap: 15px;
+    
   }
 
   .property-details h3 {
@@ -147,14 +154,6 @@
 
   .para {
     font-size: 0.8rem;
-  }
-
-  .icons-bar {
-    justify-content: center;
-  }
-
-  .icon-bar {
-    min-width: 50px;
   }
 
   .share-btn, .contact-btn {
@@ -175,7 +174,14 @@
   .para {
     font-size: 0.85rem;
   }
+
+  .share-btn, .contact-btn {
+    /* flex: 100%; */
+  }
 }
+
+
+
 .pagination {
   display: flex;
   justify-content: center;
