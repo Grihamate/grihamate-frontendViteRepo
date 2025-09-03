@@ -1,6 +1,5 @@
-
 :root {
-  font-size: 16px; /* 1rem = 16px, zoom change hone par ye scale hoga */
+  font-size: 16px; /* 1rem = 16px */
 }
 
 .header {
@@ -35,7 +34,6 @@
 .logo {
   width: clamp(2.5rem, 4vw, 5.6rem);
   height: 80%;
-  padding: auto;
 }
 
 .links {
@@ -48,7 +46,7 @@
 .links .link {
   font-family: 'Poppins';
   font-weight: 500;
-  font-size:  1rem;
+  font-size: 1rem;
   color: #151515;
   text-decoration: none !important;
   white-space: nowrap;
@@ -74,9 +72,9 @@
   white-space: nowrap;
 }
 
-.login-btn > img, .list-btn > img{
- width: 14px;
- height: 14px;
+.login-btn > img, .list-btn > img {
+  width: 14px;
+  height: 14px;
 }
 
 .login-btn {
@@ -87,11 +85,66 @@
 }
 
 .list-btn {
-   max-width: 211px;
+  max-width: 211px;
   background-color: #FBDB5B;
   color: #100E2C;
 }
 
+/* ✅ Hamburger button */
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none; /* hidden on desktop */
+  color: #100E2C;
+}
+
+/* ✅ Mobile Menu */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fff;
+  position: absolute;
+  top: 75px;
+  right: 0;
+  width: 100%;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  z-index: 999;
+  animation: slideDown 0.3s ease forwards;
+}
+
+.mobile-menu a,
+.mobile-menu button {
+  font-size: 1rem;
+  font-family: "Poppins";
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  color: #151515;
+}
+
+.mobile-menu button:hover,
+.mobile-menu a:hover {
+  color: #100E2C;
+  font-weight: 600;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✅ Media Queries */
 @media (max-width: 768px) {
   .navbar {
     justify-content: space-between;
@@ -99,24 +152,37 @@
     height: auto;
     padding: 1rem 0;
   }
-  
+
   .links {
-    width: 30%;
-    display: none;
+    display: none; /* hide desktop links */
   }
 
-  
   .actions {
-    order: 2;
+    gap: 1rem;
+  }
+
+  .login-btn {
+    display: none; /* ❌ hide login on mobile */
+  }
+
+  .hamburger-btn {
+    display: block; /* show hamburger */
   }
 }
 
-
 @media (max-width: 500px) {
-
-    .links {
-     display: none;
-
+  .links {
+    display: none;
   }
+}
+/* Default: visible */
+.desktop-only {
+  display: block;
+}
 
+/* Hide in mobile */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
 }

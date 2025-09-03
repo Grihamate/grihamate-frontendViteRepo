@@ -32,9 +32,9 @@ const CommercialPropertyCard = () => {
                     <h1>
                         Luxury house in Las Vegas
                     </h1>
-                    <h2>
-                        $25000 
-                    </h2>
+                 <h2>
+  ₹25,000
+</h2>
                 </div>
                 <div className="com-icons-bar">
                     <div className="com-icon">
