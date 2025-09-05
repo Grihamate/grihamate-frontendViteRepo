@@ -1,0 +1,52 @@
+.team-container{
+    width: 100%;
+}
+.team-heading{
+    font-weight: 600;
+    font-size: 48px;
+    color: #100E2C;
+    text-align: center;
+}
+.team-para{
+    font-size: 24px;
+    font-weight: 400;
+    color: #000000;
+    text-align: center;
+    max-width: 1003px;
+    width: 100%;
+    margin: auto;
+}
+
+
+
+
+
+
+/* Grid for 2x2 layout */
+.team-grid {
+  display: flex;
+ 
+  gap: 20px;
+
+}
+
+/* Individual card styles */
+.team-card {
+  max-width: 550px;
+  width: 100%;
+}
+
+.team-card-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 12px;
+  color: #222;
+}
+
+.team-card-subheading {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Responsive: stack cards on small screens */
+

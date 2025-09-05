@@ -1,0 +1,35 @@
+.section-container {
+  position: relative;
+  width: 100%;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1; /* keeps it behind the content */
+  filter: brightness(0.7); /* optional, makes text more readable */
+  max-height: 620px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+.hero-content h1{
+    font-weight: 700;
+    font-size: 96px;
+}
+.hero-content p{
+    font-size: 24px;
+    font-weight: 500;
+}

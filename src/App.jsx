@@ -12,6 +12,7 @@ import { ModalProvider } from "./context/ModalContext";
 import  PasswordReset from "./component/RestPassword/index"
 import ResetSuccessPage from "./component/ResetSuccessPage";
 import SetPassword from  "./component/SetPassword/index"
+import About from "./pages/About";
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="rent" element={<RentPage />} />
+             <Route path="about" element={<About />} /> {/* 👈 new route */}
+
           </Route>
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register />} /> {/* 👈 add route */}

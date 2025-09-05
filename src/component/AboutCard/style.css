@@ -1,0 +1,85 @@
+/* Wrapper */
+.card-wrapper {
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+
+/* Hover animation only on devices with hover */
+@media (hover: hover) {
+  .card-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  }
+}
+
+/* Image */
+.card-image {
+  width: 100%;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Body */
+.card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Heading */
+.card-heading {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.3;
+}
+
+/* Subheading */
+.card-subheading {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+/* Horizontal layout */
+.card-horizontal {
+  flex-direction: row;
+  max-width: 720px;
+}
+
+.card-horizontal .card-image {
+  width: 45%;
+  height: auto;
+  min-height: 160px;
+}
+
+.card-horizontal .card-body {
+  width: 55%;
+  padding: 18px;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .card-horizontal {
+    flex-direction: column;
+  }
+  .card-horizontal .card-image {
+    width: 100%;
+    height: 180px;
+  }
+}
