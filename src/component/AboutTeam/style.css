@@ -24,16 +24,23 @@
 
 /* Grid for 2x2 layout */
 .team-grid {
-  display: flex;
- 
-  gap: 20px;
-
+  display: grid;
+  grid-template-columns: repeat(2, 555px); /* 2 cards per row, each 555px */
+  column-gap: 110px;  /* space between columns */
+  row-gap: 40px;    /* space between rows */
+  justify-content: center; /* center the grid inside container */
 }
+
+.team-card {
+  width: 555px;
+  max-width: 555px;
+}
+
 
 /* Individual card styles */
 .team-card {
-  max-width: 550px;
-  width: 100%;
+  width: 555px;   /* fixed width */
+  max-width: 555px;
 }
 
 .team-card-heading {

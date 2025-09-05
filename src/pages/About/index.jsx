@@ -4,6 +4,8 @@ import AboutHeroSection from '../../component/AboutHeroSection';
 import AboutGrihamate from '../../component/AboutGrihamate';
 import Card from '../../component/AboutCard';
 import AboutTeam from '../../component/AboutTeam';
+import AboutPreference from '../../component/GrihamatePreference';
+
 
 function About() {
   return (
@@ -29,6 +31,8 @@ function About() {
 
 " />
 <AboutTeam/>
+<AboutPreference/>
+
 </div>
 
     </div>

@@ -1,0 +1,17 @@
+.container-main {
+  width: 100%;
+}
+.header1 {
+  font-weight: 700;
+  font-size: 40px;
+  color: #100e2c;
+  text-align: center;
+}
+.para1 {
+  max-width: 550px;
+  color: #100e2c;
+  font-weight: 400;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
