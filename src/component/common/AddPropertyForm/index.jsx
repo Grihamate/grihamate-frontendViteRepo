@@ -476,6 +476,13 @@ const handleSubmit = async (e) => {
   return (
   
     <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+            {/* Close Button */}
+      <button 
+        className="close-model" 
+        onClick={() => setIsModalOpen(false)}
+      >
+        ✕
+      </button>
       <div className="property-form">
         <h2>Add Your Property</h2>
         <div className="form-wrapper">
@@ -531,12 +538,13 @@ const handleSubmit = async (e) => {
                   <label htmlFor="propertyTitle">Property Title *</label>
                   <input
                     id="propertyTitle"
-                    className="custom-select"
+                    className="custom-input"
                     value={formData.propertyTitle}
                     onChange={(e) =>
                       setFormData({ ...formData, propertyTitle: e.target.value })
                     }
                   />
+              
                 </div>
 
                 <div className="filter-group">
@@ -560,21 +568,24 @@ const handleSubmit = async (e) => {
               <div className="basic-filter-other">
                 <div className="filter-group-other">
                   <label htmlFor="bhkType">BHK/Type</label>
-                  <input
+                  <select
                     id="bhkType"
                     className="custom-select"
                     value={formData.bhkType}
                     onChange={(e) =>
                       setFormData({ ...formData, bhkType: e.target.value })
                     }
-                  />
+                  >
+                     <option value="1bhk">1bhk</option>
+                     <option value="2bhk">2bhk</option>
+                  </select>
                 </div>
 
                 <div className="filter-group-other">
                   <label htmlFor="area">Area (sq ft) *</label>
                   <input
                     id="area"
-                    className="custom-select"
+                    className="custom-input"
                     value={formData.area}
                     onChange={(e) =>
                       setFormData({ ...formData, area: e.target.value })
@@ -584,14 +595,18 @@ const handleSubmit = async (e) => {
 
                 <div className="filter-group-other">
                   <label htmlFor="bathrooms">Bathrooms</label>
-                  <input
+                  <select
                     id="bathrooms"
                     className="custom-select"
                     value={formData.bathrooms}
                     onChange={(e) =>
                       setFormData({ ...formData, bathrooms: e.target.value })
                     }
-                  />
+                  >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                
+                  </select>  
                 </div>
               </div>
 
@@ -601,7 +616,7 @@ const handleSubmit = async (e) => {
                   <label htmlFor="monthlyRent">Monthly Rent (₹)</label>
                   <input
                     id="monthlyRent"
-                    className="custom-select"
+                    className="custom-input"
                     value={formData.monthlyRent}
                     onChange={(e) =>
                       setFormData({ ...formData, monthlyRent: e.target.value })
@@ -613,7 +628,7 @@ const handleSubmit = async (e) => {
                   <label htmlFor="securityDeposit">Security Deposit (₹)</label>
                   <input
                     id="securityDeposit"
-                    className="custom-select"
+                    className="custom-input"
                     value={formData.securityDeposit}
                     onChange={(e) =>
                       setFormData({ ...formData, securityDeposit: e.target.value })
@@ -625,7 +640,7 @@ const handleSubmit = async (e) => {
                   <label htmlFor="maintenanceCharge">Maintenance Charge (₹)</label>
                   <input
                     id="maintenanceCharge"
-                    className="custom-select"
+                    className="custom-input"
                     value={formData.maintenanceCharge}
                     onChange={(e) =>
                       setFormData({ ...formData, maintenanceCharge: e.target.value })
@@ -643,7 +658,7 @@ const handleSubmit = async (e) => {
                   <label htmlFor="city">City *</label>
                   <input
                     id="city"
-                    className="custom-select"
+                    className="custom-input"
                     value={formData.city}
                     onChange={(e) =>
                       setFormData({ ...formData, city: e.target.value })
@@ -655,7 +670,7 @@ const handleSubmit = async (e) => {
                   <label htmlFor="locality">Locality *</label>
                   <input
                     id="locality"
-                    className="custom-select"
+                    className="custom-input"
                     value={formData.locality}
                     onChange={(e) =>
                       setFormData({ ...formData, locality: e.target.value })
