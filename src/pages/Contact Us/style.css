@@ -1,0 +1,32 @@
+.contact-page{
+    width: 100%;
+}
+
+
+
+.contact-us-cards-cont{
+    padding-block:10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1220px;
+    margin: 61px auto;
+    justify-content: space-between;
+}
+
+
+.map-container{
+    width: 100%;
+    max-width: 1283px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: auto;
+
+ 
+}
+
+.map-container > img{
+ width: 100%;
+ object-fit: cover;
+
+}
