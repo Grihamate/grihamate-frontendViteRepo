@@ -67,7 +67,6 @@
 
 .contactus-main-form   input{
 width: 100%;   
-max-width: 501px;
 height: 56px;
 opacity: 1;
 border-radius: 8px;
@@ -128,13 +127,33 @@ border: 1px solid var(--Border, #DDE1EB)
 
   .contactus-form {
     width: 100%;
+    max-width: 90%;
   }
 
   .contactus-form-inner img{
     width: 100%;
+    max-width: 90%;
   }
 
-  .contactus-form-cont{
-    padding: 0px;
+
+}
+
+@media (max-width: 1100px) {
+.contactus-form-cont {
+    margin-top:10px;
+
+ }
+.contactus-form {
+    width: 100%;
+    max-width: 100%;
   }
+
+  .contactus-form-inner img{
+    width: 100%;
+    max-width: 100%;
+  }
+
+    .contactus-form {
+        padding: 12px 30px;
+    }
 }

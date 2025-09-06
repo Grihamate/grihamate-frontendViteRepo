@@ -2,8 +2,6 @@
     width: 100%;
 }
 
-
-
 .contact-us-cards-cont{
     padding-block:10px;
     display: flex;
@@ -29,4 +27,35 @@
  width: 100%;
  object-fit: cover;
 
+}
+
+.contact-us-cards-cont{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap:65px;
+}
+
+
+
+.my-wide-card{
+    max-width: 293px !important;
+    width:100% !important;
+    border:1px solid #D9D9D9;
+    border-radius: 12px;
+}
+
+
+.card-heading-custom {
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  color: #000 !important;
+  margin-bottom: 8px !important;
+  text-align: center;
+}
+.card-subheading-custom{
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    color: #808080 !important;
+    text-align: center;
 }

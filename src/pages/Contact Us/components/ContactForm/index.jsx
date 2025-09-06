@@ -99,7 +99,7 @@ const ContactForm = () => {
                          type="text"
                           placeholder="Enter Email"
                           value={email}
-                         onChange={handleEmailChange}
+                          onChange={handleEmailChange}
                           />
                     </div>
 
@@ -129,7 +129,7 @@ const ContactForm = () => {
 
                     <div className="form-button-wrapper" >
                       <button onClick={handleSubmit} disabled={loading}>
-                       {loading ? "Sending..." : "Send message"}
+                       {loading ? "Sending..." : "Submit"}
                     </button>
                      </div>
                    </form>
@@ -144,3 +144,6 @@ const ContactForm = () => {
 
 
 export default ContactForm;
+
+
+

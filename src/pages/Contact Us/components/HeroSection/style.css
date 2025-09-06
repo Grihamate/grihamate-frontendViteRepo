@@ -48,3 +48,31 @@
   margin-top: 39px;
 }
 
+
+
+@media (max-width: 1000px) {
+    .contact-hero-content > h1{
+      font-size: 60px;
+    }
+
+     .contact-hero-content > p{
+      font-size: 16px;
+      font-weight: 400;
+    }
+}
+
+
+
+@media (max-width: 500px) {
+    .contact-hero-content > h1{
+      font-size: 32px;
+      font-weight: 500px;
+    }
+
+     .contact-hero-content > p{
+      font-size: 14px;
+      font-weight: 400;
+      white-space: wrap;
+      margin-top: 10px;
+    }
+}

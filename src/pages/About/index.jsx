@@ -6,14 +6,13 @@ import Card from '../../component/AboutCard';
 import AboutTeam from '../../component/AboutTeam';
 import AboutPreference from '../../component/GrihamatePreference';
 
-
 function About() {
   return (
     <div class='about-container'>
         <AboutHeroSection></AboutHeroSection>
         <AboutGrihamate></AboutGrihamate>
 <div class='card-container'>
-            <Card className="my-wide-card"   headingClassName="card-heading-custom" subheadingClassName="card-subheading-custom"
+            <Card className="my-wide-card" headingClassName="card-heading-custom" subheadingClassName="card-subheading-custom"
  heading="Trust" subheading="Building lasting relationships through reliability and integrity
 " />
         <Card className="my-wide-card"   headingClassName="card-heading-custom" subheadingClassName="card-subheading-custom"
