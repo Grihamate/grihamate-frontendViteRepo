@@ -15,6 +15,7 @@
     max-width: 1003px;
     width: 100%;
     margin: auto;
+    margin-bottom: 39px;
 }
 
 
@@ -41,6 +42,7 @@
 .team-card {
   width: 555px;   /* fixed width */
   max-width: 555px;
+  padding-top: 16px;
 }
 
 .team-card-heading {
@@ -48,11 +50,13 @@
   font-weight: 600;
   margin-top: 12px;
   color: #222;
+  text-align: center;
 }
 
 .team-card-subheading {
   font-size: 16px;
   color: #666;
+  text-align: center;
 }
 
 /* Responsive: stack cards on small screens */

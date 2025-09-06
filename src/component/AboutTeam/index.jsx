@@ -1,6 +1,17 @@
 import React from 'react'
 import './style.css'
 import Card from '../AboutCard'
+import poojaimg from '../../assets/poojaimg.jpeg'
+import pranjalimg from '../../assets/Pranjalimg.jpeg'
+import chandanimg from '../../assets/chandanimg.png';
+import varunimg from '../../assets/varunimg.jpg';
+import shlipiimg from '../../assets/shlipiimg.jpeg';
+import ankushimg from '../../assets/ankushimg.jpeg';
+import Adityaimg from '../../assets/Adityaimg.jpeg';
+import salesimg from '../../assets/salesimg.jpeg';
+import vinitimg from '../../assets/vinitimg.jpeg';
+
+
 
 function AboutTeam() {
   return (
@@ -12,44 +23,159 @@ function AboutTeam() {
       </p>
 
       <div className="team-grid">
+   
+           <Card
+  image={Adityaimg}
+  heading="Aditya Mishra"
+  headingClassName="team-card-heading"
+  subheading="Founder"
+  subheadingClassName="team-card-subheading"
+  className="team-card"
+  circle={false}   // disable the small icon circle
+  imageStyle={{
+    width: "159px",
+    height: "159px",
+    borderRadius: "50%",   // makes it circular
+    objectFit: "cover",
+    objectPosition:'top',
+      margin:"auto"
+  }}
+/>
         <Card
-        //   image={team1}
-          heading="Radhika Mehra"
-          headingClassName="team-card-heading"
-          subheading="Specializes in early childhood behavioral development with 15+ years of experience.
-"
-          subheadingClassName="team-card-subheading"
-          className="team-card"
-           subheading2="15+ years of professional experience"
-        />
+  image={poojaimg}
+  heading="Pooja Prajapati"
+  headingClassName="team-card-heading"
+  subheading="Ui/Ux designer."
+  subheadingClassName="team-card-subheading"
+  className="team-card"
+  circle={false}   // disable the small icon circle
+  imageStyle={{
+    width: "159px",
+    height: "159px",
+    borderRadius: "50%",   // makes it circular
+    objectFit: "cover",
+    margin:"auto"
+  }}
+/>
         <Card
-        //   image={team2}
-          heading="David Lee"
-          headingClassName="team-card-heading"
-          subheading="Former Head of Education at Mumbai University. Expert in preschool pedagogy.
-"
-                    
-          subheadingClassName="team-card-subheading"
-          className="team-card"
-        />
+  image={pranjalimg}
+  heading="Pranjal Takkar"
+  headingClassName="team-card-heading"
+  subheading="Frontend Developer."
+  subheadingClassName="team-card-subheading"
+  className="team-card"
+  circle={false}   // disable the small icon circle
+  imageStyle={{
+    width: "159px",
+    height: "159px",
+    borderRadius: "50%",   // makes it circular
+    objectFit: "cover",
+      margin:"auto"
+  }}
+/>
+
+      
+            <Card
+  image={shlipiimg}
+  heading="Shilpi Kumari"
+  headingClassName="team-card-heading"
+  subheading="Backend Developer."
+  subheadingClassName="team-card-subheading"
+  className="team-card"
+  circle={false}   // disable the small icon circle
+  imageStyle={{
+    width: "159px",
+    height: "159px",
+    borderRadius: "50%",   // makes it circular
+    objectFit: "cover",
+      margin:"auto"
+  }}
+/>
+              <Card
+  image={varunimg}
+  heading="Varun Kumar"
+  headingClassName="team-card-heading"
+  subheading="Backend Developer."
+  subheadingClassName="team-card-subheading"
+  className="team-card"
+  circle={false}   // disable the small icon circle
+  imageStyle={{
+    width: "159px",
+    height: "159px",
+    borderRadius: "50%",   // makes it circular
+    objectFit: "cover",
+      margin:"auto"
+  }}
+/>
         <Card
-        //   image={team3}
-          heading="Neha Kapoor"
-          headingClassName="team-card-heading"
-          subheading="Leading pediatric consultant ensuring our programs align with child health milestones.
-"
-          subheadingClassName="team-card-subheading"
-          className="team-card"
-        />
+  image={chandanimg}
+  heading="Chandan Singh"
+  headingClassName="team-card-heading"
+  subheading="Backend Developer."
+  subheadingClassName="team-card-subheading"
+  className="team-card"
+  circle={false}   // disable the small icon circle
+  imageStyle={{
+    width: "159px",
+    height: "159px",
+    borderRadius: "50%",   // makes it circular
+    objectFit: "cover",
+    objectPosition:'top',
+      margin:"auto"
+  }}
+/>
         <Card
-        //   image={team4}
-          heading="Alice Johnson"
-          headingClassName="team-card-heading"
-          subheading="Designs healthy meal recommendations and promotes early-age nutrition.
-"
-          subheadingClassName="team-card-subheading"
-          className="team-card"
-        />
+  image={ankushimg}
+  heading="Ankush"
+  headingClassName="team-card-heading"
+  subheading="Frontend Developer."
+  subheadingClassName="team-card-subheading"
+  className="team-card"
+  circle={false}   // disable the small icon circle
+  imageStyle={{
+    width: "159px",
+    height: "159px",
+    borderRadius: "50%",   // makes it circular
+    objectFit: "cover",
+    objectPosition:'top',
+      margin:"auto"
+  }}
+/>
+
+        <Card
+  image={salesimg}
+  heading="Sonia Choudhary"
+  headingClassName="team-card-heading"
+  subheading="Sales Head."
+  subheadingClassName="team-card-subheading"
+  className="team-card"
+  circle={false}   // disable the small icon circle
+  imageStyle={{
+    width: "159px",
+    height: "159px",
+    borderRadius: "50%",   // makes it circular
+    objectFit: "cover",
+    objectPosition:'top',
+      margin:"auto"
+  }}
+/>
+        <Card
+  image={vinitimg}
+  heading="Vinit Tyagi"
+  headingClassName="team-card-heading"
+  subheading="Marketing Team Head."
+  subheadingClassName="team-card-subheading"
+  className="team-card"
+  circle={false}   // disable the small icon circle
+  imageStyle={{
+    width: "159px",
+    height: "159px",
+    borderRadius: "50%",   // makes it circular
+    objectFit: "cover",
+    objectPosition:'top',
+      margin:"auto"
+  }}
+/>
       </div>
     </div>
   )

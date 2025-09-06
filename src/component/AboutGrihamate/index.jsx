@@ -1,9 +1,9 @@
 import React from 'react'
 import './style.css'
 
-function AboutGrihamate() {
+function  AboutGrihamate() {
   return (
-    <div class='container'>
+    <div class='container' >
         <h2 class='heading'>About Grihamate</h2>
         <article class='para'>
            <p > Founded with a vision to revolutionize the real estate industry, Grihamate has grown from a small startup to a trusted name in property solutions. We understand that finding the perfect property is more than just a transaction – it's about finding a home, building wealth, and securing your future.</p>

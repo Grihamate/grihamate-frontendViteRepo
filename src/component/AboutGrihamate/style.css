@@ -1,6 +1,11 @@
 .container{
     margin-top: 72px;
     width: 100%;
+    max-width: 1326px;
+    margin:auto;
+    padding-left: 16px;
+        padding-right: 16px;
+
 }
 .heading{
     text-align: center;
@@ -8,12 +13,14 @@
     font-size: 42px;
     color: #333333;
     margin-bottom: 24px !important;
+    margin-top: 72px;
 }
 .para{
     font-size: 24px;
     color: #121212;
     font-weight: 400;
     line-height: 140%;
+    margin-bottom: 68px;
 
 }
 .para p{

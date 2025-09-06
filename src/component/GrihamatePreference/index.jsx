@@ -1,6 +1,10 @@
 import React from 'react'
 import './style.css'
 import CustomCard from './CustomCard'
+import projectmanagement from '../../assets/projectmanagement.png'
+import team from '../../assets/team.png'
+import renting from '../../assets/renting.png'
+import verified from '../../assets/verified.png'
 
 function AboutPreference() {
   return (
@@ -9,30 +13,35 @@ function AboutPreference() {
         <p class='para1'>Experience the difference with our comprehensive real estate solutions designed to exceed your expectations at every step.
 
 </p>
-    <div style={{ display: "flex", gap: "20px" }}>
+    <div style={{ display: "flex", gap: "20px" ,marginBottom:"82px" }}>
       <CustomCard
-        // image={sampleImage}
-        heading="Child Development"
-        description="We specialize in holistic early childhood growth and learning."
-        button="Learn More"
+        image={projectmanagement}
+        heading="Property Management"
+        description="Comprehensive property management solutions including maintenance, tenant screening, and rent collection.
+
+"
+        button="Find a rent"
       />
       <CustomCard
-        // image={sampleImage}
-        heading="Nutrition Programs"
-        description="Healthy meal plans designed for young learners."
-        button="Get Started"
+        image={team}
+        heading="Tennant Support"
+        description="24/7 tenant support services ensuring smooth communication and quick resolution of concerns.
+
+"
+        button="Find a rent"
       />
          <CustomCard
-        // image={sampleImage}
-        heading="Nutrition Programs"
-        description="Healthy meal plans designed for young learners."
-        button="Get Started"
+        image={renting}
+    heading="Hassle-Free Renting"
+        description="Streamlined rental processes with digital documentation and transparent agreement procedures.
+."
+        button="Find a rent"
       />
          <CustomCard
-        // image={sampleImage}
-        heading="Nutrition Programs"
-        description="Healthy meal plans designed for young learners."
-        button="Get Started"
+        image={verified}
+        heading="Verified Listings"
+        description="All Properties undergo rigorous verification ensuring authencity and legal compliance."
+        button="Find a rent"
       />
     </div>
 

@@ -4,7 +4,7 @@ import "./CustomCard.css";
 function CustomCard({ image, heading, description, button }) {
   return (
     <div className="custom-card">
-      {image && <img src={image} alt={heading} className="custom-card-image" />}
+      {image && <img src={image} alt={heading} className="custom-card-image"  />}
       <h3 className="custom-card-heading">{heading}</h3>
       <p className="custom-card-description">{description}</p>
       {button && (
