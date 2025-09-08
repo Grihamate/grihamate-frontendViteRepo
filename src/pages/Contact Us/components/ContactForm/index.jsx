@@ -108,14 +108,14 @@ const ContactForm = () => {
                     <div className="contactus-input-group">
                         <label for="phone">Phone</label>
                         <input id="phone"
-                        name="phoneNo" 
-                        pattern="\d{10}"
-                         maxlength="10"
+                          name="phoneNo" 
+                          pattern="\d{10}"
+                          maxlength="10"
                           minlength="10"
-                           placeholder="Enter Your Number"
-                             value={phone}
-            onChange={handlePhoneChange}
-                           />
+                          placeholder="Enter Your Number"
+                          value={phone}
+                          onChange={handlePhoneChange}
+                        />
                     </div>
                     <div className="contactus-textarea-group">
                         <label for="message">Message</label>
@@ -123,7 +123,7 @@ const ContactForm = () => {
                         type="text" 
                         placeholder="Write Mesage"
                           value={message}
-            onChange={(e) => setMessage(e.target.value)}
+                        onChange={(e) => setMessage(e.target.value)}
                         />
                     </div>
 

@@ -126,7 +126,7 @@ function AboutTeam() {
 />
         <Card
   image={ankushimg}
-  heading="Ankush"
+  heading="Ankush Shekhawat"
   headingClassName="team-card-heading"
   subheading="Frontend Developer."
   subheadingClassName="team-card-subheading"
