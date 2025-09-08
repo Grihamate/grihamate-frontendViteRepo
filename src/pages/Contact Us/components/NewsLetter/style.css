@@ -1,0 +1,119 @@
+.news-container{
+    width: 100%;
+    max-width: 1170px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 53px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+   
+}
+
+
+.newsletter-content{
+    width: 100%;
+    position: absolute;  
+    left: 0;              
+    top: 50%;        
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    max-width: 780px;
+    background: #0144CA;
+    padding-inline: 27px;
+    padding-top: 45px;
+    padding-bottom: 74px;
+    gap: 32px;
+    border-radius: 12px;
+    z-index: 2;
+}
+
+
+
+.news-container > img{
+    max-width: 494px;
+    height: 411px;
+    object-fit: cover;
+    border-radius:24px;
+    z-index: 1;
+      width: 100%; 
+}
+
+
+
+.newsletter-content > h2{
+   font-weight: 600;
+   font-size: 32px;
+   color: #fff;
+}
+
+
+.newsletter-content > p{
+    font-weight: 400;
+    font-size: 20px;
+    /* white-space: nowrap; */
+    color: #fff;
+}
+
+.newsletter-content > form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 39px;
+    flex-wrap:wrap;
+}
+
+
+.newsletter-content  input{
+    width: 100%;
+    max-width: 507px;
+    border-radius: 4px;
+    padding: 18px  16px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+    background-color: #fff;
+    box-shadow: 0px 8px 20px 0px #00000014;
+
+}
+
+.newsletter-content  button{
+    font-size: 16px;
+    font-weight: 600;
+    padding: 18px 25px;
+    background-color: #000;
+    border-radius: 4px;
+    color: white;
+    white-space: no-wrap;
+}
+
+
+
+@media (max-width: 1100px){
+   
+    .news-container{
+        position: static;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .newsletter-content{
+    position: static;   /* absolute hat gaya */
+    transform: none;
+
+    }
+
+    .newsletter-content > p {
+        white-space: wrap;
+    }
+
+    .newsletter-content  button{
+    font-weight: 400;
+    padding: 10px 15px;
+    white-space: nowrap;
+   
+  }
+}
