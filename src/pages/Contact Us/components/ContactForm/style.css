@@ -123,6 +123,8 @@ border: 1px solid var(--Border, #DDE1EB)
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      gap: 40px;
+   
   }
 
   .contactus-form {
@@ -133,6 +135,7 @@ border: 1px solid var(--Border, #DDE1EB)
   .contactus-form-inner img{
     width: 100%;
     max-width: 90%;
+    margin-block: 0px;
   }
 
 

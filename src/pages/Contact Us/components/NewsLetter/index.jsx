@@ -55,7 +55,7 @@ const NewsLetter = () => {
             
             <div class="newsletter-content">
                 <h2>Subscribe Our Newsletter</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam</p>
+                <p>Stay updated with the latest property listings, market trends & investment tips</p>
                 
                 <form class="newsletter-form"  onSubmit={handleSubmit}>
                       
@@ -67,7 +67,9 @@ const NewsLetter = () => {
                     />
                     <button type="submit" > {loading ? "Sending..." : "Subscribe Now"}</button>
                 </form>
-                {emailError && <p style={{ color: "red", fontSize: "12px" }}>{emailError}</p>} {/* show error */}
+                {email && emailError.trim().length > 0 && (
+                    <p style={{ color: "red", fontSize: "12px" }}>{emailError}</p>
+                  )}
             </div>
 
 

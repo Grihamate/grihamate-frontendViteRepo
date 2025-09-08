@@ -54,7 +54,7 @@
 .newsletter-content > p{
     font-weight: 400;
     font-size: 20px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     color: #fff;
 }
 
@@ -68,9 +68,13 @@
 
 
 .newsletter-content  input{
-    width: 507px;
+    width: 100%;
+    max-width: 507px;
     border-radius: 4px;
     padding: 18px  16px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
     background-color: #fff;
     box-shadow: 0px 8px 20px 0px #00000014;
 
@@ -105,4 +109,11 @@
     .newsletter-content > p {
         white-space: wrap;
     }
+
+    .newsletter-content  button{
+    font-weight: 400;
+    padding: 10px 15px;
+    white-space: nowrap;
+   
+  }
 }

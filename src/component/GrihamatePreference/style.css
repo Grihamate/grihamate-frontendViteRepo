@@ -1,11 +1,13 @@
 .container-main {
   width: 100%;
+  margin-top: 82px;
 }
 .header1 {
   font-weight: 700;
   font-size: 40px;
   color: #100e2c;
   text-align: center;
+  margin-bottom: 24px;
 }
 .para1 {
   max-width: 550px;
@@ -14,4 +16,5 @@
   margin: auto;
   width: 100%;
   text-align: center;
+  margin-bottom: 37px;
 }

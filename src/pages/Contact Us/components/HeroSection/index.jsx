@@ -7,7 +7,7 @@ const HeroSection = () => {
            <img src={heroImg}/>
              <div className="contact-hero-content">
                 <h1>Let's Connect</h1>
-                <p>Find your perfect home or investment opportunity</p>        
+                <p>Your dream home is just a conversation away</p>        
             </div>
 
         </div>

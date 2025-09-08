@@ -18,32 +18,36 @@ const ContactUs = () => {
            <div className="contact-us-cards-cont">
                  <Card 
                     className="my-contactus-card"
-                    image={callIcon}
-                    imageStyle={{width:"32px", height: "32px"}}
                     headingClassName="card-contactus-heading-custom" 
                     subheadingClassName="card-contactus-subheading-custom"
                     heading="Contact Phone Number"
                     subheading="+91 7011769523" 
+                    image={callIcon}
+                    circleColor="white"
+                     imageStyle={{ width: "32px", height: "32px" }}
                 />
 
                  <Card 
                     className="my-contactus-card"
-                    image={emailIcon}
-                    imageStyle={{width:"32px", height: "32px"}}
                     headingClassName="card-contactus-heading-custom" 
                     subheadingClassName="card-contactus-subheading-custom"
                     heading="Our Email address"
                     subheading="Grihamateoffical@gmail.com" 
+                    image={emailIcon}
+                    circleColor="white"
+                     imageStyle={{ width: "32px", height: "32px" }}
                  />
 
                  <Card 
                     className="my-contactus-card"
-                    image={locationIcon}
-                    imageStyle={{width:"32px", height: "32px"}}
+            
                     headingClassName="card-contactus-heading-custom" 
                     subheadingClassName="card-contactus-subheading-custom"
                     heading="Our Location"
-                    subheading="xzy" 
+                    subheading="Noida, Uttar Pradesh" 
+                     image={locationIcon}
+                    circleColor="white"
+                    imageStyle={{ width: "32px", height: "32px" }}
                  />
            </div>
            <div className="map-container">

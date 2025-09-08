@@ -14,11 +14,15 @@
   transform: translateY(-5px);
 }
 
+/* 🔹 Fix: image always 64x64 */
 .custom-card-image {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;   /* keep aspect ratio */
   margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;    /* center horizontally */
 }
 
 .custom-card-heading {
