@@ -8,111 +8,82 @@ import "./style.css";
 
 
 const AddPropertyModal = ({ setIsModalOpen }) => {
-   const [formData, setFormData] = useState({
-    propertyType: "Apartment",
-    listingType: "For Rent",
-    propertyTitle: "eg. spacious 2BHK in Delhi",
-    furnishingStatus: "Fully Furnished", // Default
-    bhkType: "2BHK", // Default
-    area: "950", // Default
-    bathrooms: "2", // Default
-    city: "Delhi", // Default
-    locality: "Connaught Place", // Default
-    description: "",
-    contactName: "Owner Name", // Default
-    phoneNumber: "9898989898", // Default
-    email: "pranjaltakkar0@gmail.com", // Default
-    images: [],
-    monthlyRent: "25000", // Default
-    securityDeposit: "5000", // Default
-    maintenanceCharge: "5000", // Default
-  });
-const handleSubmit = async (e) => {
-  e.preventDefault();
+        const [formData, setFormData] = useState({
+              propertyType: "Apartment",
+              listingType: "For Rent",
+              propertyTitle: "",
+              furnishingStatus: "",
+              bhkType: "",
+              area: "",
+              bathrooms: "",
+              city: "",
+              locality: "",
+              description: "",
+              contactName: "",
+              phoneNumber: "",
+              email: "",
+              images: [],
+              monthlyRent: "",
+              securityDeposit: "",
+              maintenanceCharge: "",
+      });
 
-  // Check if any required fields are missing or empty
-  const missingFields = [];
+        useEffect(() => {
+          document.body.classList.add("modal-open");
+          return () => {
+            document.body.classList.remove("modal-open");
+          };
+        }, []);
 
-  // Check required fields in basicDetails
-  if (!formData.propertyTitle) missingFields.push('Property Title');
-  if (!formData.area) missingFields.push('Area');
-  if (!formData.bhkType) missingFields.push('BHK/Type');
-  if (!formData.monthlyRent) missingFields.push('Monthly Rent');
-  if (!formData.securityDeposit) missingFields.push('Security Deposit');
-  if (!formData.maintenanceCharge) missingFields.push('Maintenance Charge');
-  
-  // Check required fields in contactInfo
-  if (!formData.contactName) missingFields.push('Owner Name');
-  if (!formData.phoneNumber) missingFields.push('Phone Number');
-  if (!formData.email) missingFields.push('Email Address');
-  
-  // Check required fields in location
-  if (!formData.city) missingFields.push('City');
-  if (!formData.locality) missingFields.push('Locality');
-  
-  // If there are missing fields, log and stop submission
-  if (missingFields.length > 0) {
-    console.error("Missing required fields:", missingFields);
-    alert(`Please fill in the following fields: ${missingFields.join(", ")}`);
-    return; // Prevent submission if fields are missing
+  const handleSubmit = async (e) => {
+            e.preventDefault();
+
+            // ✅ Only check if token exists
+            const token = localStorage.getItem("token");
+            if (!token) {
+              toast.error("Please login first to post the property!", {
+                position: "top-center",
+                autoClose: 2000,
+              });
+              setTimeout(() => {
+                window.location.href = "/login";
+              }, 2000);
+              return;
+            }
+
+          // Validate required fields
+          const missingFields = [];
+          if (!formData.propertyTitle) missingFields.push("Property Title");
+          if (!formData.area) missingFields.push("Area");
+          if (!formData.bhkType) missingFields.push("BHK/Type");
+          if (!formData.monthlyRent) missingFields.push("Monthly Rent");
+          if (!formData.securityDeposit) missingFields.push("Security Deposit");
+          if (!formData.maintenanceCharge) missingFields.push("Maintenance Charge");
+          if (!formData.contactName) missingFields.push("Owner Name");
+          if (!formData.phoneNumber) missingFields.push("Phone Number");
+          if (!formData.email) missingFields.push("Email Address");
+          if (!formData.city) missingFields.push("City");
+          if (!formData.locality) missingFields.push("Locality");
+
+          if (missingFields.length > 0) {
+            toast.warning(`Please fill in the following fields: ${missingFields.join(", ")}`, {
+              position: "top-center",
+              autoClose: 3000,
+            });
+            return;
+          }
+
+          // Phone number validation
+          const phoneRegex = /^\d{10}$/;
+          if (!phoneRegex.test(formData.phoneNumber)) {
+            toast.error("Phone number must be 10 digits!", {
+              position: "top-center",
+              autoClose: 3000,
+            });
+            return;
+          
+          }
   }
-
-  // Preparing FormData to send to the backend (including images)
-  const formDataToSend = new FormData();
-
-  formDataToSend.append('propertyType', formData.propertyType);
-  formDataToSend.append('listingType', formData.listingType);
-  formDataToSend.append('title', formData.propertyTitle);
-  formDataToSend.append('area', formData.area);
-  formDataToSend.append('bhkType', formData.bhkType);
-  formDataToSend.append('bathrooms', formData.bathrooms);
-  formDataToSend.append('furnishingStatus', formData.furnishingStatus);
-  formDataToSend.append('monthlyRent', formData.monthlyRent);
-  formDataToSend.append('securityDeposit', formData.securityDeposit);
-  formDataToSend.append('maintenanceCharges', formData.maintenanceCharge);
-  formDataToSend.append('city', formData.city);
-  formDataToSend.append('locality', formData.locality);
-  formDataToSend.append('fullAddress', formData.fullAddress || "");
-  formDataToSend.append('description', formData.description);
-  formDataToSend.append('owner', formData.contactName);
-  formDataToSend.append('phone', formData.phoneNumber);
-  formDataToSend.append('email', formData.email);
-
-  // Handle images
-  if (formData.images && formData.images.length > 0) {
-    formData.images.forEach((image, index) => {
-      if (typeof image === "string") {
-        // If the image is a URL, append it to the form data
-        formDataToSend.append('images[]', image);
-      } else {
-        // If it's a file (from an image upload), append the file
-        formDataToSend.append('images[]', image);
-      }
-    });
-  }
-
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/property/add`, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${localStorage.getItem("token")}`,
-      },
-      body: formDataToSend, // Send as FormData to handle files
-    });
-
-    const data = await response.json();
-    if (response.ok) {
-      console.log("Property added successfully:", data);
-      setIsModalOpen(false); // Close modal
-    } else {
-      console.error("Failed to add property:", data);
-      alert(data.message || "Error adding property");
-    }
-  } catch (error) {
-    console.error("Error adding property:", error);
-    alert("Something went wrong. Please try again.");
-  }
-};
 
   return (
     <div className="modal-container" onClick={(e) => e.stopPropagation()}>
@@ -191,7 +162,7 @@ const handleSubmit = async (e) => {
                         <label htmlFor="furnishingStatus">Furnishing Status</label>
                         <select
                           id="furnishingStatus"
-                          className="custom-dropdown"
+                          className="custom-input"
                           value={formData.furnishingStatus}
                           onChange={(e) =>
                             setFormData({ ...formData, furnishingStatus: e.target.value })
@@ -421,6 +392,6 @@ const handleSubmit = async (e) => {
     </div>
    
   )
-};
+}
 
 export default AddPropertyModal;
