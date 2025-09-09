@@ -32,11 +32,10 @@ const FeaturedProperties = ({ filters }) => {
   };
 
   useEffect(() => {
-    fetchProperties(filters); // fetch on mount & when filters change
+    fetchProperties(filters); 
   }, [filters]);
 
-  if (loading) return <Loader/>;
-  if (error) return <p>{error}</p>;
+
 
     
   return (
@@ -49,26 +48,42 @@ const FeaturedProperties = ({ filters }) => {
                 <p>Discover the best properties handpicked for you</p>
               </div>
 
-                <button className="feature-btn">
+                 <button className="feature-btn" onClick={() => setIsAddPropertyModalOpen(true)}>
                    <img src={plusIcon} alt="plus" /> 
                    <p>Post your Property</p>
                  </button>
             </div>
            </div>
-          
-
-            <div className="cards-container">
-              { currentProperties.map((property) => (
-                    <PropertyCard id={property.id} property={property}/>
-                ))
-              }
+          {
+            loading ? <div className="loader-wrapper">
+              <Loader/>
+            </div> : (
+              <>
                 
-            </div>
+                {error && (
+                  <div className="error-message">{error}</div>
+                )}
+                  
+                {!error && currentProperties.length === 0 ? (
+                    <div className="no-data">No properties available</div>
+                  ):(
+                  <div className="cards-container">
+                      { currentProperties.map((property) => (
+                            <PropertyCard id={property._id} property={property}/>
+                        ))
+                      }
+                        
+                    </div>
+                  )
+                }             
+              </>
+            )
+          }
     
       </div>
 
 
-       {totalPages > 1 && (
+       {totalPages > 1 &&  !loading && !error &&  (
          <div>
              <div className="pagination">
           <button
@@ -115,3 +130,6 @@ const FeaturedProperties = ({ filters }) => {
 };
 
 export default FeaturedProperties;
+
+
+

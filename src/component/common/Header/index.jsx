@@ -409,8 +409,18 @@ const Header = () => {
         </div>
       )}
 
-      {isAddPropertyModalOpen && <AddPropertyModal setIsModalOpen={setIsAddPropertyModalOpen} />}
-
+    {isAddPropertyModalOpen && (
+        <div
+          className="modal-backdrop"
+          onClick={() => setIsAddPropertyModalOpen(false)}  // backdrop click → close
+          >
+      
+            <AddPropertyModal setIsModalOpen={setIsAddPropertyModalOpen} />
+        
+        </div>
+        )
+      }
+      
       {isConfirmDeleteModalOpen && (
         <ConfirmationModal
           isOpen={isConfirmDeleteModalOpen}

@@ -1,6 +1,8 @@
-.search-filter{
+
+ .search-filter{
   max-width: 1278px;
   padding: 1.5rem;
+  margin-bottom: 94px;
   border-radius: 12px;
   background-color: #FFFFFF;
   display: flex;
@@ -13,7 +15,7 @@
 
 .filter-container {
   display: grid;
-  grid-template-columns: repeat(6, minmax(160px, 1fr));
+  grid-template-columns: repeat(5, minmax(160px, 1fr));
   gap: 26px;
 }
 
@@ -31,11 +33,11 @@ display: flex;
 align-items: center;
 justify-content: center;
 font-family: "Poppins";
-font-weight: 400;
+font-weight: 400!important;;
 font-style: "Regular";
 color:#000000;
 line-height: 1.2rem;
-font-size: 16px;
+font-size: 16px !important;
 }
 
 
@@ -43,7 +45,7 @@ font-size: 16px;
 .search-filter select {
   width: 100%;
   font-weight: 400;
-padding: 8px 32px 8px 8px; /* top right bottom left */
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 16px;
