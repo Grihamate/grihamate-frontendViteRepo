@@ -299,11 +299,23 @@ font-weight: 500;
   height: 56px;
   color: white;
   background-color:  #3749A6;
-  border: 1px solid #727A90;
+  border: 1px solid hsl(224, 12%, 51%);
   border-radius: 10px;
   font-weight: 600;
   font-size: 14px;
 }
 
+
+@media (max-width : 1000px) {
+
+  .cancel-btn, .add-property-btn{
+    font-weight: 500!important;
+    width: 120px !important;;
+    height: 40px !important;
+    margin-right: 10px;
+    border-radius: 10px;
+  }
+  
+}
 
 

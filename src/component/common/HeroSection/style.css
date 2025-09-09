@@ -51,8 +51,6 @@
 
 .hero-content h1 {
   color: #fff;
-  /* font-family: "Poppins"; */
-    font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 72px;
   margin-top: 162px;
@@ -70,7 +68,7 @@
 
 
   .hero-content > h1 {
-     font-size: 35px;
+     font-size: 35px!important;
   }
 
   .hero-content > p {
@@ -89,31 +87,19 @@
 }
 
 
-@media  (max-width:660px) {
-
-
-  .hero-content > h1 {
-     font-size: 40px;
-  }
-
-  .hero-content > p {
-    font-size: 16px;
-  }
-}
-
-
 @media  (max-width:650px) {
 
 
-  .hero-content > h1 {
+  .hero-content  h1 {
      width: 80%;
-     font-size: 30px;
-     font-weight: 500;
+     font-size: 25px!important;
+     font-weight: 800!important;
   }
 
-  .hero-content > p {
+  .hero-content  p {
     width: 80%;
-    font-size: 14px;
+    font-size: 14px !important;;
+    font-weight: 400 !important;;
   }
 
 
