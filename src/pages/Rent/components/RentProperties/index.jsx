@@ -355,7 +355,7 @@ const RentProperties = () => {
           <>
             <div className="filters-card-conatiner">
               {currentProperties.map((property) => (
-                <PropertyCard key={property.id} property={property} />
+                <PropertyCard key={property._id} property={property} />
               ))}
             </div>
 
