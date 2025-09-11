@@ -155,7 +155,7 @@ font-weight: 500;
   justify-content: space-between;
   width: 100%;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 62px;
 }
 
 .filter-group {
@@ -306,7 +306,7 @@ font-weight: 500;
 }
 
 
-@media (max-width : 1000px) {
+@media (max-width : 1100px) {
 
   .cancel-btn, .add-property-btn{
     font-weight: 500!important;
@@ -314,6 +314,14 @@ font-weight: 500;
     height: 40px !important;
     margin-right: 10px;
     border-radius: 10px;
+  }
+
+  .basic-filter{
+    gap: 20px;
+  }
+  
+  .form-group{
+    gap: 40px;
   }
   
 }
