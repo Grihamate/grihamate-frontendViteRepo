@@ -1,0 +1,40 @@
+/* Outer wrapper */
+.about-picture {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Full-width responsive image */
+.about-picture-img {
+  width: 100%;
+  height: 500px;        /* fixed hero height, adjust as needed */
+  object-fit: cover;
+  display: block;
+}
+
+/* Text overlay */
+.hero-content {
+  position: absolute;
+  top: 50%;                 /* center vertically */
+  left: 50%;                /* center horizontally */
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 1;
+}
+
+/* Heading */
+.hero-content h1 {
+  font-weight: 600;
+  font-size: 96px;          /* as you asked */
+  margin-bottom: 0.5rem;
+}
+
+/* Subtext */
+.hero-content p {
+  font-size: 24px;
+  font-weight: 500;
+}

@@ -1,0 +1,64 @@
+.about-container {
+  max-width: 1326px; /* consistent width */
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: auto;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 19px;
+  margin-bottom: 115px;
+  justify-items: center; /* center cards in their grid cell */
+}
+
+.my-contactus-card {
+  width: 100%;
+  max-width: 321px !important; /* exactly 4 fit in 1326px */
+  background-color: #DCF1FD !important;
+  border-radius: 12px;
+}
+
+.card-contactus-heading-custom {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: #2E0336 !important;
+  margin-bottom: 8px !important;
+  text-align: center;
+}
+
+.card-contactus-subheading-custom {
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  color: #696C74 !important;
+  text-align: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr; /* full width single card on mobile */
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+
+  .my-contactus-card {
+    max-width: 100% !important; /* full width on small screens */
+  }
+
+  .card-contactus-heading-custom {
+    font-size: 20px !important;
+  }
+
+  .card-contactus-subheading-custom {
+    font-size: 16px !important;
+  }
+}

@@ -1,48 +1,41 @@
-.team-container{
-    width: 100%;
-}
-.team-heading{
-    font-weight: 600;
-    font-size: 48px;
-    color: #100E2C;
-    text-align: center;
-}
-.team-para{
-    font-size: 24px;
-    font-weight: 400;
-    color: #000000;
-    text-align: center;
-    max-width: 1003px;
-    width: 100%;
-    margin: auto;
-    margin-bottom: 39px;
+.team-container {
+  width: 100%;
+  padding: 40px 16px; /* spacing inside container */
+  max-width: 1328px;  /* keeps layout centered */
+  margin: auto;
 }
 
+.team-heading {
+  font-weight: 600;
+  font-size: 48px;
+  color: #100E2C;
+  text-align: center;
+  margin-bottom: 16px;
+}
 
+.team-para {
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+}
 
-
-
-
-/* Grid for 2x2 layout */
+/* Grid layout for desktop */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(2, 555px); /* 2 cards per row, each 555px */
-  column-gap: 110px;  /* space between columns */
-  row-gap: 40px;    /* space between rows */
+  grid-template-columns: repeat(2, 555px); /* exactly 2 cards per row */
+  column-gap: 40px;
+  row-gap: 40px;
   justify-content: center; /* center the grid inside container */
 }
 
 .team-card {
   width: 555px;
   max-width: 555px;
-}
-
-
-/* Individual card styles */
-.team-card {
-  width: 555px;   /* fixed width */
-  max-width: 555px;
   padding-top: 16px;
+  text-align: center;
 }
 
 .team-card-heading {
@@ -59,5 +52,38 @@
   text-align: center;
 }
 
-/* Responsive: stack cards on small screens */
+/* Tablet: 2 cards per row but auto-fit width */
+@media (max-width: 1200px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
+  .team-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Mobile: 1 card per row */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-heading {
+    font-size: 32px;
+  }
+
+  .team-para {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .team-card-heading {
+    font-size: 18px;
+  }
+
+  .team-card-subheading {
+    font-size: 14px;
+  }
+}
