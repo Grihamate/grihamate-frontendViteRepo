@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getPropertyById } from "../../service/getPropertybyId";
 import Loader from "../../component/common/Loader";
 import Adityaimg from '../../assets/Adityaimg.jpeg';
-import { Bed, Bath, Car, Ruler, Phone, Mail, Compass, Calendar, Sofa, Star ,MapPin } from "lucide-react";
+import { Bed, Bath, Car, Ruler, Phone, Mail, Compass, Calendar, Sofa, Star ,MapPin ,MessageCircle  } from "lucide-react";
 import "./style.css";
 import { GraduationCap, Stethoscope, Utensils, Theater } from "lucide-react";
 import PropertyCard from "../../component/common/card";
@@ -158,36 +158,23 @@ const PropertyDetailPage = () => {
               </div>
             </div>
 
-            <div className="advisor-card">
-              <h3 className="advisor-heading">Advisor</h3>
-              <div className="advisor-info">
-                <img
-                  src={Adityaimg}
-                  alt="Advisor"
-                  className="advisor-img"
-                />
-                <div className="advisor-text">
-                  <h4 className="advisor-name">Aditya Mishra</h4>
-                  <p className="advisor-email">rahul.sharma@example.com</p>
-                  <div className="advisor-rating">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        size={18}
-                        fill={i < 4 ? "#FFD700" : "none"}
-                        stroke="#FFD700"
-                      />
-                    ))}
-                    <span className="rating-text">4/5</span>
-                  </div>
-                </div>
-              </div>
-              <div className="advisor-contact">
-                <p><Phone size={18} /> +91 9876543210</p>
-                <p><Mail size={18} /> rahul.sharma@example.com</p>
-                <button className="btn-advisor-call">Call Advisor</button>
-              </div>
-            </div>
+     <div className="advisor-card">
+      <h3 className="advisor-heading">Advisor</h3>
+
+      <div className="advisor-contact">
+        {/* Call Advisor button */}
+        <button className="btn-advisor-call">
+          <Phone size={18} className="icon-black" />
+          Call Advisor
+        </button>
+
+        {/* WhatsApp button */}
+        <button className="btn-advisor-whatsapp">
+          <MessageCircle size={18} className="icon-white" />
+          WhatsApp
+        </button>
+      </div>
+    </div>
 
             <div className="schedule-visit-box">
               <h3 className="visit-title">Schedule a Visit</h3>

@@ -2,6 +2,7 @@
 .page-container {
   width: 100%;
   background: #fff; /* background stretches full screen */
+  margin-top:135px
 }
 
 /* Inner container: centered, max 1326px */
@@ -122,7 +123,7 @@
   display: flex;
   gap: 28px;
   max-width: 1326px;
-  max-height: 670px;
+  max-height: 800px;
   height: 100%;
   margin: 0 auto;
     align-items: flex-start;
@@ -708,4 +709,66 @@ display: flex;
 
 }
   
+}
+.advisor-card {
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+
+}
+
+.advisor-heading {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.advisor-contact {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 10px;
+}
+
+.btn-advisor-call,
+.btn-advisor-whatsapp {
+  width: 100%; /* full width */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center text + icon */
+  gap: 8px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+/* Call button */
+.btn-advisor-call {
+  background: #f4f4f4;
+  color: #000;
+}
+
+.btn-advisor-call:hover {
+  background: #e0e0e0;
+}
+
+/* WhatsApp button */
+.btn-advisor-whatsapp {
+  background: #25d366;
+  color: #fff;
+}
+
+.btn-advisor-whatsapp:hover {
+  background: #1ebd5a;
+}
+
+/* Icons */
+.icon-black {
+  color: black;
+}
+
+.icon-white {
+  color: white;
 }
