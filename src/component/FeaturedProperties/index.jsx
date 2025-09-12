@@ -143,8 +143,10 @@ import AddPropertyModal from "../common/AddPropertyForm";
 import Loader from "../../component/common/Loader/index";
 import { Bed, Bath, Car, Ruler } from "lucide-react"; // lucide icons
 import { Phone, Share2, Mail } from "lucide-react"
+import { useNavigate } from "react-router-dom";
 
 const FeaturedProperties = ({ filters }) => {
+    const navigate = useNavigate();
   const propertiesPerPage = 8;
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -418,12 +420,13 @@ const FeaturedProperties = ({ filters }) => {
   </div>
 
   {/* Row 2: View Full Details */}
-  <button
-    className="btn-details"
-    onClick={() => console.log("Full Details:", selectedProperty)}
-  >
-    View Full Details
-  </button>
+<button
+  className="btn-details"
+  onClick={() => navigate(`/property/${selectedProperty._id}`)}
+>
+  View Full Details
+</button>
+
 </div>
 
             </div>

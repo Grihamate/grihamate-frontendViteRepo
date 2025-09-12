@@ -1,0 +1,711 @@
+/* Outer container: full width */
+.page-container {
+  width: 100%;
+  background: #fff; /* background stretches full screen */
+}
+
+/* Inner container: centered, max 1326px */
+.page-inner {
+  max-width: 1326px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  border:'1px solid black'
+}
+.property-amenities {
+  max-width: 768px;
+ border: 1px solid #DEE2E6;
+  border-radius: 12px;
+  margin-top: 32px;
+}
+
+.property-amenities h3 {
+  font-size: 28px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: #100E2C;
+  padding-left: 16px;
+  padding-top: 16px;
+}
+
+/* Grid for amenities */
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 42px; /* row-gap 32px, column-gap 42px */
+}
+
+/* Each amenity item */
+.amenity-item {
+  display: flex;
+  align-items: center;
+
+ 
+  padding: 14px 18px;
+  background: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  gap: 10px;
+  color: #100E2C;
+}
+
+.amenity-icon {
+  font-size: 18px;
+  color: #2a9d8f; /* you can replace with lucide-react icons */
+}
+
+
+/* Description container */
+.property-description {
+  max-width: 786px;
+  border: 1px solid #DEE2E6;
+  border-radius: 12px;
+  padding: 24px 12px 24px 12px;
+
+}
+
+.desc-heading {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 34px;
+  color: #100E2C;
+}
+
+.desc-text {
+  font-size: 16px;
+    font-weight: 400;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 34px;
+}
+
+/* Facts Grid */
+.property-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fact-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f4f8ff;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid #dee2e6;
+  max-width: 180px;
+  flex: 1 1 180px;
+  flex-direction: column;
+}
+
+.fact-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.fact-card p {
+  font-size: 13px;
+  color: #555;
+  margin: 2px 0 0;
+  text-align: center;
+}
+.page-container {
+  width: 100%;
+  background: #fff;
+  padding: 6px;
+}
+
+.property-flex {
+  display: flex;
+  gap: 28px;
+  max-width: 1326px;
+  max-height: 670px;
+  height: 100%;
+  margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* LEFT SIDE */
+.property-images-section {
+  flex: 0 0 60%;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 745px;
+ max-height: 496px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.thumbnail-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 16px;
+}
+
+.thumbnail-image {
+  width: 177px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+/* RIGHT SIDE */
+.property-details-section {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+ 
+  border: 1px solid #DEE2E6;
+  padding: 24px 31px 24px 31px;
+  border-radius: 12px;
+}
+
+.property-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #000;
+;
+}
+
+.property-location {
+  font-size: 18px;
+color: #7A7474;
+font-weight: 400;
+margin-bottom: 10px;
+
+}
+
+.property-price {
+  font-size: 42px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+/* Stats */
+.property-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 20px 0;
+  border-top: 1.1px solid #7A74741A
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column; /* ✅ stack number+icon and label */
+  align-items: center;
+  text-align: center;
+}
+
+.stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* spacing between icon and number */
+}
+
+.stat-item h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.stat-item p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+
+/* Button */
+.btn-contact {
+margin-bottom: 24px;
+  color: #100E2C;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  width: 100% !important;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  transition: background 0.2s ease;
+  background: #FBDB5B;
+
+}
+.btn-sale {
+  display: inline-block;
+  background: #0057FF;
+  border-radius: 6px;
+  padding: 8px 18px;
+  border: none;
+  cursor: default;
+  white-space: nowrap;
+  width: auto !important; 
+  max-width: none !important;
+  margin-bottom: 24px;
+  align-self: flex-start;   /* ✅ keeps it left and prevents stretch */
+}
+
+
+.btn-sale span {
+  font-weight: 600;
+  color: #fff;
+  font-size: 20px;
+}
+
+/* Advisor Card */
+.advisor-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.advisor-heading {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 37px;
+  color: #000;
+}
+
+.advisor-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.advisor-img {
+  width: 119px;
+  height: 119px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.advisor-text {
+  flex: 1;
+  text-align: center;
+}
+
+.advisor-name {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.advisor-email {
+  font-size: 15px;
+  margin: 4px 0;
+  color: #7A7474;
+
+}
+
+.advisor-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+justify-content: center;}
+
+.rating-text {
+  font-size: 14px;
+  color: #333;
+}
+
+.advisor-contact {
+  margin-top: 16px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #7A7474;
+}
+
+.advisor-contact p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.btn-advisor-call {
+  width: 100%;
+  background: #FBDB5B !important;
+  color: #100E2C;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 12px;
+  font-weight: 400;
+  cursor: pointer;
+}
+/* Schedule Visit Box */
+.schedule-visit-box {
+  background: linear-gradient(91.14deg, #CFDFFE -0.08%, #FEE7DF 98.86%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.visit-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.visit-text {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.btn-visit {
+  background: #0057FF;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.btn-visit:hover {
+  background: #0041cc;
+}
+
+
+
+.map-section {
+  margin-top: 23px;
+  border: 1px solid #DEE2E6;
+  border-radius: 8px;
+  max-width: 768px;
+
+  padding: 16px;
+  background: #fff;
+}
+
+.map-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.map-box {
+  background: #EFF5FC;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  flex-direction: column;
+}
+
+.map-icon {
+  color: #0057FF;
+}
+
+.map-info {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.map-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.map-address {
+  font-size: 14px;
+  color: #444;
+  margin-top: 4px;
+  text-align: center;
+}
+.nearby-section {
+  max-width: 856px;
+
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.nearby-heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.nearby-category {
+  margin-bottom: 20px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.category-header h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.category-icon {
+  color: #0057FF;
+}
+
+.category-list .item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+.category-list .item:last-child {
+  border-bottom: none;
+}
+.related-section {
+  width: 100%;
+
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+.related-heading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 25px;
+
+}
+
+.related-listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+ 
+}
+
+/* responsive css  */
+/* ============================= */
+/* 📱 Responsive: below 1224px */
+/* ============================= */
+@media (max-width: 1224px) {
+  /* Flex container stacks vertically */
+  .property-flex {
+    flex-direction: column;
+    gap: 24px;
+    max-height: none; /* remove desktop fixed height */
+  }
+
+  /* Images section full width */
+  .property-images-section {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .main-image {
+    max-width: 100%;
+    height: auto; /* maintain aspect ratio */
+  }
+
+  .thumbnail-row {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+.property-amenities h3 {
+  font-size: 18px;
+
+  font-weight: 600;
+  color: #100E2C;
+  padding-left: 16px;
+  padding-top: 16px;
+}
+  .thumbnail-image {
+    width: calc(50% - 8px); /* 2 per row with gap */
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Right column details full width */
+  .property-right-column {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .property-details-section {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .property-stats {
+    /* justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap; */
+    display: flex;
+    flex-wrap: nowrap;
+ 
+    gap: 0px;
+  }
+
+  .stat-item {
+    width: 48%; /* 2 per row */
+    margin-bottom: 16px;
+  }
+
+  .btn-contact {
+    width: 100%;
+  }
+
+  /* Advisor card & visit box full width */
+  .advisor-card,
+  .schedule-visit-box {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  /* Description */
+  .property-description {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  /* Facts in description stack nicely */
+  .property-facts {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .fact-card {
+    flex: 1 1 48%; /* 2 per row */
+    max-width: 100%;
+  }
+
+  /* Amenities */
+  .property-amenities {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    gap: 20px;
+  }
+
+  /* Map Section */
+  .map-section {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  /* Nearby Section */
+  .nearby-section {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  /* Related Listings */
+  .related-section {
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 30px;
+  }
+
+  .related-listings {
+display: flex;
+  flex-wrap: wrap;  gap: 16px;
+  }
+
+
+  /* General spacing adjustments */
+  .btn-sale {
+    margin-bottom: 16px;
+    display: none;
+  }
+
+  .property-title {
+    font-size: 16px;
+  
+  }
+
+  .property-price {
+    font-size: 24px;
+   
+  }
+
+  .desc-heading {
+    font-size: 24px;
+  }
+
+  .desc-text {
+    font-size: 15px;
+  }
+
+  .advisor-heading {
+    font-size: 24px;
+  }
+
+  .visit-title {
+    font-size: 18px;
+  }
+
+  .visit-text {
+    font-size: 14px;
+  }
+
+  .map-heading,
+  .nearby-heading {
+    font-size: 20px;
+  }
+
+  .related-heading {
+    font-size: 22px;
+  }
+    .property-location {
+    font-size: 16px;
+  }
+  
+
+.stat-item h4 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 500;
+
+}
+.stat-item p {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 500;
+
+}
+  
+}
