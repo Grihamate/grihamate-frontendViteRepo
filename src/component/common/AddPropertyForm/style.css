@@ -243,6 +243,7 @@ font-weight: 500;
   resize: vertical; 
   outline: none;
   transition: all 0.2s ease;
+  resize: none;
 }
 
 /* focus hone par */

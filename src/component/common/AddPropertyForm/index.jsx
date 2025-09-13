@@ -41,6 +41,8 @@ const AddPropertyModal = ({ setIsModalOpen }) => {
     
   });
 
+  
+
   console.log("formData--->", formData);
 
   useEffect(() => {
@@ -99,39 +101,99 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    const propertyData = {
-      propertyType: formData.propertyType,
-      listingType: formData.listingType,
-      title: formData.propertyTitle,
-      area: formData.area,
-      bhkType: formData.bhkType,
-      bathrooms: formData.bathrooms,
-      furnishingStatus: formData.furnishingStatus,
-      monthlyRent: formData.monthlyRent,
-      securityDeposit: formData.securityDeposit,
-      maintenanceCharges: formData.maintenanceCharge,
-      city: formData.city,
-      locality: formData.locality,
-      fullAddress: formData.fullAddress,
-      description: formData.description,
-      owner: formData.contactName,
-      phone: formData.phoneNumber,
-      email: formData.email,
-      images: formData.images,
-      amenities:formData.amenities || [],
-      educationName:formData.educationName,
-      educationDistance:formData.educationDistance,
-      healthName:formData.healthName,
-      healthDistance:formData.healthDistance,
-      foodName:formData.foodName,
-      foodDistance:formData.foodDistance,
-      travelName:formData.travelName,
-      travelDistance:formData.travelDistance,
-      propertyFacing:formData.propertyFacing,
-      propertyAge:formData.propertyAge,
-      floor:formData.floor,
+    // const propertyData = {
+    //   propertyType: formData.propertyType,
+    //   listingType: formData.listingType,
+    //   title: formData.propertyTitle,
+    //   area: formData.area,
+    //   bhkType: formData.bhkType,
+    //   bathrooms: formData.bathrooms,
+    //   furnishingStatus: formData.furnishingStatus,
+    //   monthlyRent: formData.monthlyRent,
+    //   securityDeposit: formData.securityDeposit,
+    //   maintenanceCharges: formData.maintenanceCharge,
+    //   city: formData.city,
+    //   locality: formData.locality,
+    //   fullAddress: formData.fullAddress,
+    //   description: formData.description,
+    //   owner: formData.contactName,
+    //   phone: formData.phoneNumber,
+    //   email: formData.email,
+    //   images: formData.images,
+    //   amenities:formData.amenities || [],
+    //   educationName:formData.educationName,
+    //   educationDistance:formData.educationDistance,
+    //   healthName:formData.healthName,
+    //   healthDistance:formData.healthDistance,
+    //   foodName:formData.foodName,
+    //   foodDistance:formData.foodDistance,
+    //   travelName:formData.travelName,
+    //   travelDistance:formData.travelDistance,
+    //   propertyFacing:formData.propertyFacing,
+    //   propertyAge:formData.propertyAge,
+    //   floor:formData.floor,
        
-    };
+    // };
+
+
+const propertyData = {
+  propertyType: formData.propertyType,
+  listingType: formData.listingType,
+
+  basicDetails: {
+    title: formData.propertyTitle,
+    area: formData.area,
+    bhkType: formData.bhkType,
+    bathrooms: formData.bathrooms,
+    furnishingStatus: formData.furnishingStatus,
+    propertyFacing: formData.propertyFacing,
+    propertyAge: formData.propertyAge,
+    floor: formData.floor,
+  },
+
+  pricing: {
+    monthlyRent: formData.monthlyRent,
+    securityDeposit: formData.securityDeposit,
+    maintenanceCharges: formData.maintenanceCharge,
+  },
+
+  location: {
+    city: formData.city,
+    locality: formData.locality,
+    fullAddress: formData.fullAddress,
+  },
+
+  description: formData.description,
+
+  contactInfo: {
+    owner: formData.contactName,   
+    phone: formData.phoneNumber,
+    email: formData.email,
+  },
+
+  images: formData.images,
+  amenities: formData.amenities || [],
+
+  nearby: {
+    education: {
+      name: formData.educationName,
+      distance: formData.educationDistance,
+    },
+    health: {
+      name: formData.healthName,
+      distance: formData.healthDistance,
+    },
+    food: {
+      name: formData.foodName,
+      distance: formData.foodDistance,
+    },
+    travel: {
+      name: formData.travelName,
+      distance: formData.travelDistance,
+    },
+  },
+}
+
 
       console.log("propertData--->", propertyData);
 
@@ -692,3 +754,10 @@ const handleSubmit = async (e) => {
 }
 
 export default AddPropertyModal;
+
+
+
+
+
+
+
