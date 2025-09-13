@@ -396,3 +396,68 @@ line-height: 1rem;
    }
    
 }
+@media (max-width: 768px) {
+  .rent-properties {
+    display: block; /* Removes flex, stacks children vertically */
+  }
+  .filters-icons-box{
+
+  justify-content: space-between !important;
+
+}
+.filter-sidebar{
+  width: 100%;
+}
+.rent-search-btn{
+  width: 100%;
+}
+
+
+}
+/* By default: show desktop-only, hide mobile-only */
+.desktop-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
+
+/* On mobile: switch visibility */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+}
+/* Default view (desktop) */
+.desktop-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
+
+/* Responsive switch at 768px and below */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+  .mobile-wrapper{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  .filter-section input[type="range"] {
+    width: 100%;
+  }
+
+
+}
+

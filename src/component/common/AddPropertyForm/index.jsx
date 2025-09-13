@@ -122,6 +122,7 @@ const handleSubmit = async (e) => {
   }
 };
 
+
   return (
     <div className="modal-container" onClick={(e) => e.stopPropagation()}>
             {/* Close Button */}
@@ -147,6 +148,7 @@ const handleSubmit = async (e) => {
                             name="propertyType"
                             value={type}
                             checked={formData.propertyType === type}
+                            
                             onChange={(e) =>
                               setFormData({ ...formData, propertyType: e.target.value })
                             }
@@ -360,7 +362,8 @@ const handleSubmit = async (e) => {
                     {/* Images Upload */}
                     <div className="textarea-filter">
                       <label htmlFor="Property Images">Property Images</label>
-                      <ImageUpload />
+                   <ImageUpload onFilesSelected={(files) => setFormData({ ...formData, images: files })} />
+
                     </div>
                   </div>
 
