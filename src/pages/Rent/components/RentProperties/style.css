@@ -80,7 +80,10 @@ color: #100E2C;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 48px;
+    width: 100%;
 }
+
+
 
 .filters-icons-box > select{
 background-color: #FFFFFF;
