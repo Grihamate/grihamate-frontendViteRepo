@@ -70,9 +70,12 @@ const PropertyCard = ({ property }) => {
             <button className="share-btn">
               <img src={contactIcon} alt="share" /> Share
             </button>
-            <button className="contact-btn">
-              <img src={callIcon} alt="contact" /> Contact Now
-            </button>
+<div className="tooltip-wrapper">
+  <a href="tel:7011769523" className="contact-btn">
+    <img src={callIcon} alt="contact" /> Contact Now
+  </a>
+  <span className="tooltip-text">Call 7011769523</span>
+</div>
           </div>
         </div>
       

@@ -80,7 +80,10 @@ color: #100E2C;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 48px;
+    width: 100%;
 }
+
+
 
 .filters-icons-box > select{
 background-color: #FFFFFF;
@@ -396,66 +399,68 @@ line-height: 1rem;
    }
    
 }
-
-
-
-
-/* Mobile view adjustments */
 @media (max-width: 768px) {
   .rent-properties {
-    flex-direction: column; /* sidebar upar, cards neeche */
-    gap: 30px;
+    display: block; /* Removes flex, stacks children vertically */
+  }
+  .filters-icons-box{
+
+  justify-content: space-between !important;
+
+}
+.filter-sidebar{
+  width: 100%;
+}
+.rent-search-btn{
+  width: 100%;
+}
+
+
+}
+/* By default: show desktop-only, hide mobile-only */
+.desktop-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
+
+/* On mobile: switch visibility */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
   }
 
-  .filter-sidebar {
-    width: 100%; /* full width sidebar */
-    order: 1;
-  }
-
-  .cards-section {
-    width: 100%; 
-    order: 2;
-    padding-top: 10px;
-  }
-
-  .filters-card-conatiner {
-    grid-template-columns: 1fr; /* ek row me ek hi card */
-    gap: 24px;
-  }
-
-  .filter-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    height: auto;
-  }
-
-  .cards-tittle {
-    width: 100%;
-  }
-
-  .cards-tittle h1 {
-    font-size: 20px;
-    line-height: 28px;
-  }
-
-  .cards-tittle p {
-    display: none; /* mobile me short kar do */
-  }
-
-  .filters-icons-box {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 12px;
-  }
-
-  .filter-icon-left {
-    width: auto;
-    height: auto;
-  }
-
-  .filter-icon-left img {
-    width: 36px;
-    height: 32px;
+  .mobile-only {
+    display: block !important;
   }
 }
+/* Default view (desktop) */
+.desktop-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
+
+/* Responsive switch at 768px and below */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+  .mobile-wrapper{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  .filter-section input[type="range"] {
+    width: 100%;
+  }
+
+
+}
+

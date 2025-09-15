@@ -14,6 +14,7 @@ import ResetSuccessPage from "./component/ResetSuccessPage";
 import SetPassword from  "./component/SetPassword/index"
 import About from "./pages/About";
 import Contact from "./pages/Contact Us"
+import PropertyDetailPage from "./pages/PropertyDetaillPage";
 
 function App() {
   return (
@@ -40,10 +41,12 @@ function App() {
             <Route path="rent" element={<RentPage />} />
             <Route path="about" element={<About />} /> {/* 👈 new route */}
             <Route path="contact" element={<Contact/>} />
+                <Route path="/property/:id" element={<PropertyDetailPage />} />
           </Route>
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register />} /> {/* 👈 add route */}
           <Route path="/forgotPassword" element={<ForgotPassword/>}/>
+       
           <Route path="/resetPassword" element={<PasswordReset/>}/>
           <Route path="/resetPassword/:token" element={<SetPassword />} />
           <Route path="/resetSuccess" element={<ResetSuccessPage/>}/>

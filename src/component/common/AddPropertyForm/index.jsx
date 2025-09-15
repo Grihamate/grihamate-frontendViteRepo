@@ -214,6 +214,7 @@ const propertyData = {
   }
 };
 
+
   return (
     <div className="modal-container" onClick={(e) => e.stopPropagation()}>
             {/* Close Button */}
@@ -239,6 +240,7 @@ const propertyData = {
                             name="propertyType"
                             value={type}
                             checked={formData.propertyType === type}
+                            
                             onChange={(e) =>
                               setFormData({ ...formData, propertyType: e.target.value })
                             }
@@ -540,7 +542,8 @@ const propertyData = {
                     {/* Images Upload */}
                     <div className="textarea-filter">
                       <label htmlFor="Property Images">Property Images</label>
-                      <ImageUpload />
+                   <ImageUpload onFilesSelected={(files) => setFormData({ ...formData, images: files })} />
+
                     </div>
                   </div>
 
