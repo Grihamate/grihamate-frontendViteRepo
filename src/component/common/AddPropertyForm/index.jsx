@@ -221,7 +221,7 @@ const propertyData = {
           className="close-model" 
           onClick={() => setIsModalOpen(false)}
         >
-          ✕
+          x
         </button>
         <div className="property-form">
           <h2>Add Your Property</h2>

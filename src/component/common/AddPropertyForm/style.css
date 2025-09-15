@@ -46,27 +46,29 @@
 
 
 .close-model {
-  width: 50px;
-  height:50px;
-  font-size: 14px;
+  width: 30px;
+  height:30px;
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: -5px;
+  right: -5px;
   background: transparent;
   border: none;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   color: #333;
   transition: color 0.2s ease-in-out;
-  padding: 5px;
+  padding: 2px;
   border-radius: 50%;
+  background-color: #f0f0f0;
 
 }
 
+
+
 .close-model:hover {
   color: black; /* hover par lal ho jayega */
-  background-color: #f0f0f0;
+  background-color: #e3e2e2;
  
 }
 
@@ -155,7 +157,7 @@ font-weight: 500;
   justify-content: space-between;
   width: 100%;
   flex-wrap: wrap;
-  gap: 62px;
+  gap: 14px;
 }
 
 .filter-group {
@@ -239,11 +241,11 @@ font-weight: 500;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
+  font-family: "Poppins";
   color: #333;
-  resize: vertical; 
+  resize: none; 
   outline: none;
   transition: all 0.2s ease;
-  resize: none;
 }
 
 /* focus hone par */
@@ -307,7 +309,7 @@ font-weight: 500;
 }
 
 
-@media (max-width : 1100px) {
+@media (max-width : 1000px) {
 
   .cancel-btn, .add-property-btn{
     font-weight: 500!important;
@@ -315,14 +317,6 @@ font-weight: 500;
     height: 40px !important;
     margin-right: 10px;
     border-radius: 10px;
-  }
-
-  .basic-filter{
-    gap: 20px;
-  }
-  
-  .form-group{
-    gap: 40px;
   }
   
 }
