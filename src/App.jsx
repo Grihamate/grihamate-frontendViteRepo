@@ -15,6 +15,7 @@ import SetPassword from  "./component/SetPassword/index"
 import About from "./pages/About";
 import Contact from "./pages/Contact Us"
 import PropertyDetailPage from "./pages/PropertyDetaillPage";
+import Sale from "./pages/Sale/index"
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path="rent" element={<RentPage />} />
             <Route path="about" element={<About />} /> {/* 👈 new route */}
             <Route path="contact" element={<Contact/>} />
+            <Route path="sale" element={<Sale/>} />
                 <Route path="/property/:id" element={<PropertyDetailPage />} />
           </Route>
           <Route path="/login" element={<Login/>} />
