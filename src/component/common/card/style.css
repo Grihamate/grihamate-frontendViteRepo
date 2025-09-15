@@ -204,3 +204,39 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+/* Tooltip wrapper */
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+
+
+}
+
+/* Hidden tooltip text */
+.tooltip-text {
+  visibility: hidden;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  position: absolute;
+  bottom: 125%; /* show above button */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 5;
+}
+
+/* Show on hover */
+.tooltip-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+.contact-btn{
+    padding-left: 27px;
+    padding-right: 27px;
+}

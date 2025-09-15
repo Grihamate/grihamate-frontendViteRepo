@@ -163,16 +163,27 @@ const PropertyDetailPage = () => {
 
       <div className="advisor-contact">
         {/* Call Advisor button */}
-        <button className="btn-advisor-call">
-          <Phone size={18} className="icon-black" />
-          Call Advisor
-        </button>
+<div className="tooltip-wrapper">
+  <a href="tel:7011769523" className="btn-advisor-call">
+    <Phone size={18} className="icon-black" />
+    Call Advisor
+  </a>
+  <span className="tooltip-text">Call Advisor at 701176952</span>
+</div>
 
         {/* WhatsApp button */}
-        <button className="btn-advisor-whatsapp">
-          <MessageCircle size={18} className="icon-white" />
-          WhatsApp
-        </button>
+       <div className="tooltip-wrapper">
+  <a
+    href="https://wa.me/7011769523"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="btn-advisor-whatsapp"
+  >
+    <MessageCircle size={18} className="icon-white" />
+    WhatsApp
+  </a>
+  <span className="tooltip-text">Chat on WhatsApp: 7011769523</span>
+</div>
       </div>
     </div>
 

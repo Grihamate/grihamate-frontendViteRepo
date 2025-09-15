@@ -772,3 +772,30 @@ display: flex;
 .icon-white {
   color: white;
 }
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  position: absolute;
+  bottom: 125%; /* show above */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
