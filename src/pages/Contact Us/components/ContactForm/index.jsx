@@ -130,11 +130,11 @@ const ContactForm = () => {
                     <div className="form-button-wrapper" >
                       <button onClick={handleSubmit} disabled={loading}>
                        {loading ? "Sending..." : "Submit"}
-                    </button>
+                      </button>
                      </div>
                    </form>
 
-                 </div>
+                </div>
                  
             </div>
 
