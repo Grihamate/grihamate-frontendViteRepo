@@ -119,69 +119,11 @@ const RentProperties = () => {
         </div>
 
 
+    
 
-        
-{/* 
-      Property Type - Mobile
-      <div className="mobile-wrapper">
-        <div className="filter-section property-type-section mobile-only">
-        <p>Property Type</p>
-        <select
-          className="property-dropdown"
-          value={filterValues.propertyType}
-          onChange={(e) =>
-            setFilterValues({ ...filterValues, propertyType: e.target.value })
-          }
-        >
-          <option value="">Select Property Type</option>
-          <option value="1BHK">1BHK</option>
-          <option value="2BHK">2BHK</option>
-          <option value="3BHK">3BHK</option>
-        </select>
-      </div>
-
-
-     
-        <div className="filter-section furnished-section mobile-only">
-          <p>Furnished</p>
-          <select
-            value={filterValues.furnished}
-            onChange={(e) =>
-              setFilterValues({ ...filterValues, furnished: e.target.value })
-            }
-          >
-            <option value="">Select Furnishing</option>
-            <option value="fully">Fully Furnished</option>
-            <option value="semi">Semi Furnished</option>
-            <option value="unfurnished">Unfurnished</option>
-          </select>
-        </div>
-        </div> */}
-
- {/* Property Type - Desktop */}
         {/* <div className="filter-section property-type-section desktop-only">
           <p>BHK / Rooms</p>
-          <div className="property-radio-group">
-            {["1 BHK", "2 BHK", "3 BHK", "4 BHK", "4+ BHK"].map((type) => (
-              <label key={type}>
-                <input
-                  type="radio"
-                  name="property"
-                  value={type}
-                  checked={filterValues.propertyType === type}
-                  onChange={(e) =>
-                    setFilterValues({ ...filterValues, propertyType: e.target.value })
-                  }
-                />
-                {type}
-              </label>
-            ))}
-          </div>
-        </div> */}
-
-        <div className="filter-section property-type-section desktop-only">
-          <p>BHK / Rooms</p>
-          <div className="property-checkbox-group">
+          <label className="property-checkbox-group">
           {["1 BHK", "2 BHK", "3 BHK", "4 BHK", "4+ BHK"].map((type, index) => (
             <div className="checkbox-btn" key={index}>
               <input
@@ -207,8 +149,39 @@ const RentProperties = () => {
               <span>{type}</span>
             </div>
           ))}
-        </div>
-        </div>
+        </label>
+        </div> */}
+
+
+<div className="filter-section property-type-section desktop-only">
+  <p>BHK / Rooms</p>
+  <div className="property-checkbox-group">
+    {["1 BHK", "2 BHK", "3 BHK", "4 BHK", "4+ BHK"].map((type, index) => (
+      <label className="checkbox-btn" key={index}>
+        <input
+          type="checkbox"
+          name="property"
+          value={type}
+          checked={filterValues.propertyType?.includes(type)}
+          onChange={(e) => {
+            if (e.target.checked) {
+              setFilterValues({
+                ...filterValues,
+                propertyType: [...(filterValues.propertyType || []), type],
+              });
+            } else {
+              setFilterValues({
+                ...filterValues,
+                propertyType: filterValues.propertyType.filter((item) => item !== type),
+              });
+            }
+          }}
+        />
+        <span>{type}</span>
+      </label>
+    ))}
+  </div>
+</div>
 
 
           <div className="filter-section">

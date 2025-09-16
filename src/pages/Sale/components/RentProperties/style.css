@@ -159,8 +159,7 @@ border-width: 1px;
  
 }
 
-.filter-section  label{
-  width: 100%;
+.property-checkbox-group  label{
   display: flex;
   gap: 8px;
   font-weight: 500;
