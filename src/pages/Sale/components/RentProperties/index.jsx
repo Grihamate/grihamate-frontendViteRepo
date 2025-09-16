@@ -1,4 +1,9 @@
 
+
+
+
+
+
 import React, { useState, useEffect } from "react";
 import arrowSymbol from "./assets/Group.svg";
 import location from "./assets/location.svg";
@@ -6,7 +11,7 @@ import searchIcon from "./assets/searchIcon.svg";
 import listIcon from "./assets/list-icon.svg";
 import gridIcon from "./assets/gridIcon.svg";
 import PropertyCard from "../../../../component/common/card/index";
-import { getProperty } from "../../../../service/getProperty";
+import { getSaleProperty } from "../../../../service/getSaleProperty"
 import Loader from "../../../../component/common/Loader";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
@@ -20,12 +25,27 @@ const RentProperties = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // const [filterValues, setFilterValues] = useState({
+  //   location: "",
+  //   propertyType: "",
+  //   price: 0,
+  //   furnished: ""
+  // });
+
   const [filterValues, setFilterValues] = useState({
-    location: "",
-    propertyType: "",
-    price: 0,
-    furnished: ""
-  });
+  location: "",
+  locality: "",
+  propertyType: "",
+  rentOrBuy: "For Sale",   // ya "Rent"
+  priceRange: { min: 0, max: 300000 },
+  bhk: [],
+  furnished: "",
+  area: { min: "", max: "" },
+  amenities: [],
+  status: "",
+  facing: "",
+  age: ""
+});
 
   const totalPages = Math.ceil(properties.length / propertiesPerPage);
   const indexOfLastProperty = currentPage * propertiesPerPage;
@@ -37,7 +57,7 @@ const RentProperties = () => {
     setLoading(true);
     setError(null);
     try {
-      const data = await getProperty(filters);
+      const data = await getSaleProperty(filters);
 
       if (Array.isArray(data?.properties)) {
         setProperties(data.properties);
@@ -58,7 +78,7 @@ const RentProperties = () => {
     fetchProperties();
   }, []);
 
-  if (error) return <p>{error}</p>;
+  // if (error) return <p>{error}</p>;
 
   return (
     <div className="rent-properties">
@@ -117,39 +137,95 @@ const RentProperties = () => {
 
 
 
-        
+                {/* Mobile view */}
+        {/* Mobile view */}
+        <div className="filter-section property-type-section sale-section propertytype-mobile-view">
+          <p>Property Type</p>
+          <div className="area-filter">
+            <select
+              className="custom-drop-down-full custom-drop-down"
+              value={filterValues.propertyType || ""}
+              onChange={(e) =>
+                setFilterValues({ ...filterValues, propertyType: e.target.value })
+              }
+            >
+              <option value="">Select Property Type</option>
+              <option value="Appartment">Appartment / Flat</option>
+              <option value="Independent House">Independent House / Villa</option>
+              <option value="Plot">Plot / land</option>
+              <option value="Commercial Space">Commercial Space</option>
+            </select>
+          </div>
+        </div>
 
 
-        <div className="filter-section property-type-section desktop-only">
-          <p>BHK / Rooms</p>
-          <div className="property-checkbox-group">
-          {["1 BHK", "2 BHK", "3 BHK", "4 BHK", "4+ BHK"].map((type, index) => (
-            <div className="checkbox-btn" key={index}>
-              <input
-                type="checkbox"
-                id={`property-${index}`}
-                name="property"
-                value={type}
-                checked={filterValues.propertyType?.includes(type)}
-                onChange={(e) => {
-                  if (e.target.checked) {
-                    setFilterValues({
-                      ...filterValues,
-                      propertyType: [...(filterValues.propertyType || []), type],
-                    });
-                  } else {
-                    setFilterValues({
-                      ...filterValues,
-                      propertyType: filterValues.propertyType.filter((item) => item !== type),
-                    });
-                  }
-                }}
-              />
-              <span>{type}</span>
+    
+
+
+            <div className="filter-section property-type-section desktop-only">
+              <p>BHK / Rooms</p>
+              <div className="property-checkbox-group">
+                {["1 BHK", "2 BHK", "3 BHK", "4 BHK", "5 BHK"].map((type, index) => (
+                  <label className="checkbox-btn" key={index}>
+                    <input
+                      type="checkbox"
+                      name="property"
+                      value={type}
+                      checked={filterValues.propertyType?.includes(type)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setFilterValues({
+                            ...filterValues,
+                            propertyType: [...(filterValues.propertyType || []), type],
+                          });
+                        } else {
+                          setFilterValues({
+                            ...filterValues,
+                            propertyType: filterValues.propertyType.filter((item) => item !== type),
+                          });
+                        }
+                      }}
+                    />
+                    <span>{type}</span>
+                  </label>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
-        </div>
+
+
+
+            {/* Mobile view */}
+
+            <div className="filter-section property-type-section mobile-only">
+              <p>BHK / Rooms</p>
+              <div className="bhk-mobile-grid property-checkbox-group">
+                {["1 BHK", "2 BHK", "3 BHK", "4 BHK", "5 BHK"].map((type, index) => (
+                  <label className="bhk-chip checkbox-btn" key={index}>
+                    <input
+                      type="checkbox"
+                      value={type}
+                      checked={filterValues.propertyType?.includes(type)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setFilterValues({
+                            ...filterValues,
+                            propertyType: [...(filterValues.propertyType || []), type],
+                          });
+                        } else {
+                          setFilterValues({
+                            ...filterValues,
+                            propertyType: filterValues.propertyType.filter(
+                              (item) => item !== type
+                            ),
+                          });
+                        }
+                      }}
+                    />
+                    <span>{type}</span>
+                  </label>
+                ))}
+              </div>
+            </div> 
 
 
           <div className="filter-section">
@@ -169,28 +245,56 @@ const RentProperties = () => {
           </div>
 
 
+
           <div className="filter-section">
             <p>Area / Size</p>
             <div className="area-filter">
 
-                <select className="custom-drop-down">
-                <option>Min Area Sq.</option>
+                <select className="custom-drop-down"
+                  value={filterValues.area.min}
+                  onChange={(e) =>
+                  setFilterValues({ ...filterValues, area: { ...filterValues.area, min: e.target.value } })
+                  }
+                >
+                  <option value="">Min Area Sq.</option>
+                  <option value="500">500</option>
+                  <option value="1000">1000</option>
+                  <option value="2000">2000</option>
                 </select>
 
                 <p>to</p>
 
-                <select className="custom-drop-down">
-                <option>Max Area Sq.</option>
+                <select className="custom-drop-down"
+                  value={filterValues.area.max}
+                  onChange={(e) =>
+                  setFilterValues({ ...filterValues, area: { ...filterValues.area, max: e.target.value } })
+                  }
+                >
+                  <option value="">Max Area Sq.</option>
+                  <option value="3000">3000</option>
+                  <option value="5000">5000</option>
                 </select>
             </div>
           </div>
 
-          
+         {/* desktop view */}
+         <div className="filters-desktop-view">
+                  
           <div className="filter-section">
             <p>Amenities & Feature</p>
             <div className="area-filter">
-                <select className="custom-drop-down-full custom-drop-down">
+                <select className="custom-drop-down-full custom-drop-down" 
+                   multiple
+                  value={filterValues.amenities}
+                  onChange={(e) => {
+                  const values = Array.from(e.target.selectedOptions, (option) => option.value);
+                  setFilterValues({ ...filterValues, amenities: values });
+                  }}
+                >
                   <option>Select Animities</option>
+                  <option value="Lift">Lift</option>
+                  <option value="Parking">Parking</option>
+                  <option value="Gym">Gym</option>
                 </select>
             </div>
           </div>
@@ -198,8 +302,13 @@ const RentProperties = () => {
           <div className="filter-section">
             <p>Property Status</p>
             <div className="area-filter">
-                <select className="custom-drop-down-full custom-drop-down">
+                <select className="custom-drop-down-full custom-drop-down"
+                  value={filterValues.status}
+                  onChange={(e) => setFilterValues({ ...filterValues, status: e.target.value })}
+                >
                   <option>Select Status</option>
+                  <option value="Ready to Move">Ready to Move</option>
+                  <option value="Under Construction">Under Construction</option>
                 </select>
             </div>
           </div>
@@ -209,8 +318,15 @@ const RentProperties = () => {
        <div className="filter-section">
             <p>Facing</p>
             <div className="area-filter">
-                <select className="custom-drop-down-full custom-drop-down">
-                  <option>Select Facing</option>
+                <select className="custom-drop-down-full custom-drop-down"
+                  value={filterValues.facing}
+                  onChange={(e) => setFilterValues({ ...filterValues, facing: e.target.value })}
+                >
+                  <option value="">Select Facing</option>
+                  <option value="East">East</option>
+                  <option value="West">West</option>
+                  <option value="North">North</option>
+                  <option value="South">South</option>
                 </select>
             </div>
           </div>
@@ -221,17 +337,103 @@ const RentProperties = () => {
           <div className="filter-section">
             <p>Age of Property</p>
             <div className="area-filter">
-                <select className="custom-drop-down-full custom-drop-down">
-                  <option>Select Age</option>
+                <select className="custom-drop-down-full custom-drop-down"
+                  value={filterValues.age}
+                  onChange={(e) => setFilterValues({ ...filterValues, age: e.target.value })}
+                >
+                  <option value="">Select Age</option>
+                  <option value="0-1 Years">0-1 Years</option>
+                  <option value="1-5 Years">1-5 Years</option>
+                  <option value="5-10 Years">5-10 Years</option>
+                  <option value="10+ Years">10+ Years</option>
+                </select>
+            </div>
+          </div>
+
+
+         </div>
+       
+
+       {/* mobile view */}
+       
+        <div className="filters-grid-mobile-view">
+     
+             <div className="filter-section">
+            <p>Amenities & Feature</p>
+            <div className="area-filter">
+                <select className="custom-drop-down-full custom-drop-down" 
+                   multiple
+                  value={filterValues.amenities}
+                  onChange={(e) => {
+                  const values = Array.from(e.target.selectedOptions, (option) => option.value);
+                  setFilterValues({ ...filterValues, amenities: values });
+                  }}
+                >
+                  <option>Select Animities</option>
+                  <option value="Gym">Gym</option>
+                  <option value="Swimming Pool">Swimming Pool</option>
+                  <option value="Parking">Parking</option>
+                </select>
+            </div>
+          </div>
+
+          <div className="filter-section">
+            <p>Property Status</p>
+            <div className="area-filter">
+                <select className="custom-drop-down-full custom-drop-down"
+                  value={filterValues.status}
+                  onChange={(e) => setFilterValues({ ...filterValues, status: e.target.value })}
+                >
+                  <option>Select Status</option>
+                  <option value="">Select Status</option>
+                  <option value="Ready to Move">Ready to Move</option>
+                  <option value="Under Construction">Under Construction</option>
                 </select>
             </div>
           </div>
 
        
 
-       
+       <div className="filter-section">
+            <p>Facing</p>
+            <div className="area-filter">
+                <select className="custom-drop-down-full custom-drop-down"
+                  value={filterValues.facing}
+                  onChange={(e) => setFilterValues({ ...filterValues, facing: e.target.value })}
+                >
+                  <option value="">Select Facing</option>
+                  <option value="East">East</option>
+                  <option value="West">West</option>
+                  <option value="North">North</option>
+                  <option value="South">South</option>
+                </select>
+            </div>
+          </div>
+
+
+
+
+          <div className="filter-section">
+            <p>Age of Property</p>
+            <div className="area-filter">
+                <select className="custom-drop-down-full custom-drop-down"
+                  value={filterValues.age}
+                  onChange={(e) => setFilterValues({ ...filterValues, age: e.target.value })}
+                >
+                  <option value="">Select Age</option>
+                  <option value="0-1 Years">0-1 Years</option>
+                  <option value="1-5 Years">1-5 Years</option>
+                  <option value="5-10 Years">5-10 Years</option>
+                  <option value="10+ Years">10+ Years</option>
+                </select>
+            </div>
+          </div>
        
 
+       
+    
+
+        </div>
        
         
 
