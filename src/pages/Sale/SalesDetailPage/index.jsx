@@ -1,33 +1,43 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getPropertyById } from "../../service/getPropertybyId";
-import Loader from "../../component/common/Loader";
-import Adityaimg from '../../assets/Adityaimg.jpeg';
+
+
+
+import Adityaimg from '../../../assets/Adityaimg.jpeg';
 import { Bed, Bath, Car, Ruler, Phone, Mail, Compass, Calendar, Sofa, Star , Home ,MapPin ,MessageCircle  } from "lucide-react";
 import "./style.css";
 import { GraduationCap, Stethoscope, Utensils, Theater } from "lucide-react";
-import PropertyCard from "../../component/common/card";
-import relatedImage from '../../assets/dummyrelatedimage.png'
+import PropertyCard from "../../../component/common/card";
+import relatedImage from '../../../assets/dummyrelatedimage.png'
+import { useParams } from "react-router-dom";
+import { getSalePropertyById } from "../../../service/getSalePropertyById";
 
-const PropertyDetailPage = () => {
+const SaleDetailPage = () => {
   const { id } = useParams();
   const [property, setProperty] = useState(null);
   const [loading, setLoading] = useState(true);
+  
+
+
+  // 👇 fetch token from localStorage (if you saved it during login)
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchProperty = async () => {
       try {
-        const token = localStorage.getItem("token");
-        const data = await getPropertyById(id, token);
-        setProperty(data);
+        const data = await getSalePropertyById(id, token);
+        console.log("Fetched Sale Property:", data); // 👈 log API response
+
+        setProperty(data.Saleproperty);
       } catch (err) {
-        console.error(err);
+        console.error("Error fetching property:", err);
       } finally {
         setLoading(false);
       }
     };
-    fetchData();
-  }, [id]);
+
+    fetchProperty();
+  }, [id, token]);
+
   const dummyProperties = [
   {
     id: 1,
@@ -80,7 +90,7 @@ const PropertyDetailPage = () => {
 ];
 
 
-  if (loading) return <Loader />;
+  if (loading) return ;
   if (!property) return <div>No property found</div>;
 
 
@@ -443,4 +453,4 @@ const PropertyDetailPage = () => {
   );
 };
 
-export default PropertyDetailPage;
+export default SaleDetailPage;

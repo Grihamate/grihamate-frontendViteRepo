@@ -16,6 +16,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact Us"
 import PropertyDetailPage from "./pages/PropertyDetaillPage";
 import Sale from "./pages/Sale/index"
+import SaleDetailPage from "./pages/Sale/SalesDetailPage";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path="contact" element={<Contact/>} />
             <Route path="sale" element={<Sale/>} />
                 <Route path="/property/:id" element={<PropertyDetailPage />} />
+                 <Route path="sale/details/:id" element={<SaleDetailPage />} />
           </Route>
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register />} /> {/* 👈 add route */}

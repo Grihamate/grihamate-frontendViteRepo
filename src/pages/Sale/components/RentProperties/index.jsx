@@ -1,9 +1,4 @@
 
-
-
-
-
-
 import React, { useState, useEffect } from "react";
 import arrowSymbol from "./assets/Group.svg";
 import location from "./assets/location.svg";
@@ -14,8 +9,10 @@ import PropertyCard from "../../../../component/common/card/index";
 import { getProperty } from "../../../../service/getProperty";
 import Loader from "../../../../component/common/Loader";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 const RentProperties = () => {
+   const navigate = useNavigate(); // hook for navigation
   const propertiesPerPage = 4;
   const [properties, setProperties] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -121,63 +118,7 @@ const RentProperties = () => {
 
 
         
-{/* 
-      Property Type - Mobile
-      <div className="mobile-wrapper">
-        <div className="filter-section property-type-section mobile-only">
-        <p>Property Type</p>
-        <select
-          className="property-dropdown"
-          value={filterValues.propertyType}
-          onChange={(e) =>
-            setFilterValues({ ...filterValues, propertyType: e.target.value })
-          }
-        >
-          <option value="">Select Property Type</option>
-          <option value="1BHK">1BHK</option>
-          <option value="2BHK">2BHK</option>
-          <option value="3BHK">3BHK</option>
-        </select>
-      </div>
 
-
-     
-        <div className="filter-section furnished-section mobile-only">
-          <p>Furnished</p>
-          <select
-            value={filterValues.furnished}
-            onChange={(e) =>
-              setFilterValues({ ...filterValues, furnished: e.target.value })
-            }
-          >
-            <option value="">Select Furnishing</option>
-            <option value="fully">Fully Furnished</option>
-            <option value="semi">Semi Furnished</option>
-            <option value="unfurnished">Unfurnished</option>
-          </select>
-        </div>
-        </div> */}
-
- {/* Property Type - Desktop */}
-        {/* <div className="filter-section property-type-section desktop-only">
-          <p>BHK / Rooms</p>
-          <div className="property-radio-group">
-            {["1 BHK", "2 BHK", "3 BHK", "4 BHK", "4+ BHK"].map((type) => (
-              <label key={type}>
-                <input
-                  type="radio"
-                  name="property"
-                  value={type}
-                  checked={filterValues.propertyType === type}
-                  onChange={(e) =>
-                    setFilterValues({ ...filterValues, propertyType: e.target.value })
-                  }
-                />
-                {type}
-              </label>
-            ))}
-          </div>
-        </div> */}
 
         <div className="filter-section property-type-section desktop-only">
           <p>BHK / Rooms</p>
@@ -335,11 +276,17 @@ const RentProperties = () => {
           <Loader />
         ) : (
           <>
-            <div className="filters-card-conatiner">
-              {currentProperties.map((property) => (
-                <PropertyCard key={property._id} property={property} />
-              ))}
-            </div>
+       <div className="filters-card-conatiner">
+  {currentProperties.map((property) => (
+    <div
+      key={property._id}
+      style={{ cursor: "pointer" }}
+      onClick={() => navigate(`/sale/details/${property._id}`)}
+    >
+      <PropertyCard property={property} />
+    </div>
+  ))}
+</div>
 
             {/* Pagination */}
             {totalPages > 1 && (
