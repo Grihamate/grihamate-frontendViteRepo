@@ -237,8 +237,53 @@ const PropertyDetailPage = () => {
             </div>
           </div>
         </div>
+        {/* sales page details */}
 
+<div className="property-details">
+  <h3 className="details-heading"> Details</h3>
 
+  <div className="details-grid">
+    {/* Row 1 */}
+    <div className="detail-heading">Property Type</div>
+    <div className="detail-value">Sale</div>
+    <div className="detail-heading">Bathrooms</div>
+    <div className="detail-value">4</div>
+
+    {/* Row 2 */}
+    <div className="detail-heading">Garages</div>
+    <div className="detail-value">4</div>
+    <div className="detail-heading">Wifi</div>
+    <div className="detail-value">Yes</div>
+
+    {/* Row 3 */}
+    <div className="detail-heading">Furnishing</div>
+    <div className="detail-value">Semi-Furnished</div>
+    <div className="detail-heading">Property Age</div>
+    <div className="detail-value">5 Years</div>
+  </div>
+</div>
+{/* sales address */}
+<div className="property-details">
+  <h3 className="details-heading">Address</h3>
+
+  <div className="details-grid">
+    {/* Row 1 */}
+    <div className="detail-heading">Address</div>
+    <div className="detail-value">123 Main Street</div>
+    <div className="detail-heading">City</div>
+    <div className="detail-value">New York</div>
+
+    {/* Row 2 */}
+    <div className="detail-heading">State</div>
+    <div className="detail-value">NY</div>
+    <div className="detail-heading">Zip / Postal Code</div>
+    <div className="detail-value">10001</div>
+
+    {/* Row 3 */}
+    <div className="detail-heading">Area</div>
+    <div className="detail-value">Downtown</div>
+  </div>
+</div>
 
 
 
@@ -255,7 +300,43 @@ const PropertyDetailPage = () => {
         </div>
         {/* floor plans for sales page */}
   
+  <div className="property-details">
+      <h3 className="details-heading">Floor Plans</h3>
 
+      {/* First Floor */}
+      <div className="floor-row">
+        <div className="floor-label">First Floor</div>
+        <div className="floor-item">
+          <Home className="floor-icon" size={22} />
+          <span>1200 sq.ft</span>
+        </div>
+        <div className="floor-item">
+          <Bed className="floor-icon" size={22} />
+          <span>800 sq.ft</span>
+        </div>
+        <div className="floor-item">
+          <Bath className="floor-icon" size={22} />
+          <span>300 sq.ft</span>
+        </div>
+      </div>
+
+      {/* Second Floor */}
+      <div className="floor-row">
+        <div className="floor-label">Second Floor</div>
+        <div className="floor-item">
+          <Home className="floor-icon" size={22} />
+          <span>1000 sq.ft</span>
+        </div>
+        <div className="floor-item">
+          <Bed className="floor-icon" size={22} />
+          <span>700 sq.ft</span>
+        </div>
+        <div className="floor-item">
+          <Bath className="floor-icon" size={22} />
+          <span>250 sq.ft</span>
+        </div>
+      </div>
+    </div>
 
 
 

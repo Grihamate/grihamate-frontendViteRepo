@@ -14,6 +14,7 @@ import { Bed, Bath, Car, Ruler } from "lucide-react"; // lucide icons
 import { Phone, Share2, Mail } from "lucide-react"
 import { useNavigate } from "react-router-dom";
 import { getToken } from "../../utils/authUtils";
+import PropertyDetailModal from "./PropertyDetailModal";
 
 import { toast } from "react-toastify"; // if you're using react-toastify
 import "react-toastify/dist/ReactToastify.css";
@@ -180,154 +181,12 @@ const FeaturedProperties = ({ filters }) => {
 
       {/* details modal */}
 {selectedProperty && (
-  <div
-    className="modal-backdrop"
-    onClick={() => setSelectedProperty(null)}
-  >
-    <div
-      className="property-detail-modal"
-      onClick={(e) => e.stopPropagation()} // stop close on inner click
-      style={{ position: "relative" }}
-    >
-      {/* Close button */}
-      <button
-        className="modal-close"
-        onClick={() => setSelectedProperty(null)}
-      >
-        ✕
-      </button>
-
-      {detailLoading ? (
-        <Loader />
-      ) : (
-        <>
-          {/* Modal heading — full width above the flex area */}
-          <h2 className="quick-view-heading">Quick View</h2>
-
-          {/* Flex area: image (left) + details (right) */}
-          <div className="modal-flex">
-            {/* Image column */}
-            <div className="modal-images">
-              {selectedProperty.images && selectedProperty.images.length > 0 ? (
-                <img
-                  src={selectedProperty.images[0].url}
-                  alt="Property"
-                  className="modal-main-image"
-                />
-              ) : (
-                <div className="no-image">No Image Available</div>
-              )}
-            </div>
-
-            {/* Details column */}
-            <div className="modal-details">
-              <p className="price">
-                <span>₹{selectedProperty.basicDetails?.monthlyRent || "NA"}</span>
-                <span className="price-month"> / month</span>
-              </p>
-
-              <h2 className="heading-property">
-                {selectedProperty.basicDetails?.title || "NA"}
-              </h2>
-
-              <div className="location-info">
-                <span>
-                  {selectedProperty.location?.fullAddress ||
-                    selectedProperty.location?.city ||
-                    "NA"}
-                </span>
-              </div>
-
-              {/* Property Info (icons + values + label) */}
-              <div className="property-info">
-                <div className="info-item">
-                  <div className="info-top">
-                    <Bed size={22} />
-                    <span className="info-value">
-                      {selectedProperty.basicDetails?.bhkType || "NA"}
-                    </span>
-                  </div>
-                  <div className="info-label">Bedrooms</div>
-                </div>
-
-                <div className="info-item">
-                  <div className="info-top">
-                    <Ruler size={22} />
-                    <span className="info-value">
-                      {selectedProperty.basicDetails?.area || "NA"}
-                    </span>
-                  </div>
-                  <div className="info-label">Area (sq.ft)</div>
-                </div>
-
-                <div className="info-item">
-                  <div className="info-top">
-                    <Bath size={22} />
-                    <span className="info-value">
-                      {selectedProperty.basicDetails?.bathrooms || "NA"}
-                    </span>
-                  </div>
-                  <div className="info-label">Bathrooms</div>
-                </div>
-
-                <div className="info-item">
-                  <div className="info-top">
-                    <Car size={22} />
-                    <span className="info-value">
-                      {selectedProperty.basicDetails?.garages || "NA"}
-                    </span>
-                  </div>
-                  <div className="info-label">Garages</div>
-                </div>
-              </div>
-
-              {/* Description */}
-              <div>
-                <b className="description-header">Description:</b>
-                <p className="description-para">
-                  {selectedProperty.description || "NA"}
-                </p>
-              </div>
-
-              {/* Action Buttons */}
-           <div className="modal-actions">
-  {/* Row 1: Call + Mail */}
-  <div className="action-row">
-    <button
-      className="btn-call"
-      onClick={() =>
-        window.open(`tel:${selectedProperty.contactInfo?.phone || ""}`)
-      }
-    >
-      <Phone size={18} /> Call Now
-    </button>
-
-    <button
-      className="btn-mail"
-      onClick={() =>
-        window.open(`mailto:${selectedProperty.contactInfo?.email || ""}`)
-      }
-    >
-      <Mail size={18} /> Mail
-    </button>
-  </div>
-
-  {/* Row 2: View Full Details */}
-<button
-  className="btn-details"
-  onClick={() => navigate(`/property/${selectedProperty._id}`)}
->
-  View Full Details
-</button>
-
-</div>
-
-            </div>
-          </div>
-        </>
-      )}
-    </div>
-  </div>
+  <PropertyDetailModal
+    property={selectedProperty}
+    loading={detailLoading}
+    onClose={() => setSelectedProperty(null)}
+    navigate={navigate}
+  />
 )}
 
 

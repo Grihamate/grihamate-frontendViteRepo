@@ -1,5 +1,5 @@
 import homeImg  from "../../../assets/heroImg.jpg"
-import bedroomImg from "../../../assets/bedrromIcon.png"
+// import bedroomImg from "../../../assets/bedroom.png"
 import bathroomImg from "../../../assets/bathroomIcon.png"
 import areaIcon from "../../../assets/areaIcon.png"
 import garageIcon from "../../../assets/garagesIcon.png"
@@ -38,7 +38,7 @@ const CommercialPropertyCard = () => {
                 </div>
                 <div className="com-icons-bar">
                     <div className="com-icon">
-                        <img src={bedroomImg}/>
+                        {/* <img src={bedroomImg}/> */}
                         <p className="count">2</p>
                     </div>
 
