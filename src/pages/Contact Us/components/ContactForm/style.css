@@ -9,11 +9,12 @@
 .contactus-form-inner{
     max-width: 1220px;
     margin: auto;
-    padding-inline: 16px;
     display: flex;    
     gap: 66px;
    
 }
+
+
 
 
 .contactus-form-inner  img{
@@ -27,7 +28,6 @@
 
 .contactus-form{
     width: 51.9%;
-    max-width: 617px;
     padding: 24px 56px;
     border-radius: 12px;
     border: 1px solid var(--Border, #DDE1EB);
@@ -41,13 +41,13 @@
     margin-top: 52px;
 }
 
-.contactus-main-form h1{
+.contactus-form h1{
     font-size: 32px;
     font-weight: 700;
     text-align: center;
     color: #18191F;
-    white-space: no-wrap;
-
+    white-space: nowrap;
+    margin-top: 24px;
 }
 
 
@@ -73,11 +73,13 @@ border-radius: 8px;
 padding: 16px;
 font-size: 16px;
 font-weight: 500;
-color: #A2A6B1;
+color: black;
 background-color: #F5F6F7;
 border: 1px solid var(--Border, #DDE1EB);
 cursor: text;
 }
+
+
 
 .contactus-main-form   textarea{
 resize:none;
@@ -97,6 +99,7 @@ bottom: 24px;
 background:#F5F6F7  url("./assets/icon.svg") no-repeat right 24px bottom 24px;
 background-size: 18px;
 color: #18191F;
+margin-top: 12px;
  
 }
 
@@ -159,7 +162,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 
   .contactus-form {
     width: 100%;
-    max-width: 90%;
+  
   }
 
   .contactus-form-inner img{
@@ -170,6 +173,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 
 
 }
+  
 
 @media (max-width: 1100px) {
 .contactus-form-cont {
@@ -178,7 +182,7 @@ textarea::-webkit-scrollbar-thumb:hover {
  }
 .contactus-form {
     width: 100%;
-    max-width: 100%;
+  
   }
 
   .contactus-form-inner img{
@@ -189,4 +193,66 @@ textarea::-webkit-scrollbar-thumb:hover {
     .contactus-form {
         padding: 12px 30px;
     }
+} 
+
+
+
+@media (max-width:600px) {
+  .contactus-form-cont{
+    padding: 0%;
+  }
+
+  .contactus-form-inner img{
+    width: 95%;
+  }
+
+  .contactus-form {
+    width: 95%;
+  }
+
+  .contactus-form {
+    padding: 15px;
+  }
+
+  .contactus-main-form {
+    margin-top: 30px;
+  }
+
+  .contactus-form h1{
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  
+  .contactus-form label{
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .contactus-form input{
+   height: 30px; 
+   padding: 20px 15px;
+  }
+
+  .contactus-main-form > .contactus-input-group{
+    gap:8px;
+  }
+
+
+  .contactus-main-form textarea{
+    min-height: 100px;
+    margin-top: 8px;
+  }
+
+  .form-button-wrapper{
+    margin: auto;
+
+  }
+  
+  .form-button-wrapper button{
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-weight: 500;
+    
+  }
 }
