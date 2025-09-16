@@ -32,7 +32,7 @@ const PropertyCard = ({ property }) => {
               {property.location.fullAddress}, {property.location.city}
             </p>
             <p className="para-card">{property.description}</p>
-            <p className="price">₹ {property.basicDetails.monthlyRent}/month</p>
+            <p className="price">₹ {property?.basicDetails?.monthlyRent || property?.basicDetails?.price}/month</p>
           </div>
 
           <div className="icons-bar">
