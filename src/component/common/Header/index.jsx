@@ -278,7 +278,7 @@ const Header = () => {
         <nav className="links">
           <Link to="/"><p className="link">Home</p></Link>
           <Link to="/rent"><p className="link">Rent</p></Link>
-          <Link to="/sale"><p className="link">Sale</p></Link>
+          <Link to="/sale"><p className="link">Buy</p></Link>
           <Link to="/about"><p className="link">About us</p></Link>
           <Link to="/contact"><p className="link">Contact us</p></Link>
         </nav>
