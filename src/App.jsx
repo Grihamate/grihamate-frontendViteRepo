@@ -44,8 +44,8 @@ function App() {
             <Route path="about" element={<About />} /> {/* 👈 new route */}
             <Route path="contact" element={<Contact/>} />
             <Route path="sale" element={<Sale/>} />
-                <Route path="/property/:id" element={<PropertyDetailPage />} />
-                 <Route path="sale/details/:id" element={<SaleDetailPage />} />
+            <Route path="/property/:id" element={<PropertyDetailPage />} />
+            <Route path="sale/details/:id" element={<SaleDetailPage />} />
           </Route>
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register />} /> {/* 👈 add route */}
