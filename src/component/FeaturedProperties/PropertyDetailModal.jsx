@@ -2,7 +2,7 @@ import React from "react";
 import { Bed, Bath, Car, Ruler, Phone, Mail } from "lucide-react";
 
 
-const PropertyDetailModal = ({ property, loading, onClose, navigate }) => {
+const PropertyDetailModal = ({ property, loading, onClose, navigate,  detailPath }) => {
   if (!property) return null;
 
   return (
@@ -135,7 +135,7 @@ const PropertyDetailModal = ({ property, loading, onClose, navigate }) => {
                   {/* Row 2: View Full Details */}
                   <button
                     className="btn-details"
-                    onClick={() => navigate(`/sale/details/${property?._id}`)}
+                    onClick={() => navigate(detailPath)}
                   >
                     View Full Details
                   </button>

@@ -354,6 +354,7 @@ const RentProperties = () => {
             property={selectedProperty}
             loading={detailLoading}
             onClose={() => setSelectedProperty(null)}
+            detailPath={`/property/${selectedProperty._id}`} 
             navigate={navigate}
           />
         )}
