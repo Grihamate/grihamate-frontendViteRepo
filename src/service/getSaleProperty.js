@@ -31,38 +31,19 @@ export const getSaleProperty = async (filters = {}) => {
     const query = new URLSearchParams();
 
     if (filters.location) query.append("city", filters.location);
-    if (filters.locality) query.append("locality", filters.locality);
-
-    // ✅ Property Type
     if (filters.propertyType) query.append("propertyType", filters.propertyType);
-
-    // ✅ Rent / Buy
     if (filters.rentOrBuy) query.append("listingType", filters.rentOrBuy);
-
     // ✅ Price Range
-    if (filters.priceRange?.min) query.append("minPrice", filters.priceRange.min);
-    if (filters.priceRange?.max) query.append("maxPrice", filters.priceRange.max);
-
-    // ✅ BHK
+    // if (filters.priceRange?.min) query.append("minPrice", filters.priceRange.min);
+    // if (filters.priceRange?.max) query.append("maxPrice", filters.priceRange.max);
+    
     if (filters.bhk?.length > 0) query.append("bhkType", filters.bhk.join(","));
-
-    // ✅ Furnished
     if (filters.furnished) query.append("furnished", filters.furnished);
-
-    // ✅ Area Range
     if (filters.area?.min) query.append("minArea", filters.area.min);
     if (filters.area?.max) query.append("maxArea", filters.area.max);
-
-    // ✅ Amenities
     if (filters.amenities?.length > 0) query.append("amenities", filters.amenities.join(","));
-
-    // ✅ Status
     if (filters.status) query.append("status", filters.status);
-
-    // ✅ Facing
     if (filters.facing) query.append("facing", filters.facing);
-
-    // ✅ Age of Property
     if (filters.age) query.append("age", filters.age);
 
     const response = await fetch(`${BASE_URL}/api/sale/all?${query.toString()}`);

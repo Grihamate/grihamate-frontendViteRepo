@@ -13,15 +13,25 @@ import gridIcon from "./assets/gridIcon.svg";
 import PropertyCard from "../../../../component/common/card/index";
 import { getProperty } from "../../../../service/getProperty";
 import Loader from "../../../../component/common/Loader";
+import { getToken } from "../../../../utils/authUtils";
 import "./style.css";
+import { getPropertyById } from "../../../../service/getPropertybyId";
+import PropertyDetailModal from "../../../../component/FeaturedProperties/PropertyDetailModal";
+import { useNavigate } from "react-router-dom";
 
 const RentProperties = () => {
+      const navigate = useNavigate();
   const propertiesPerPage = 4;
   const [properties, setProperties] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+    const [selectedProperty, setSelectedProperty] = useState(null); // for details modal
+    const [detailLoading, setDetailLoading] = useState(false);
+
+    console.log("rentwali ->",selectedProperty);
 
   const [filterValues, setFilterValues] = useState({
     location: "",
@@ -60,6 +70,28 @@ const RentProperties = () => {
   useEffect(() => {
     fetchProperties();
   }, []);
+
+
+    const handleCardClick = async (id) => {
+    const token = getToken(); // use your utility function
+  
+    if (!token) {
+      toast.error("Please login first to view details.");
+      navigate("/login");
+      return;
+    }
+  
+    try {
+      setDetailLoading(true);
+      const property = await getPropertyById(id, token);
+      setSelectedProperty(property);
+    } catch (err) {
+      console.error("Error fetching property details:", err);
+    } finally {
+      setDetailLoading(false);
+    }
+  };
+  
 
   if (error) return <p>{error}</p>;
 
@@ -274,7 +306,13 @@ const RentProperties = () => {
           <>
             <div className="filters-card-conatiner">
               {currentProperties.map((property) => (
-                <PropertyCard key={property._id} property={property} />
+                <div
+                    key={property._id}
+                    onClick={() => handleCardClick(property._id)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <PropertyCard id={property._id} property={property} />
+                  </div>
               ))}
             </div>
 
@@ -309,6 +347,18 @@ const RentProperties = () => {
           </>
         )}
       </div>
+
+                    {/* details modal */}
+        {selectedProperty && (
+          <PropertyDetailModal
+            property={selectedProperty}
+            loading={detailLoading}
+            onClose={() => setSelectedProperty(null)}
+            navigate={navigate}
+          />
+        )}
+
+
     </div>
   );
 };

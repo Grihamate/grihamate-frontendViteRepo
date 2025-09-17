@@ -14,7 +14,7 @@
   flex-direction: column;  
   gap: 20px;
   width: 25%;          
-  min-width: 200px;
+  min-width: 250px;
 }
 
 .cards-section {
@@ -247,7 +247,7 @@ border-width: 1px;
 .area-filter > .custom-drop-down{
     background-color: #FFFFFF;
     border-radius: 10px;
-    padding: 14px 17px;
+    padding: 14px 17px!important;
     border: 1px solid #DCDEE3;
     color: #727A90;
     font-weight: 400;
@@ -256,10 +256,7 @@ border-width: 1px;
 
 }
 
-.area-filter .custom-drop-down-full{
-  width: 300px;
-  
-}
+
 
 
 .sale-section label{
@@ -526,6 +523,10 @@ line-height: 1rem;
   width: 100%;
 }
 
+.area-filter > .custom-drop-down{
+  padding:10px!important;
+}
+
 
 }
 
@@ -538,16 +539,25 @@ line-height: 1rem;
   display: none;
 }
 
+.mobile-filter-sidebar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-filter-sidebar {
+    display: block;
+  }
+}
+
+
 
 /* Responsive switch at 768px and below */
 @media (max-width: 768px) {
+
   .desktop-only {
     display: none !important;
   }
 
-  .mobile-only {
-    display: block !important;
-  }
   .mobile-wrapper{
     display: flex;
     gap: 20px;
@@ -555,6 +565,13 @@ line-height: 1rem;
   }
   .filter-section input[type="range"] {
     width: 100%;
+  }
+
+  .cards-tittle{
+   width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+ 
   }
 
 
@@ -569,9 +586,9 @@ line-height: 1rem;
   display: block;
 }
 
- .filters-grid-mobile-view{
+.filters-grid-mobile-view{
      display: none;
-  }
+}
 
 
 
@@ -608,7 +625,7 @@ line-height: 1rem;
 
   .area-filter .custom-drop-down{
     border-radius: 10px;
-    padding: 8px 5px;
+    padding: 14px 17px;
     font-size: 12px;
   
   }
