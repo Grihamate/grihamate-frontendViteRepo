@@ -2,7 +2,7 @@ import React from "react";
 import { Bed, Bath, Car, Ruler, Phone, Mail } from "lucide-react";
 
 
-const PropertyDetailModal = ({ property, loading, onClose, navigate }) => {
+const PropertyDetailModal = ({ property, loading, onClose, navigate,  detailPath }) => {
   if (!property) return null;
 
   return (
@@ -42,7 +42,7 @@ const PropertyDetailModal = ({ property, loading, onClose, navigate }) => {
               {/* Details column */}
               <div className="modal-details">
                 <p className="price">
-                  <span>₹{property.basicDetails?.monthlyRent || "NA"}</span>
+                  <span>₹{property.basicDetails?.monthlyRent || property.basicDetails?.price ||  "NA"}</span>
                   <span className="price-month"> / month</span>
                 </p>
 
@@ -135,7 +135,7 @@ const PropertyDetailModal = ({ property, loading, onClose, navigate }) => {
                   {/* Row 2: View Full Details */}
                   <button
                     className="btn-details"
-                    onClick={() => navigate(`/property/${property._id}`)}
+                    onClick={() => navigate(detailPath)}
                   >
                     View Full Details
                   </button>

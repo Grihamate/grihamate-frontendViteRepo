@@ -56,20 +56,7 @@ const FeaturedProperties = ({ filters }) => {
     fetchProperties(filters);
   }, [filters]);
 
-  // handle click -> fetch details
-  // const handleCardClick = async (id) => {
-  //   try {
-  //     setDetailLoading(true);
-  //     const token = localStorage.getItem("token"); // get token
-  //     const property = await getPropertyById(id, token);
-  //     console.log("Full property details:", property); // log all
-  //     setSelectedProperty(property);
-  //   } catch (err) {
-  //     console.error(err);
-  //   } finally {
-  //     setDetailLoading(false);
-  //   }
-  // };
+
   const handleCardClick = async (id) => {
   const token = getToken(); // use your utility function
 
@@ -89,6 +76,7 @@ const FeaturedProperties = ({ filters }) => {
     setDetailLoading(false);
   }
 };
+
 
 
   return (
@@ -185,6 +173,7 @@ const FeaturedProperties = ({ filters }) => {
     property={selectedProperty}
     loading={detailLoading}
     onClose={() => setSelectedProperty(null)}
+    detailPath={`/property/${selectedProperty._id}`} 
     navigate={navigate}
   />
 )}
