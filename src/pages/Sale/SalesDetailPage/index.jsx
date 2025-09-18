@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import Adityaimg from '../../../assets/Adityaimg.jpeg';
 import { Bed, Bath, Car, Ruler, Phone, Mail, Compass, Calendar, Sofa, Star , Home ,MapPin ,MessageCircle  } from "lucide-react";
 import "./style.css";
-import { GraduationCap, Stethoscope, Utensils, Theater } from "lucide-react";
+import { GraduationCap, Stethoscope, Utensils, Theater ,Plane } from "lucide-react";
 import PropertyCard from "../../../component/common/card";
 import relatedImage from '../../../assets/dummyrelatedimage.png'
 import { useParams } from "react-router-dom";
@@ -130,7 +130,7 @@ const SaleDetailPage = () => {
               <h1 className="property-title">{property.basicDetails?.title}</h1>
               <p className="property-location">{property.location?.fullAddress}</p>
               <p className="property-price">
-                ₹{property.basicDetails?.monthlyRent} / month
+                ₹{property.basicDetails?.price} / month
               </p>
 
               <div className="property-stats">
@@ -167,12 +167,12 @@ const SaleDetailPage = () => {
                 </div>
               </div>
             </div>
-
+{/* 
      <div className="advisor-card">
       <h3 className="advisor-heading">Advisor</h3>
 
       <div className="advisor-contact">
-        {/* Call Advisor button */}
+
 <div className="tooltip-wrapper">
   <a href="tel:7011769523" className="btn-advisor-call">
     <Phone size={18} className="icon-black" />
@@ -181,7 +181,7 @@ const SaleDetailPage = () => {
   <span className="tooltip-text">Call Advisor at 701176952</span>
 </div>
 
-        {/* WhatsApp button */}
+     
        <div className="tooltip-wrapper">
   <a
     href="https://wa.me/7011769523"
@@ -195,7 +195,127 @@ const SaleDetailPage = () => {
   <span className="tooltip-text">Chat on WhatsApp: 7011769523</span>
 </div>
       </div>
+    </div> */}
+    {/* <div className="advisor-card">
+ 
+  <h3 className="advisor-heading">Advisor</h3>
+
+
+  <div className="advisor-form">
+    <h4 className="form-title">Request Info</h4>
+    <form>
+      <div className="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your full name" />
+      </div>
+
+      <div className="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" />
+      </div>
+
+      <div className="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="Enter your phone number" />
+      </div>
+
+      <div className="form-group">
+        <label>Message</label>
+        <textarea placeholder="Enter your message"></textarea>
+      </div>
+
+      <button type="submit" className="btn-send">Send Email</button>
+    </form>
+  </div>
+
+
+  <div className="advisor-contact">
+
+    <div className="tooltip-wrapper">
+      <a href="tel:7011769523" className="btn-advisor-call">
+        <Phone size={18} className="icon-black" />
+        Call Advisor
+      </a>
+      <span className="tooltip-text">Call Advisor at 7011769523</span>
     </div>
+
+    <div className="tooltip-wrapper">
+      <a
+        href="https://wa.me/7011769523"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-advisor-whatsapp"
+      >
+        <MessageCircle size={18} className="icon-white" />
+        WhatsApp
+      </a>
+      <span className="tooltip-text">Chat on WhatsApp: 7011769523</span>
+    </div>
+  </div>
+</div> */}
+{/* Right column */}
+<div className="right-sticky-parent">
+  <div className="advisor-card">
+    {/* Left aligned heading */}
+    <h3 className="advisor-heading">Advisor</h3>
+
+    {/* Request Info Form */}
+    <div className="advisor-form">
+      <h4 className="form-title">Request Info</h4>
+      <form>
+        <div className="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your full name" />
+        </div>
+
+        <div className="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" />
+        </div>
+
+        <div className="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="Enter your phone number" />
+        </div>
+
+        <div className="form-group">
+          <label>Message</label>
+          <textarea placeholder="Enter your message"></textarea>
+        </div>
+
+        <button type="submit" className="btn-send">Send Email</button>
+      </form>
+    </div>
+
+    {/* Advisor Contact Buttons */}
+    <div className="advisor-contact">
+      {/* Call Advisor button */}
+      <div className="tooltip-wrapper">
+        <a href="tel:7011769523" className="btn-advisor-call">
+          <Phone size={18} className="icon-black" />
+          Call Advisor
+        </a>
+        <span className="tooltip-text">Call Advisor at 7011769523</span>
+      </div>
+
+      {/* WhatsApp button */}
+      <div className="tooltip-wrapper">
+        <a
+          href="https://wa.me/7011769523"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-advisor-whatsapp"
+        >
+          <MessageCircle size={18} className="icon-white" />
+          WhatsApp
+        </a>
+        <span className="tooltip-text">Chat on WhatsApp: 7011769523</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
             <div className="schedule-visit-box">
               <h3 className="visit-title">Schedule a Visit</h3>
@@ -248,30 +368,86 @@ const SaleDetailPage = () => {
           </div>
         </div>
         {/* sales page details */}
-
 <div className="property-details">
-  <h3 className="details-heading"> Details</h3>
+  <h3 className="details-heading">Details</h3>
 
   <div className="details-grid">
-    {/* Row 1 */}
-    <div className="detail-heading">Property Type</div>
-    <div className="detail-value">Sale</div>
+    {/* Property Size */}
+    <div className="detail-heading">Property Size</div>
+    <div className="detail-value">
+      {property.basicDetails?.area || "NA"} sq.ft
+    </div>
+
+    {/* Bathrooms */}
     <div className="detail-heading">Bathrooms</div>
-    <div className="detail-value">4</div>
+    <div className="detail-value">
+      {property.basicDetails?.bathrooms || "NA"}
+    </div>
 
-    {/* Row 2 */}
+    {/* Garages */}
     <div className="detail-heading">Garages</div>
-    <div className="detail-value">4</div>
-    <div className="detail-heading">Wifi</div>
-    <div className="detail-value">Yes</div>
+    <div className="detail-value">
+      {property.basicDetails?.garages || "NA"}
+    </div>
 
-    {/* Row 3 */}
+    {/* Property Type */}
+    <div className="detail-heading">Property Type</div>
+    <div className="detail-value">
+      {property.propertyType || "NA"}
+    </div>
+
+    {/* Furnishing Status */}
     <div className="detail-heading">Furnishing</div>
-    <div className="detail-value">Semi-Furnished</div>
-    <div className="detail-heading">Property Age</div>
-    <div className="detail-value">5 Years</div>
+    <div className="detail-value">
+      {property.basicDetails?.furnishingStatus || "NA"}
+    </div>
+
+    {/* Property Age (Year Built) */}
+    <div className="detail-heading">Year Built</div>
+    <div className="detail-value">
+      {property.basicDetails?.propertyAge || "NA"}
+    </div>
+
+    {/* Amenities */}
+    <div className="detail-heading">Amenities</div>
+    <div className="detail-value">
+      {property.basicDetails?.amenities?.length > 0
+        ? property.basicDetails.amenities.join(", ")
+        : "NA"}
+    </div>
+
+    {/* Bedrooms */}
+    <div className="detail-heading">Bedrooms</div>
+    <div className="detail-value">
+      {property.basicDetails?.bhkType || "NA"}
+    </div>
+
+    {/* Additional Rooms (if you have custom field later) */}
+    <div className="detail-heading">Additional Rooms</div>
+    <div className="detail-value">
+      {property.basicDetails?.additionalRooms || "NA"}
+    </div>
+
+    {/* Pool Size (if provided) */}
+    <div className="detail-heading">Pool Size</div>
+    <div className="detail-value">
+      {property.basicDetails?.poolSize || "NA"}
+    </div>
+
+    {/* Pool Equipment (if provided) */}
+    <div className="detail-heading">Pool Equipment</div>
+    <div className="detail-value">
+      {property.basicDetails?.poolEquipment || "NA"}
+    </div>
+
+    {/* Pool Status (if provided) */}
+    <div className="detail-heading">Pool Status</div>
+    <div className="detail-value">
+      {property.basicDetails?.poolStatus || "NA"}
+    </div>
   </div>
 </div>
+
 {/* sales address */}
 <div className="property-details">
   <h3 className="details-heading">Address</h3>
@@ -279,21 +455,24 @@ const SaleDetailPage = () => {
   <div className="details-grid">
     {/* Row 1 */}
     <div className="detail-heading">Address</div>
-    <div className="detail-value">123 Main Street</div>
+    <div className="detail-value">{property.location?.address}</div>
+
     <div className="detail-heading">City</div>
-    <div className="detail-value">New York</div>
+    <div className="detail-value">{property.location?.city}</div>
 
     {/* Row 2 */}
     <div className="detail-heading">State</div>
-    <div className="detail-value">NY</div>
+    <div className="detail-value">{property.location?.state}</div>
+
     <div className="detail-heading">Zip / Postal Code</div>
-    <div className="detail-value">10001</div>
+    <div className="detail-value">{property.location?.zipCode}</div>
 
     {/* Row 3 */}
     <div className="detail-heading">Area</div>
-    <div className="detail-value">Downtown</div>
+    <div className="detail-value">{property.location?.locality}</div>
   </div>
 </div>
+
 
 
 
@@ -366,77 +545,78 @@ const SaleDetailPage = () => {
   <h3 className="nearby-heading">What's Nearby</h3>
 
   {/* Education */}
-  <div className="nearby-category">
-    <div className="category-header">
-      <GraduationCap className="category-icon" size={20} />
-      <h4>Education</h4>
-    </div>
-    <div className="category-list">
-      <div className="item">
-        <span>St. Xavier’s School</span>
-        <span>0.87 miles</span>
+  {property.whatsNearby?.education?.length > 0 && (
+    <div className="nearby-category">
+      <div className="category-header">
+        <GraduationCap className="category-icon" size={20} />
+        <h4>Education</h4>
       </div>
-      <div className="item">
-        <span>National College</span>
-        <span>1.2 miles</span>
+      <div className="category-list">
+        {property.whatsNearby.education.map((item) => (
+          <div className="item" key={item._id}>
+            <span>{item.name}</span>
+            <span>{item.distance} km</span>
+          </div>
+        ))}
       </div>
     </div>
-  </div>
+  )}
 
   {/* Health */}
-  <div className="nearby-category">
-    <div className="category-header">
-      <Stethoscope className="category-icon" size={20} />
-      <h4>Health</h4>
-    </div>
-    <div className="category-list">
-      <div className="item">
-        <span>City Hospital</span>
-        <span>0.65 miles</span>
+  {property.whatsNearby?.health?.length > 0 && (
+    <div className="nearby-category">
+      <div className="category-header">
+        <Stethoscope className="category-icon" size={20} />
+        <h4>Health</h4>
       </div>
-      <div className="item">
-        <span>Wellness Clinic</span>
-        <span>1.1 miles</span>
+      <div className="category-list">
+        {property.whatsNearby.health.map((item) => (
+          <div className="item" key={item._id}>
+            <span>{item.name}</span>
+            <span>{item.distance} km</span>
+          </div>
+        ))}
       </div>
     </div>
-  </div>
+  )}
 
   {/* Food */}
-  <div className="nearby-category">
-    <div className="category-header">
-      <Utensils className="category-icon" size={20} />
-      <h4>Food</h4>
-    </div>
-    <div className="category-list">
-      <div className="item">
-        <span>Café Mocha</span>
-        <span>0.3 miles</span>
+  {property.whatsNearby?.food?.length > 0 && (
+    <div className="nearby-category">
+      <div className="category-header">
+        <Utensils className="category-icon" size={20} />
+        <h4>Food</h4>
       </div>
-      <div className="item">
-        <span>Blue Lagoon Restaurant</span>
-        <span>0.9 miles</span>
+      <div className="category-list">
+        {property.whatsNearby.food.map((item) => (
+          <div className="item" key={item._id}>
+            <span>{item.name}</span>
+            <span>{item.distance} km</span>
+          </div>
+        ))}
       </div>
     </div>
-  </div>
+  )}
 
-  {/* Culture */}
-  <div className="nearby-category">
-    <div className="category-header">
-      <Theater className="category-icon" size={20} />
-      <h4>Culture</h4>
-    </div>
-    <div className="category-list">
-      <div className="item">
-        <span>Art Museum</span>
-        <span>1.4 miles</span>
+  {/* Travel */}
+  {property.whatsNearby?.travel?.length > 0 && (
+    <div className="nearby-category">
+      <div className="category-header">
+        <Plane className="category-icon" size={20} />
+        <h4>Travel</h4>
       </div>
-      <div className="item">
-        <span>City Theater</span>
-        <span>2.0 miles</span>
+      <div className="category-list">
+        {property.whatsNearby.travel.map((item) => (
+          <div className="item" key={item._id}>
+            <span>{item.name}</span>
+            <span>{item.distance} km</span>
+          </div>
+        ))}
       </div>
     </div>
-  </div>
+  )}
 </div>
+
 
 
 

@@ -265,29 +265,32 @@ margin-bottom: 24px;
   color: #fff;
   font-size: 20px;
 }
-
 /* Advisor Card */
 .advisor-card {
   background: #fff;
-  border: 1px solid #e0e0e0;
+
   border-radius: 12px;
-  padding: 16px;
+
   margin-top: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+ 
 }
 
+/* Heading */
 .advisor-heading {
   font-size: 28px;
   font-weight: 600;
-  margin-bottom: 37px;
+  margin-bottom: 20px;
   color: #000;
+  text-align: left;
 }
 
+/* Advisor Info (image + text) */
 .advisor-info {
   display: flex;
   align-items: center;
   gap: 16px;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .advisor-img {
@@ -312,7 +315,6 @@ margin-bottom: 24px;
   font-size: 15px;
   margin: 4px 0;
   color: #7A7474;
-
 }
 
 .advisor-rating {
@@ -320,18 +322,21 @@ margin-bottom: 24px;
   align-items: center;
   gap: 4px;
   margin-top: 4px;
-justify-content: center;}
+  justify-content: center;
+}
 
 .rating-text {
   font-size: 14px;
   color: #333;
 }
 
+/* Contact Info */
 .advisor-contact {
-  margin-top: 16px;
-  font-size: 15px;
-  font-weight: 400;
-  color: #7A7474;
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .advisor-contact p {
@@ -341,17 +346,109 @@ justify-content: center;}
   margin: 6px 0;
 }
 
-.btn-advisor-call {
+/* Request Info Form */
+.advisor-form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-title {
+  font-size: 32px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #282828;
+}
+
+.form-group {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  color:  #282828;
+}
+
+.form-group input,
+.form-group textarea {
   width: 100%;
-  background: #FBDB5B !important;
-  color: #100E2C;
   padding: 10px;
+ border: 1px solid #C4C4D6;
   border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  min-height: 220px;
+  resize: none;
+}
+.form-group{
+    border:none !important;
+    gap:10px  !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 0px !important;
+}
+
+/* Send Email Button */
+.btn-send {
+  width: 100%;
+background: #2A3A68;
+
+  color: #fff;
   border: none;
-  margin-top: 12px;
-  font-weight: 400;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
 }
+
+.btn-send:hover {
+  background: #005ecc;
+}
+
+/* Action Buttons */
+.btn-advisor-call,
+.btn-advisor-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* Call button */
+.btn-advisor-call {
+  background: #FBDB5B !important;
+  color: #100E2C;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-advisor-call:hover {
+  background: #f0cd40 !important;
+}
+
+/* WhatsApp button */
+.btn-advisor-whatsapp {
+  background: #25d366;
+  color: #fff;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-advisor-whatsapp:hover {
+  background: #1ebc57;
+}
+
+
 /* Schedule Visit Box */
 .schedule-visit-box {
   background: linear-gradient(91.14deg, #CFDFFE -0.08%, #FEE7DF 98.86%);
@@ -557,7 +654,9 @@ justify-content: center;}
     max-width: 100%;
     margin-top: 20px;
     width: 100%;
+
   }
+
 
   .property-details-section {
     width: 100%;
@@ -712,13 +811,15 @@ display: flex;
 }
 .advisor-card {
   padding: 16px;
-  border: 1px solid #ddd;
+border: 1px solid #DEE2E6;
   border-radius: 12px;
+box-shadow: none !important;
+
 
 }
 
 .advisor-heading {
-  font-size: 20px;
+
   margin-bottom: 12px;
 }
 
