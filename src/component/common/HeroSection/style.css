@@ -47,8 +47,9 @@
 .hero-content h1 {
   color: #fff;
   font-weight: 600;
-  font-size: 72px;
+  font-size: 72px!important;
   margin-top: 0;
+  margin-bottom: 0px!important;
 }
 
 .hero-content > p {

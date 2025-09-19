@@ -368,7 +368,7 @@ const SaleDetailPage = () => {
           </div>
         </div>
         {/* sales page details */}
-<div className="property-details">
+<div className="property-details sale-property">
   <h3 className="details-heading">Details</h3>
 
   <div className="details-grid">

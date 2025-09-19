@@ -41,7 +41,7 @@ font-size: 16px !important;
 }
 
 
-
+/* 
 .search-filter select {
   width: 100%;
   font-weight: 400;
@@ -51,7 +51,40 @@ font-size: 16px !important;
   font-size: 14px!important;
   outline: none;
   background-color: #fff;
+
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url(data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>) no-repeat;
+  background-position: right 10px center;
+  background-size: 16px; 
+}*/
+
+
+.search-filter select {
+  width: 100%;                   /* pura parent width lega */
+  font-weight: 400;              /* normal font weight */
+  padding: 9px 16px;                  /* andar spacing */
+  border: 1px solid #ddd;        /* halka grey border */
+  border-radius: 6px;            /* thoda gol corners */
+  font-size: 16px!important;     /* font size fix */
+  outline: none;                 /* focus outline remove */
+  background-color: #fff;        /* white background */
+ 
+  appearance: none;              /* default dropdown arrow hatao */
+  -webkit-appearance: none;      /* Safari / Chrome ke liye */
+  -moz-appearance: none;        
+
+  /* custom arrow add karna */
+   background: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")
+    no-repeat;
+
+  background-position: right 17px center;
+  background-size: 16px;                  /* arrow ka size */
 }
+
+
 
 .search-btn {
   max-width: 400px;
@@ -69,7 +102,7 @@ font-size: 16px !important;
 
 .search-btn > p{
 font-family: "poppins";
-font-weight: 600;
+font-weight: 600!important;
 font-size: 1rem !important ;
 color: #100E2C!important;
 }
