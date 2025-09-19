@@ -160,7 +160,7 @@
 }
 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .property-card {
     max-width: 90%;
   }
@@ -174,9 +174,9 @@
   }
 
   .share-btn, .contact-btn {
-    /* flex: 100%; */
+     flex: 100%; 
   }
-}
+} */
 
 
 
