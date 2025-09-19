@@ -115,7 +115,9 @@ const FeaturedProperties = ({ filters }) => {
                   <div
                     key={property._id}
                     onClick={() => handleCardClick(property._id)}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer", 
+                            display: "inline-block", 
+                    }}
                   >
                     <PropertyCard id={property._id} property={property} />
                   </div>

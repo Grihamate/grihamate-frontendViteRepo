@@ -30,6 +30,7 @@
 .commercial-container {
   width: 100%;
   height: fit-content;
+ 
 }
 
 /* Main content wrapper */
@@ -106,6 +107,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    margin-top: 60px;
 }
 
 

@@ -3,6 +3,7 @@
   max-width: 1278px;
   padding: 1.5rem;
   margin-bottom: 94px;
+  margin-top: 42px;
   border-radius: 12px;
   background-color: #FFFFFF;
   display: flex;
@@ -31,9 +32,8 @@
 .filter-text{
 display: flex;
 align-items: center;
-justify-content: center;
 font-family: "Poppins";
-font-weight: 400!important;;
+font-weight: 500!important;;
 font-style: "Regular";
 color:#000000;
 line-height: 1.2rem;
@@ -48,7 +48,7 @@ font-size: 16px !important;
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px!important;
   outline: none;
   background-color: #fff;
 }
@@ -108,6 +108,10 @@ color: #100E2C!important;
  @media (max-width: 500px) {
   .filter-container{
     grid-template-columns: repeat(1, minmax(160px, 1fr));
+  }
+
+  .search-filter{
+    margin-bottom: 50px;
   }
 
 }

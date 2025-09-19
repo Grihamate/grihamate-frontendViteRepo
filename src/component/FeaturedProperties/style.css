@@ -31,7 +31,7 @@
   gap: 130px;
 }
 
-.section-header h5 {
+.detail-box > h5 {
   font-size: 50px;
   font-weight: 700;
   line-height: 1.2;
@@ -39,11 +39,11 @@
   color: #1d1d1d;
 }
 
-.section-header p {
+.detail-box > p {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  margin-top: 8px;
+  margin-top: 24px;
   color: #666;
 }
 
@@ -58,8 +58,8 @@
 .feature-btn {
   height: 54px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center !important;
+  justify-content: center!important;
   gap: 0.4rem;
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
@@ -69,7 +69,6 @@
 }
 
 .feature-btn > p {
-  padding-bottom: 6px;
   color: #100E2C;
   font-weight: 500;
   font-size: 1.4rem;
@@ -87,6 +86,7 @@
   gap: 20px;
   padding-top: 40px;
 }
+
 
 /* Loader / error messages */
 .loader-wrapper,
@@ -418,17 +418,21 @@
   }
 
   .section-header {
-    gap: 50px;
+    gap: 40px;
     justify-content: center;
   }
 
-  .section-header h5 {
-    font-size: 26px;
+  .detail-box > h5 {
+    font-size: 36px;
+  }
+
+  .detail-box >  p{
+    font-size: 14px;
   }
 
   .feature-btn > img {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
   }
 
   .feature-btn > p {
@@ -477,4 +481,30 @@
   cursor: pointer;
   border: none;
   gap: 8px;
+}
+
+
+/* Cards responsive */
+@media (max-width: 768px) {
+  .section-header h5 {
+    font-size: 30px;
+  }
+  .section-header p{
+    font-size: 12px;
+  }
+
+}
+
+
+/* Cards responsive */
+@media (max-width: 480px) {
+  .detail-box > h5 {
+    font-size: 20px;
+    white-space: nowrap;
+  }
+  .detail-box > p{
+    font-size: 10px;
+    font-weight: 300;
+  }
+
 }
