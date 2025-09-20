@@ -1,11 +1,11 @@
-/* Outer container: full width */
+
 .page-container {
   width: 100%;
-  background: #fff; /* background stretches full screen */
+  background: #fff; 
   margin-top:135px
 }
 
-/* Inner container: centered, max 1326px */
+
 .page-inner {
   max-width: 1326px;
   margin: 0 auto;
@@ -18,6 +18,7 @@
  border: 1px solid #DEE2E6;
   border-radius: 12px;
   margin-top: 32px;
+  margin-bottom: 39px;
 }
 
 .property-amenities h3 {
@@ -29,14 +30,15 @@
   padding-top: 16px;
 }
 
-/* Grid for amenities */
+
 .amenities-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px 42px; /* row-gap 32px, column-gap 42px */
+  gap: 32px 42px; 
 }
 
-/* Each amenity item */
+
+
 .amenity-item {
   display: flex;
   align-items: center;
@@ -52,16 +54,17 @@
 
 .amenity-icon {
   font-size: 18px;
-  color: #2a9d8f; /* you can replace with lucide-react icons */
+  color: #2a9d8f; 
 }
 
 
-/* Description container */
+
 .property-description {
   max-width: 786px;
   border: 1px solid #DEE2E6;
   border-radius: 12px;
   padding: 24px 12px 24px 12px;
+  margin-bottom: 39px;
 
 }
 
@@ -80,7 +83,7 @@
   margin-bottom: 34px;
 }
 
-/* Facts Grid */
+
 .property-facts {
   display: flex;
   flex-wrap: wrap;
@@ -123,13 +126,12 @@
   display: flex;
   gap: 28px;
   max-width: 1326px;
-  max-height: 800px;
-  height: 100%;
   margin: 0 auto;
-    align-items: flex-start;
+  align-items: flex-start !important;
+  min-height: 100vh;
 }
 
-/* LEFT SIDE */
+
 .property-images-section {
   flex: 0 0 60%;
 }
@@ -157,7 +159,7 @@
   border: 1px solid #dee2e6;
 }
 
-/* RIGHT SIDE */
+
 .property-details-section {
   flex: 0 0 40%;
   display: flex;
@@ -190,7 +192,7 @@ margin-bottom: 10px;
   margin-bottom: 30px;
 }
 
-/* Stats */
+
 .property-stats {
   display: flex;
   flex-wrap: wrap;
@@ -201,7 +203,7 @@ margin-bottom: 10px;
 
 .stat-item {
   display: flex;
-  flex-direction: column; /* ✅ stack number+icon and label */
+  flex-direction: column; 
   align-items: center;
   text-align: center;
 }
@@ -210,7 +212,7 @@ margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* spacing between icon and number */
+  gap: 8px; 
 }
 
 .stat-item h4 {
@@ -226,7 +228,7 @@ margin-bottom: 10px;
 }
 
 
-/* Button */
+
 .btn-contact {
 margin-bottom: 24px;
   color: #100E2C;
@@ -256,7 +258,7 @@ margin-bottom: 24px;
   width: auto !important; 
   max-width: none !important;
   margin-bottom: 24px;
-  align-self: flex-start;   /* ✅ keeps it left and prevents stretch */
+  align-self: flex-start;   
 }
 
 
@@ -265,7 +267,7 @@ margin-bottom: 24px;
   color: #fff;
   font-size: 20px;
 }
-/* Advisor Card */
+
 .advisor-card {
   background: #fff;
 
@@ -275,7 +277,7 @@ margin-bottom: 24px;
  
 }
 
-/* Heading */
+
 .advisor-heading {
   font-size: 28px;
   font-weight: 600;
@@ -284,7 +286,6 @@ margin-bottom: 24px;
   text-align: left;
 }
 
-/* Advisor Info (image + text) */
 .advisor-info {
   display: flex;
   align-items: center;
@@ -330,7 +331,7 @@ margin-bottom: 24px;
   color: #333;
 }
 
-/* Contact Info */
+
 .advisor-contact {
   margin-top: 20px;
   display: flex;
@@ -346,7 +347,8 @@ margin-bottom: 24px;
   margin: 6px 0;
 }
 
-/* Request Info Form */
+
+
 .advisor-form {
   text-align: center;
   margin-bottom: 20px;
@@ -393,7 +395,7 @@ margin-bottom: 24px;
     padding-bottom: 0px !important;
 }
 
-/* Send Email Button */
+
 .btn-send {
   width: 100%;
 background: #2A3A68;
@@ -410,7 +412,7 @@ background: #2A3A68;
   background: #005ecc;
 }
 
-/* Action Buttons */
+
 .btn-advisor-call,
 .btn-advisor-whatsapp {
   display: flex;
@@ -424,7 +426,7 @@ background: #2A3A68;
   transition: 0.3s;
 }
 
-/* Call button */
+
 .btn-advisor-call {
   background: #FBDB5B !important;
   color: #100E2C;
@@ -436,7 +438,7 @@ background: #2A3A68;
   background: #f0cd40 !important;
 }
 
-/* WhatsApp button */
+
 .btn-advisor-whatsapp {
   background: #25d366;
   color: #fff;
@@ -449,7 +451,7 @@ background: #2A3A68;
 }
 
 
-/* Schedule Visit Box */
+
 .schedule-visit-box {
   background: linear-gradient(91.14deg, #CFDFFE -0.08%, #FEE7DF 98.86%);
   border-radius: 12px;
@@ -506,10 +508,13 @@ background: #2A3A68;
   font-weight: 600;
   margin-bottom: 12px;
 }
+.video-display{
+     border-radius: 12px;
+}
 
 .map-box {
-  background: #EFF5FC;
-  height: 200px;
+  background: white !important;
+  height: 500px !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -561,6 +566,7 @@ background: #2A3A68;
   align-items: center;
   gap: 8px;
   margin-bottom: 10px;
+  border-bottom: 1px solid rgba(122, 116, 116, 0.4);
 }
 
 .category-header h4 {
@@ -606,19 +612,28 @@ background: #2A3A68;
  
 }
 
-/* responsive css  */
-/* ============================= */
-/* 📱 Responsive: below 1224px */
-/* ============================= */
+
+/* .right-sticky-parent {
+  position: -webkit-sticky; 
+  position: sticky;
+  top: 135px; 
+  align-self: flex-start;
+  height: fit-content;
+  max-height: 70vh;
+  overflow-y: auto;
+  z-index: 1;
+} */
+
+
 @media (max-width: 1224px) {
-  /* Flex container stacks vertically */
+
   .property-flex {
     flex-direction: column;
     gap: 24px;
-    max-height: none; /* remove desktop fixed height */
+    max-height: none; 
   }
 
-  /* Images section full width */
+
   .property-images-section {
     flex: 0 0 100%;
     max-width: 100%;
@@ -626,7 +641,7 @@ background: #2A3A68;
 
   .main-image {
     max-width: 100%;
-    height: auto; /* maintain aspect ratio */
+    height: auto; 
   }
 
   .thumbnail-row {
@@ -643,12 +658,11 @@ background: #2A3A68;
   padding-top: 16px;
 }
   .thumbnail-image {
-    width: calc(50% - 8px); /* 2 per row with gap */
-    max-width: 100%;
+    width: calc(50% - 8px); 
     height: auto;
   }
 
-  /* Right column details full width */
+
   .property-right-column {
     flex: 0 0 100%;
     max-width: 100%;
@@ -664,9 +678,7 @@ background: #2A3A68;
   }
 
   .property-stats {
-    /* justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap; */
+
     display: flex;
     flex-wrap: nowrap;
  
@@ -674,7 +686,7 @@ background: #2A3A68;
   }
 
   .stat-item {
-    width: 48%; /* 2 per row */
+    width: 48%; 
     margin-bottom: 16px;
   }
 
@@ -682,32 +694,31 @@ background: #2A3A68;
     width: 100%;
   }
 
-  /* Advisor card & visit box full width */
   .advisor-card,
   .schedule-visit-box {
     width: 100%;
     margin-top: 20px;
   }
 
-  /* Description */
+ 
   .property-description {
     max-width: 100%;
     width: 100%;
     margin-top: 30px;
   }
 
-  /* Facts in description stack nicely */
+  
   .property-facts {
     flex-wrap: wrap;
     gap: 16px;
   }
 
   .fact-card {
-    flex: 1 1 48%; /* 2 per row */
+    flex: 1 1 48%; 
     max-width: 100%;
   }
 
-  /* Amenities */
+
   .property-amenities {
     max-width: 100%;
     width: 100%;
@@ -715,25 +726,25 @@ background: #2A3A68;
   }
 
   .amenities-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 20px;
   }
 
-  /* Map Section */
+
   .map-section {
     max-width: 100%;
     width: 100%;
     margin-top: 30px;
   }
 
-  /* Nearby Section */
+
   .nearby-section {
     max-width: 100%;
     width: 100%;
     margin-top: 30px;
   }
 
-  /* Related Listings */
+
   .related-section {
     width: 100%;
     padding: 20px 0;
@@ -746,7 +757,7 @@ display: flex;
   }
 
 
-  /* General spacing adjustments */
+
   .btn-sale {
     margin-bottom: 16px;
     display: none;
@@ -825,16 +836,16 @@ box-shadow: none !important;
 
 .advisor-contact {
   display: flex;
-  flex-direction: column; /* stack vertically */
+  flex-direction: column; 
   gap: 10px;
 }
 
 .btn-advisor-call,
 .btn-advisor-whatsapp {
-  width: 100%; /* full width */
+  width: 100%; 
   display: flex;
   align-items: center;
-  justify-content: center; /* center text + icon */
+  justify-content: center; 
   gap: 8px;
   padding: 10px 14px;
   border: none;
@@ -845,7 +856,7 @@ box-shadow: none !important;
   transition: background 0.2s ease;
 }
 
-/* Call button */
+
 .btn-advisor-call {
   background: #f4f4f4;
   color: #000;
@@ -855,7 +866,7 @@ box-shadow: none !important;
   background: #e0e0e0;
 }
 
-/* WhatsApp button */
+
 .btn-advisor-whatsapp {
   background: #25d366;
   color: #fff;
@@ -865,7 +876,6 @@ box-shadow: none !important;
   background: #1ebd5a;
 }
 
-/* Icons */
 .icon-black {
   color: black;
 }
@@ -887,7 +897,7 @@ box-shadow: none !important;
   border-radius: 6px;
   font-size: 14px;
   position: absolute;
-  bottom: 125%; /* show above */
+  bottom: 125%; 
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
@@ -900,7 +910,7 @@ box-shadow: none !important;
   visibility: visible;
   opacity: 1;
 }
-/* sales page css */
+
 .property-details {
   max-width: 777px;
   width: 100%;
@@ -909,6 +919,7 @@ box-shadow: none !important;
   background: #fff;
   border-radius: 12px;
    border: 1px solid #DEE2E6;
+   margin-bottom: 39px;
 }
 
 .details-heading {
@@ -920,7 +931,13 @@ color: #100E2C !important;
 
 .details-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: left;
+}
+.details-grid-address {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   text-align: left;
 }
@@ -937,7 +954,7 @@ color: #100E2C !important;
   color: #100E2C;
 }
 
-/* Responsive */
+
 @media (max-width: 900px) {
   .details-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -977,7 +994,7 @@ color: #100E2C !important;
   flex-shrink: 0;
 }
 
-/* Responsive */
+
 @media (max-width: 900px) {
   .floor-row {
     grid-template-columns: 140px repeat(2, 1fr);
@@ -988,4 +1005,7 @@ color: #100E2C !important;
   .floor-row {
     grid-template-columns: 1fr;
   }
+}
+.advisor-contact{
+    margin-bottom: 20px;
 }

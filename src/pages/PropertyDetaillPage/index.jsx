@@ -122,6 +122,21 @@ const PropertyDetailPage = () => {
               <p className="property-price">
                 ₹{property.basicDetails?.monthlyRent} / month
               </p>
+ 
+<p className="property-extra">
+  <span className="label">Security Deposit:</span>
+  <span className="value">₹{property.basicDetails?.securityDeposit || 0}</span>
+</p>
+
+<p className="property-extra">
+  <span className="label">Maintenance Charges:</span>
+  <span className="value">₹{property.basicDetails?.maintenanceCharges || 0}</span>
+</p>
+
+<p className="property-extra">
+  <span className="label">Welcome Charges:</span>
+  <span className="value">₹100000</span>
+</p>
 
               <div className="property-stats">
                 <div className="stat-item">

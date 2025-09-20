@@ -799,3 +799,22 @@ display: flex;
   visibility: visible;
   opacity: 1;
 }
+.property-extra {
+  font-size: 16px;
+  margin-bottom: 8px;
+ position: relative;
+}
+
+.property-extra .label {
+  font-weight: 500;
+
+}
+
+.property-extra .value {
+
+  font-weight: bold;
+  color: #222;
+    position: absolute;
+  right: 10px;
+}
+

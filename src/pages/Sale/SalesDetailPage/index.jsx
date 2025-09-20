@@ -10,13 +10,69 @@ import PropertyCard from "../../../component/common/card";
 import relatedImage from '../../../assets/dummyrelatedimage.png'
 import { useParams } from "react-router-dom";
 import { getSalePropertyById } from "../../../service/getSalePropertyById";
+import { bookSiteVisit } from "../../../service/siteVisit";
+import { getToken } from "../../../utils/authUtils";
+import { sendContactMessage } from "../../../service/contactService";
+import SuccessModal from "../../../component/sucessModal/SuccessfulModal";
 
 const SaleDetailPage = () => {
   const { id } = useParams();
   const [property, setProperty] = useState(null);
   const [loading, setLoading] = useState(true);
-  
 
+ const handleBookVisit = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        setModalMessage("No token found. Please login first.");
+        setIsModalOpen(true);
+        return;
+      }
+
+      const result = await bookSiteVisit(token);
+
+      if (result.success) {
+        setModalMessage(result.message); // show API success message
+      } else {
+        setModalMessage("Failed to book site visit");
+      }
+
+      setIsModalOpen(true); // open modal
+    } catch (err) {
+      setModalMessage("Error booking visit. Please try again.");
+      setIsModalOpen(true);
+    }
+  };
+//   get in touch api integration
+  const [formData, setFormData] = useState({
+    fullname: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Handle form submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const result = await sendContactMessage(formData);
+      alert(result.message); // show success message
+      setFormData({ fullname: "", email: "", phone: "", message: "" }); // reset form
+    } catch (err) {
+      alert(err.message || "Failed to send message");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // 👇 fetch token from localStorage (if you saved it during login)
   const token = localStorage.getItem("token");
@@ -88,16 +144,25 @@ const SaleDetailPage = () => {
     images: [],
   },
 ];
+ const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
 
   if (loading) return ;
   if (!property) return <div>No property found</div>;
 
 
+
   return (
     <div className="page-container">
+        <SuccessModal
+  isOpen={isModalOpen}
+  message={modalMessage}
+  onClose={() => setIsModalOpen(false)}
+/>
       <div className="page-inner property-detail-page">
         <div className="property-flex">
+           
           <div className="property-images-section">
             {property.images && property.images.length > 0 ? (
               <>
@@ -122,183 +187,62 @@ const SaleDetailPage = () => {
             )}
           </div>
 
-          <div className="property-right-column">
-            <div className="property-details-section">
-              <button className="btn-sale">
-                <span>For Sale</span>
-              </button>
-              <h1 className="property-title">{property.basicDetails?.title}</h1>
-              <p className="property-location">{property.location?.fullAddress}</p>
-              <p className="property-price">
-                ₹{property.basicDetails?.price} / month
-              </p>
+       <div className="right-sticky-parent">
+  <div className="property-right-column">
+    
+    <div className="property-details-section">
+      <button className="btn-sale">
+        <span>For Sale</span>
+      </button>
 
-              <div className="property-stats">
-                <div className="stat-item">
-                  <div className="stat-top">
-                    <Bed size={16} />
-                    <h4>{property.basicDetails?.bhkType}</h4>
-                  </div>
-                  <p>Bedrooms</p>
-                </div>
+      <h1 className="property-title">{property.basicDetails?.title}</h1>
+      <p className="property-location">{property.location?.fullAddress}</p>
 
-                <div className="stat-item">
-                  <div className="stat-top">
-                    <Bath size={16} />
-                    <h4>{property.basicDetails?.bathrooms}</h4>
-                  </div>
-                  <p>Bathrooms</p>
-                </div>
-
-                <div className="stat-item">
-                  <div className="stat-top">
-                    <Ruler size={16} />
-                    <h4>{property.basicDetails?.area} </h4>
-                  </div>
-                  <p>Total Area</p>
-                </div>
-
-                <div className="stat-item">
-                  <div className="stat-top">
-                    <Car size={16} />
-                    <h4>{property.basicDetails?.garages || 0}</h4>
-                  </div>
-                  <p>Garages</p>
-                </div>
-              </div>
-            </div>
-{/* 
-     <div className="advisor-card">
-      <h3 className="advisor-heading">Advisor</h3>
-
-      <div className="advisor-contact">
-
-<div className="tooltip-wrapper">
-  <a href="tel:7011769523" className="btn-advisor-call">
-    <Phone size={18} className="icon-black" />
-    Call Advisor
-  </a>
-  <span className="tooltip-text">Call Advisor at 701176952</span>
-</div>
-
-     
-       <div className="tooltip-wrapper">
-  <a
-    href="https://wa.me/7011769523"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="btn-advisor-whatsapp"
-  >
-    <MessageCircle size={18} className="icon-white" />
-    WhatsApp
-  </a>
-  <span className="tooltip-text">Chat on WhatsApp: 7011769523</span>
-</div>
-      </div>
-    </div> */}
-    {/* <div className="advisor-card">
- 
-  <h3 className="advisor-heading">Advisor</h3>
-
-
-  <div className="advisor-form">
-    <h4 className="form-title">Request Info</h4>
-    <form>
-      <div className="form-group">
-        <label>Full Name</label>
-        <input type="text" placeholder="Enter your full name" />
-      </div>
-
-      <div className="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="Enter your email" />
-      </div>
-
-      <div className="form-group">
-        <label>Phone Number</label>
-        <input type="tel" placeholder="Enter your phone number" />
-      </div>
-
-      <div className="form-group">
-        <label>Message</label>
-        <textarea placeholder="Enter your message"></textarea>
-      </div>
-
-      <button type="submit" className="btn-send">Send Email</button>
-    </form>
-  </div>
-
-
-  <div className="advisor-contact">
-
-    <div className="tooltip-wrapper">
-      <a href="tel:7011769523" className="btn-advisor-call">
-        <Phone size={18} className="icon-black" />
-        Call Advisor
-      </a>
-      <span className="tooltip-text">Call Advisor at 7011769523</span>
-    </div>
-
-    <div className="tooltip-wrapper">
-      <a
-        href="https://wa.me/7011769523"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn-advisor-whatsapp"
-      >
-        <MessageCircle size={18} className="icon-white" />
-        WhatsApp
-      </a>
-      <span className="tooltip-text">Chat on WhatsApp: 7011769523</span>
-    </div>
-  </div>
-</div> */}
-{/* Right column */}
-<div className="right-sticky-parent">
-  <div className="advisor-card">
-    {/* Left aligned heading */}
-    <h3 className="advisor-heading">Advisor</h3>
-
-    {/* Request Info Form */}
-    <div className="advisor-form">
-      <h4 className="form-title">Request Info</h4>
-      <form>
-        <div className="form-group">
-          <label>Full Name</label>
-          <input type="text" placeholder="Enter your full name" />
+      <div className="property-stats">
+        <div className="stat-item">
+          <div className="stat-top">
+            <Bed size={16} />
+            <h4>{property.basicDetails?.bhkType}</h4>
+          </div>
+          <p>Bedrooms</p>
         </div>
 
-        <div className="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="Enter your email" />
+        <div className="stat-item">
+          <div className="stat-top">
+            <Bath size={16} />
+            <h4>{property.basicDetails?.bathrooms}</h4>
+          </div>
+          <p>Bathrooms</p>
         </div>
 
-        <div className="form-group">
-          <label>Phone Number</label>
-          <input type="tel" placeholder="Enter your phone number" />
+        <div className="stat-item">
+          <div className="stat-top">
+            <Ruler size={16} />
+            <h4>{property.basicDetails?.area}</h4>
+          </div>
+          <p>Total Area</p>
         </div>
 
-        <div className="form-group">
-          <label>Message</label>
-          <textarea placeholder="Enter your message"></textarea>
+        <div className="stat-item">
+          <div className="stat-top">
+            <Car size={16} />
+            <h4>{property.basicDetails?.garages || 0}</h4>
+          </div>
+          <p>Garages</p>
         </div>
+      </div>
 
-        <button type="submit" className="btn-send">Send Email</button>
-      </form>
-    </div>
-
-    {/* Advisor Contact Buttons */}
-    <div className="advisor-contact">
       {/* Call Advisor button */}
-      <div className="tooltip-wrapper">
-        <a href="tel:7011769523" className="btn-advisor-call">
-          <Phone size={18} className="icon-black" />
-          Call Advisor
-        </a>
-        <span className="tooltip-text">Call Advisor at 7011769523</span>
+      <div className="advisor-contact">
+        <div className="tooltip-wrapper">
+          <a href="tel:7011769523" className="btn-advisor-call">
+            <Phone size={18} className="icon-black" />
+            Contact Now
+          </a>
+          <span className="tooltip-text">Call Advisor at 7011769523</span>
+        </div>
       </div>
 
-      {/* WhatsApp button */}
       <div className="tooltip-wrapper">
         <a
           href="https://wa.me/7011769523"
@@ -312,22 +256,106 @@ const SaleDetailPage = () => {
         <span className="tooltip-text">Chat on WhatsApp: 7011769523</span>
       </div>
     </div>
+
+    {/* Advisor Card */}
+        <div className="advisor-card">
+      <h3 className="advisor-heading">Advisor</h3>
+
+      <div className="advisor-form">
+        <h4 className="form-title">Request Info</h4>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Full Name</label>
+            <input
+              type="text"
+              name="fullname"
+              value={formData.fullname}
+              onChange={handleChange}
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Phone Number</label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Enter your phone number"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Message</label>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Enter your message"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" className="btn-send" disabled={loading}>
+            {loading ? "Sending..." : "Send Email"}
+          </button>
+        </form>
+      </div>
+
+      <div className="advisor-contact">
+        <div className="tooltip-wrapper">
+          <a href="tel:7011769523" className="btn-advisor-call">
+            <Phone size={18} className="icon-black" />
+            Call Advisor
+          </a>
+          <span className="tooltip-text">Call Advisor at 7011769523</span>
+        </div>
+
+        <div className="tooltip-wrapper">
+          <a
+            href="https://wa.me/7011769523"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-advisor-whatsapp"
+          >
+            <MessageCircle size={18} className="icon-white" />
+            WhatsApp
+          </a>
+          <span className="tooltip-text">Chat on WhatsApp: 7011769523</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Schedule Visit */}
+    <div className="schedule-visit-box">
+      <h3 className="visit-title">Schedule a Visit</h3>
+      <p className="visit-text">
+        Book a free property visit at your convenience
+      </p>
+      <button className="btn-visit " onClick={handleBookVisit}>Book Site Visit</button>
+    </div>
   </div>
 </div>
 
-
-
-            <div className="schedule-visit-box">
-              <h3 className="visit-title">Schedule a Visit</h3>
-              <p className="visit-text">
-                Book a free property visit at your convenience
-              </p>
-              <button className="btn-visit">Book Site Visit</button>
-            </div>
-          </div>
         </div>
 
-        <div className="property-description">
+
+            <div className="property-description">
           <h3 className="desc-heading">Description</h3>
           <p className="desc-text">
             {property.description || "No description available"}
@@ -408,13 +436,7 @@ const SaleDetailPage = () => {
       {property.basicDetails?.propertyAge || "NA"}
     </div>
 
-    {/* Amenities */}
-    <div className="detail-heading">Amenities</div>
-    <div className="detail-value">
-      {property.basicDetails?.amenities?.length > 0
-        ? property.basicDetails.amenities.join(", ")
-        : "NA"}
-    </div>
+
 
     {/* Bedrooms */}
     <div className="detail-heading">Bedrooms</div>
@@ -452,10 +474,10 @@ const SaleDetailPage = () => {
 <div className="property-details">
   <h3 className="details-heading">Address</h3>
 
-  <div className="details-grid">
+  <div className="details-grid-address">
     {/* Row 1 */}
     <div className="detail-heading">Address</div>
-    <div className="detail-value">{property.location?.address}</div>
+    <div className="detail-value">{property.location?.fullAddress}</div>
 
     <div className="detail-heading">City</div>
     <div className="detail-value">{property.location?.city}</div>
@@ -465,7 +487,7 @@ const SaleDetailPage = () => {
     <div className="detail-value">{property.location?.state}</div>
 
     <div className="detail-heading">Zip / Postal Code</div>
-    <div className="detail-value">{property.location?.zipCode}</div>
+    <div className="detail-value">{property.location?.pincode}</div>
 
     {/* Row 3 */}
     <div className="detail-heading">Area</div>
@@ -489,56 +511,67 @@ const SaleDetailPage = () => {
         </div>
         {/* floor plans for sales page */}
   
-  <div className="property-details">
-      <h3 className="details-heading">Floor Plans</h3>
+ <div className="property-details">
+  <h3 className="details-heading">Floor Plans</h3>
 
-      {/* First Floor */}
-      <div className="floor-row">
-        <div className="floor-label">First Floor</div>
+  {property.floorPlan ? (
+    <div className="floor-row">
+        <div>First Floor</div>
+      {/* Dining Area */}
+      {property.floorPlan.diningArea && (
         <div className="floor-item">
           <Home className="floor-icon" size={22} />
-          <span>1200 sq.ft</span>
+          <span> {property.floorPlan.diningArea} sq.ft</span>
         </div>
-        <div className="floor-item">
-          <Bed className="floor-icon" size={22} />
-          <span>800 sq.ft</span>
-        </div>
-        <div className="floor-item">
-          <Bath className="floor-icon" size={22} />
-          <span>300 sq.ft</span>
-        </div>
-      </div>
+      )}
 
-      {/* Second Floor */}
-      <div className="floor-row">
-        <div className="floor-label">Second Floor</div>
-        <div className="floor-item">
-          <Home className="floor-icon" size={22} />
-          <span>1000 sq.ft</span>
-        </div>
+      {/* Bedroom Area */}
+      {property.floorPlan.bedroomArea && (
         <div className="floor-item">
           <Bed className="floor-icon" size={22} />
-          <span>700 sq.ft</span>
+          <span>{property.floorPlan.bedroomArea} sq.ft</span>
         </div>
+      )}
+
+      {/* Bathroom Area */}
+      {property.floorPlan.bathroomArea && (
         <div className="floor-item">
           <Bath className="floor-icon" size={22} />
-          <span>250 sq.ft</span>
+          <span> {property.floorPlan.bathroomArea} sq.ft</span>
         </div>
-      </div>
+      )}
     </div>
+  ) : (
+    <p>No floor plan available</p>
+  )}
+</div>
+
 
 
 
 
 <div className="map-section">
-  <h3 className="map-heading">Location and Map</h3>
+  <h3 className="map-heading">Virtual Tour</h3>
 
   <div className="map-box">
-    <MapPin size={48} className="map-icon" />
-    <p className="map-subtitle">Interactive Map Integration</p>
-    <p className="map-address">Bandra West, Mumbai - Premium Location</p>
+   
+
+    {property.virtualTour ? (
+      <video
+        width="100%"
+        height="500"
+        className="video-display"
+        controls
+        src={property.virtualTour}
+      >
+        Your browser does not support the video tag.
+      </video>
+    ) : (
+      <p className="map-address">Virtual tour not available</p>
+    )}
   </div>
 </div>
+
 
 
 <div className="nearby-section">
@@ -628,6 +661,8 @@ const SaleDetailPage = () => {
         ))}
       </div>
     </div>
+    
+
       </div>
     </div>
   );
