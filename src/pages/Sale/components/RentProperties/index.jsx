@@ -671,13 +671,13 @@ const handleCardClick = async (id) => {
                 <h1>Available Properties</h1>
                 <p>Discover your perfect home from our curated collection...</p>
               
-                {
+                {/* {
                   isMobile && (
                       <button onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}>
                       {isMobileFilterOpen ? "Close Filters" : "Open Filters"}
                       </button>
                   )
-                }
+                } */}
 
               </div>
 

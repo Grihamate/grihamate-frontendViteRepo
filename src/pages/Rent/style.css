@@ -1,6 +1,6 @@
 
 .rent-page{
-  width: 90%;
+  /* width: 90%; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,3 +9,9 @@
   margin: 0 auto;
  padding-bottom: 20px
 }
+@media (max-width: 480px) {
+  .main-content {
+    padding-left: 4px !important ;
+    padding-right: 4px !important;
+  }
+} 
