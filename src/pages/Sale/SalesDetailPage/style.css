@@ -911,8 +911,8 @@ box-shadow: none !important;
   opacity: 1;
 }
 
-.property-details {
-  max-width: 777px;
+.sale-property {
+  max-width: 666px !important;
   width: 100%;
 
   padding: 1.5rem;

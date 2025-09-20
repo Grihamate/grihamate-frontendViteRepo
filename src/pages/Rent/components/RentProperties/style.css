@@ -51,7 +51,7 @@
 
 .cards-tittle > p{
 width: 80%;  
-padding-botom: 10px;
+padding-bottom: 10px;
 font-weight: 400;
 font-size: 16px;
 line-height: 20px;
@@ -79,9 +79,13 @@ color: #100E2C;
 .filters-card-conatiner{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 48px;
+    gap: 40px;
     width: 100%;
 }
+
+
+
+
 
 
 

@@ -32,7 +32,7 @@ const PropertyCard = ({ property }) => {
               {property.location.fullAddress}, {property.location.city}
             </p>
             <p className="para-card">{property.description}</p>
-            <p className="price">₹ {property?.basicDetails?.monthlyRent || property?.basicDetails?.price}/month</p>
+            <p className="price">₹ {property?.basicDetails?.monthlyRent || property?.basicDetails?.price}<span>/month</span></p>
           </div>
 
           <div className="icons-bar">
@@ -70,12 +70,12 @@ const PropertyCard = ({ property }) => {
             <button className="share-btn">
               <img src={contactIcon} alt="share" /> Share
             </button>
-<div className="tooltip-wrapper">
-  <a href="tel:7011769523" className="contact-btn">
-    <img src={callIcon} alt="contact" /> Contact Now
-  </a>
-  <span className="tooltip-text">Call 7011769523</span>
-</div>
+            <div className="tooltip-wrapper">
+              <a href="tel:7011769523" className="contact-btn">
+                <img src={callIcon} alt="contact" /> Contact Now
+              </a>
+              <span className="tooltip-text">Call 7011769523</span>
+            </div>
           </div>
         </div>
       

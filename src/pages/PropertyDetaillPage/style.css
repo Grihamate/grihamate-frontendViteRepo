@@ -58,7 +58,7 @@
 
 /* Description container */
 .property-description {
-  max-width: 786px;
+  max-width: 686px !important;
   border: 1px solid #DEE2E6;
   border-radius: 12px;
   padding: 24px 12px 24px 12px;
