@@ -247,6 +247,7 @@ margin-bottom: 24px;
   background: #FBDB5B;
 
 }
+
 .btn-sale {
   display: inline-block;
   background: #0057FF;
@@ -259,6 +260,17 @@ margin-bottom: 24px;
   max-width: none !important;
   margin-bottom: 24px;
   align-self: flex-start;   
+}
+
+
+.rent-btn {
+  background-color: #8EDA53;
+  color: white;
+}
+
+.sale-btn {
+  background: #0057FF;
+  color: white;
 }
 
 

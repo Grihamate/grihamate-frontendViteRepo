@@ -32,7 +32,7 @@ const ContactUs = () => {
                     headingClassName="card-contactus-heading-custom" 
                     subheadingClassName="card-contactus-subheading-custom"
                     heading="Our Email address"
-                    subheading="Grihamateoffical@gmail.com" 
+                    subheading="grihamate@gmail.com" 
                     image={emailIcon}
                     circleColor="white"
                      imageStyle={{ width: "32px", height: "32px" }}

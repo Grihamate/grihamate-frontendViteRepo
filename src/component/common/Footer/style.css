@@ -106,7 +106,7 @@
 .links-box > h1, .property-box > h1, .contact-box > h1 {
     font-family: "Poppins";
     font-weight: 700;
-    font-size: 18px;
+    font-size: 24px;
     color: #fff;
     margin-bottom: 10px;
 }
@@ -117,7 +117,7 @@
     gap: 30px;
     color: #fff;
     font-family: "Poppins";
-    font-weight: 600;
+    font-weight: 400;
     font-size: 14px;
 }
 

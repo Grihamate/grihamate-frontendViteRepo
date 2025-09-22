@@ -21,7 +21,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const FeaturedProperties = ({ filters }) => {
     const navigate = useNavigate();
-  const propertiesPerPage = 8;
+  const propertiesPerPage = 6;
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

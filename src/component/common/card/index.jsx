@@ -17,6 +17,13 @@ const PropertyCard = ({ property }) => {
   return (
     <>
         <div className="property-card">
+              <span
+              className={`badge ${
+              property.listingType === "For Rent" ? "badge-rent" : "badge-sale"
+              }`}
+              >
+              {property.listingType}
+              </span>
               <img
                 src={
                 property?.images?.length > 0

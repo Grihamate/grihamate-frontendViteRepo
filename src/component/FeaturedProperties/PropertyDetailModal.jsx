@@ -26,8 +26,18 @@ const PropertyDetailModal = ({ property, loading, onClose, navigate,  detailPath
 
             {/* Flex area: image + details */}
             <div className="modal-flex">
+              
               {/* Image column */}
               <div className="modal-images">
+
+                <span
+                className={`badge ${
+                property.listingType === "For Rent" ? "badge-rent" : "badge-sale"
+                }`}
+                >
+                {property.listingType}
+                </span>
+              
                 {property.images && property.images.length > 0 ? (
                   <img
                     src={property.images[0].url}
@@ -122,14 +132,14 @@ const PropertyDetailModal = ({ property, loading, onClose, navigate,  detailPath
                       <Phone size={18} /> Call Now
                     </button>
 
-                    <button
-                      className="btn-mail"
-                      onClick={() =>
-                        window.open(`mailto:${property.contactInfo?.email || ""}`)
-                      }
-                    >
-                      <Mail size={18} /> Mail
-                    </button>
+                  <button
+                  className="btn-mail"
+                  onClick={() =>
+                  window.open("mailto:Grihamateofficial@gmail.com")
+                  }
+                  >
+                  <Mail size={18} /> Mail
+                  </button>
                   </div>
 
                   {/* Row 2: View Full Details */}

@@ -380,7 +380,7 @@ const handleCardClick = async (id) => {
   
 
           {/* Search Button */}
-          <div className="sale-btn">
+          <div className="btn-sale">
               <button
               className="rent-search-btn"
               onClick={() => {
@@ -393,7 +393,7 @@ const handleCardClick = async (id) => {
           </div>
 
 
-         </div>
+             </div>
             </div>      
         
        
