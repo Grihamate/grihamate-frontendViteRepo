@@ -8,11 +8,19 @@ import "./style.css";
 import { GraduationCap, Stethoscope, Utensils, Theater } from "lucide-react";
 import PropertyCard from "../../component/common/card";
 import relatedImage from '../../assets/dummyrelatedimage.png'
+import { bookSiteVisit } from "../../service/siteVisit";
+import SuccessModal from "../../component/sucessModal/SuccessfulModal";
 
 const PropertyDetailPage = () => {
   const { id } = useParams();
   const [property, setProperty] = useState(null);
   const [loading, setLoading] = useState(true);
+
+   const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
+
+
+    console.log("yeh data g -->",property)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,6 +36,36 @@ const PropertyDetailPage = () => {
     };
     fetchData();
   }, [id]);
+
+
+   const handleBookVisit = async () => {
+      try {
+        const token = localStorage.getItem("token");
+  
+        if (!token) {
+          setModalMessage("No token found. Please login first.");
+          setIsModalOpen(true);
+          return;
+        }
+  
+        const result = await bookSiteVisit(token);
+  
+        if (result.success) {
+          setModalMessage(result.message); // show API success message
+        } else {
+          setModalMessage("Failed to book site visit");
+        }
+  
+        setIsModalOpen(true); // open modal
+      } catch (err) {
+        setModalMessage("Error booking visit. Please try again.");
+        setIsModalOpen(true);
+      }
+    };
+
+
+    
+
   const dummyProperties = [
   {
     id: 1,
@@ -86,6 +124,11 @@ const PropertyDetailPage = () => {
 
   return (
     <div className="page-container">
+        <SuccessModal
+        isOpen={isModalOpen}
+        message={modalMessage}
+        onClose={() => setIsModalOpen(false)}
+      />
       <div className="page-inner property-detail-page">
         <div className="property-flex">
           <div className="property-images-section">
@@ -114,8 +157,10 @@ const PropertyDetailPage = () => {
 
           <div className="property-right-column">
             <div className="property-details-section">
-              <button className="btn-sale">
-                <span>For Sale</span>
+              <button   
+                className={`btn-sale ${ property.listingType === "For Rent" ? "rent-btn" : "sale-btn"}`}
+              >
+                <span>{property.listingType}</span>
               </button>
               <h1 className="property-title">{property.basicDetails?.title}</h1>
               <p className="property-location">{property.location?.fullAddress}</p>
@@ -207,7 +252,7 @@ const PropertyDetailPage = () => {
               <p className="visit-text">
                 Book a free property visit at your convenience
               </p>
-              <button className="btn-visit">Book Site Visit</button>
+              <button className="btn-visit" onClick={handleBookVisit} >Book Site Visit</button>
             </div>
           </div>
         </div>
@@ -286,81 +331,93 @@ const PropertyDetailPage = () => {
 </div>
 
 
-<div className="nearby-section">
+{property.whatsNearby && (
+   <div className="nearby-section">
   <h3 className="nearby-heading">What's Nearby</h3>
 
+
   {/* Education */}
-  <div className="nearby-category">
-    <div className="category-header">
-      <GraduationCap className="category-icon" size={20} />
-      <h4>Education</h4>
-    </div>
-    <div className="category-list">
-      <div className="item">
-        <span>St. Xavier’s School</span>
-        <span>0.87 miles</span>
+  {property?.whatsNearby?.education.length > 0 && (
+    <div className="nearby-category">
+      <div className="category-header">
+        <GraduationCap className="category-icon" size={20} />
+        <h4>Education</h4>
       </div>
-      <div className="item">
-        <span>National College</span>
-        <span>1.2 miles</span>
+      <div className="category-list">
+        {property.whatsNearby.education.map((item) => (
+          <div className="item" key={item._id}>
+            <span>{item.name}</span>
+            <span>{item.distance} km</span>
+          </div>
+        ))}
       </div>
     </div>
-  </div>
+  )} 
 
-  {/* Health */}
-  <div className="nearby-category">
-    <div className="category-header">
-      <Stethoscope className="category-icon" size={20} />
-      <h4>Health</h4>
-    </div>
-    <div className="category-list">
-      <div className="item">
-        <span>City Hospital</span>
-        <span>0.65 miles</span>
-      </div>
-      <div className="item">
-        <span>Wellness Clinic</span>
-        <span>1.1 miles</span>
-      </div>
-    </div>
-  </div>
+  
 
-  {/* Food */}
-  <div className="nearby-category">
-    <div className="category-header">
-      <Utensils className="category-icon" size={20} />
-      <h4>Food</h4>
-    </div>
-    <div className="category-list">
-      <div className="item">
-        <span>Café Mocha</span>
-        <span>0.3 miles</span>
-      </div>
-      <div className="item">
-        <span>Blue Lagoon Restaurant</span>
-        <span>0.9 miles</span>
-      </div>
-    </div>
-  </div>
 
-  {/* Culture */}
+  {property.whatsNearby?.health?.length > 0 && (
+    <div className="nearby-category">
+      <div className="category-header">
+        <Stethoscope className="category-icon" size={20} />
+        <h4>Health</h4>
+      </div>
+      <div className="category-list">
+        {property.whatsNearby.health.map((item) => (
+          <div className="item" key={item._id}>
+            <span>{item.name}</span>
+            <span>{item.distance} km</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+
+  {property?.whatsNearby?.food?.length > 0 && (
+    <div className="nearby-category">
+      <div className="category-header">
+        <Utensils className="category-icon" size={20} />
+        <h4>Food</h4>
+      </div>
+      <div className="category-list">
+        {property.whatsNearby.food.map((item) => (
+          <div className="item" key={item._id}>
+            <span>{item.name}</span>
+            <span>{item.distance} km</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+
+ {property.whatsNearby?.culture?.length > 0 && (
   <div className="nearby-category">
     <div className="category-header">
       <Theater className="category-icon" size={20} />
       <h4>Culture</h4>
     </div>
     <div className="category-list">
-      <div className="item">
-        <span>Art Museum</span>
-        <span>1.4 miles</span>
-      </div>
-      <div className="item">
-        <span>City Theater</span>
-        <span>2.0 miles</span>
-      </div>
+      {property.whatsNearby.food.map((item) => (
+          <div className="item"  key={item?._id}>
+            <span>{item?.name}</span>
+            <span>{item?.distance} km</span>
+          </div>
+      ))
+      }
+      
     </div>
   </div>
+ )}
+
+ 
 </div>
+
+)
+
+}
 
 
 

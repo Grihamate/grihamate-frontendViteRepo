@@ -17,6 +17,7 @@ const ForgotPassword = () => {
     try {
       const res = await forgotPassword(email);
       setMessage(res.message); // "Reset link sent to your email."
+      setEmail("");
     } catch (err) {
       setError(err.message);
     } finally {

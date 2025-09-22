@@ -191,9 +191,11 @@ const SaleDetailPage = () => {
   <div className="property-right-column">
     
     <div className="property-details-section">
-      <button className="btn-sale">
-        <span>For Sale</span>
-      </button>
+        <button   
+          className={`btn-sale ${ property.listingType === "For Rent" ? "rent-btn" : "sale-btn"}`}
+        >
+        <span>{property.listingType}</span>
+        </button>
 
       <h1 className="property-title">{property.basicDetails?.title}</h1>
       <p className="property-location">{property.location?.fullAddress}</p>

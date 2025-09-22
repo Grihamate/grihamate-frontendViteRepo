@@ -174,7 +174,10 @@ line-height: 20px;
 }
 
 .filter-section {
+  display: flex;
+  gap: 16px;
   margin-bottom: 20px;
+  margin-top: 0px!important;
 }
 
 .filter-section p {
@@ -184,6 +187,13 @@ line-height: 20px;
   margin-bottom: 5px;
 }
 
+
+.property-radio-group{
+ display: flex;
+ flex-direction: column;
+ gap: 24px;
+ margin-top: 28px;
+}
 
 
 

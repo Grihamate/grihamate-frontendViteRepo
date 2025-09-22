@@ -574,10 +574,12 @@ const RentProperties = () => {
             />
           </div>
 
+
           {/* Furnished - Desktop */}
           <div className="filter-section furnished-section desktop-only">
             <p>Furnished</p>
-            {["fully", "semi", "unfurnished"].map((type) => (
+             <div className="property-radio-group">
+              {["fully", "semi", "unfurnished"].map((type) => (
               <label key={type}>
                 <input
                   type="radio"
@@ -597,7 +599,8 @@ const RentProperties = () => {
                   ? "Semi Furnished"
                   : "Unfurnished"}
               </label>
-            ))}
+               ))}
+            </div>
           </div>
 
           {/* Search Button */}

@@ -190,7 +190,7 @@
 
 // export default Header;
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react"; // added icons
 import { fetchUserProfile } from "../../../service/fetchuserdetail";
 import { deleteUserAccount } from "../../../service/deleteUser";
@@ -276,11 +276,11 @@ const Header = () => {
 
         {/* Desktop links */}
         <nav className="links">
-          <Link to="/"><p className="link">Home</p></Link>
-          <Link to="/rent"><p className="link">Rent</p></Link>
-          <Link to="/sale"><p className="link">Sale</p></Link>
-          <Link to="/about"><p className="link">About us</p></Link>
-          <Link to="/contact"><p className="link">Contact us</p></Link>
+          <NavLink to="/"   className="link">Home</NavLink>
+          <NavLink to="/rent" className="link">Rent</NavLink>
+          <NavLink to="/sale" className="link">Buy</NavLink>
+          <NavLink to="/about" className="link">About us</NavLink>
+          <NavLink to="/contact" className="link">Contact us</NavLink>
         </nav>
 
 <div className="actions">

@@ -230,7 +230,7 @@ const propertyData = {
               <div className="form-scroll">
                 <form className="input-form" onSubmit={handleSubmit}>
                   {/* Property Type */}
-                  <div className="form-group">
+                  <div className="form-group-add-property">
                     <label className="form-label">Property Type</label>
                     <div className="radio-group">
                       {["Apartment", "Villa", "Office", "Shop", "Independent house"].map((type) => (
@@ -252,7 +252,7 @@ const propertyData = {
                   </div>
 
                   {/* Listing Type */}
-                  <div className="form-group">
+                  <div className="form-group-add-property">
                     <label className="form-label">Listing Type</label>
                     <div className="radio-group">
                       <label htmlFor="For Rent" className="radio-lebel">
@@ -271,7 +271,7 @@ const propertyData = {
                   </div>
 
                   {/* Basic Details */}
-                  <div className="form-group">
+                  <div className="form-group-add-property">
                     <label className="form-group-label">Basic Details</label>
                     <div className="basic-filter">
                       {/* Property Title */}
@@ -478,7 +478,7 @@ const propertyData = {
                   </div>
 
                   {/* Location Details */}
-                  <div className="form-group">
+                  <div className="form-group-add-property">
                     <label className="form-group-label">Location</label>
                     <div className="basic-filter">
                       {/* City */}
@@ -549,7 +549,7 @@ const propertyData = {
 
                   
                   {/* Basic Details */}
-                  <div className="form-group">
+                  <div className="form-group-add-property">
                     <label className="form-group-label">What's nearby</label>
 
 
@@ -690,7 +690,7 @@ const propertyData = {
                   </div>
 
                   {/* Contact Information */}
-                  <div className="form-group">
+                  <div className="form-group-add-property">
                     <label className="form-group-label">Contact Information</label>
                     <div className="basic-filter">
                       <div className="filter-group">

@@ -247,7 +247,6 @@ margin-bottom: 24px;
 }
 .btn-sale {
   display: inline-block;
-  background: #0057FF;
   border-radius: 6px;
   padding: 8px 18px;
   border: none;
@@ -264,6 +263,18 @@ margin-bottom: 24px;
   font-weight: 600;
   color: #fff;
   font-size: 20px;
+}
+
+
+
+.rent-btn {
+  background-color: #8EDA53;
+  color: white;
+}
+
+.sale-btn {
+  background: #0057FF;
+  color: white;
 }
 
 /* Advisor Card */

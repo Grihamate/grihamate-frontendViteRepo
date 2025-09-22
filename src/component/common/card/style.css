@@ -1,5 +1,6 @@
 
  .property-card {
+  position: relative;
   width: 100%;
   max-width: 420px;
   padding-bottom: 20px;
@@ -23,6 +24,34 @@
   height: 220px;         /* fixed height */
   object-fit: cover;
 }
+
+
+
+.badge {
+  position: absolute;
+  color: white;
+  top: 12px;
+  left: 12px;
+  border-radius: 6px;
+  padding: 8px 18px;
+  border: none;
+  cursor: default;
+  white-space: nowrap;
+  width: auto !important; 
+  max-width: none !important;
+  align-self: flex-start; 
+ 
+}
+
+.badge-rent {
+   background-color: #8EDA53;
+}
+
+.badge-sale {
+  background: #0057FF;
+}
+
+
 .property-details {
   padding: 7px;
   width: 100%;
