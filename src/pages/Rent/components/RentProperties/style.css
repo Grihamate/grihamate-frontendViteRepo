@@ -247,8 +247,7 @@ line-height: 20px;
 
  .rent-search-btn {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-self: center;
   padding: 15px 24px;
   width: 150px;
   height: 50px;
@@ -482,4 +481,25 @@ line-height: 1rem;
   .filters-card-conatiner {
     justify-items: center; /* centers grid items horizontally */
   }
+}
+
+
+
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.reset-filters-btn {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.reset-filters-btn:hover {
+  background-color: #e0e0e0;
 }

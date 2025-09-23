@@ -87,7 +87,6 @@ const RentProperties = () => {
       const mobile = window.innerWidth <= 768;
       setIsMobile(mobile);
 
-      // ✅ jaise hi screen badi ho filter close ho jaaye
       if (!mobile) {
         setIsMobileFilterOpen(false);
       }
@@ -645,9 +644,15 @@ const handleCardClick = async (id) => {
             
 
                     {/* Search Button */}
-                    <div className="sale-btn">
+                    <div className="sale-btn" style={{alignSelf:"center", backgroundColor:"#142147", borderRadius:"6px"}}>
                         <button
                         className="rent-search-btn"
+                        disabled={loading}
+                        style={{
+                          opacity: loading ? 0.6 : 1, 
+                          cursor: loading ? "not-allowed" : "pointer",
+                          transition: "all 0.3s ease",
+                        }}
                         onClick={() => {
                         setCurrentPage(1);
                         fetchProperties(filterValues);
@@ -670,14 +675,30 @@ const handleCardClick = async (id) => {
               <div className="cards-tittle">
                 <h1>Available Properties</h1>
                 <p>Discover your perfect home from our curated collection...</p>
-              
-                {/* {
-                  isMobile && (
-                      <button onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}>
-                      {isMobileFilterOpen ? "Close Filters" : "Open Filters"}
-                      </button>
-                  )
-                } */}
+             
+
+                {
+                isMobile && (
+                <button
+                onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+                style={{
+                padding: "10px 18px",
+                backgroundColor: isMobileFilterOpen ? "#2A3A68" : "#4CAF50",
+                color: "white",
+                border: "none",
+                borderRadius: "8px",
+                fontSize: "14px",
+                fontWeight: "600",
+                cursor: "pointer",
+                boxShadow: "0px 4px 6px rgba(0,0,0,0.2)",
+                transition: "all 0.3s ease-in-out",
+                }}
+                >
+                {isMobileFilterOpen ? "Close Filters" : "Open Filters"}
+                </button>
+                )
+                }
+
 
               </div>
 

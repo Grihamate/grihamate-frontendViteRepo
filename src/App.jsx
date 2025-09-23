@@ -17,6 +17,7 @@ import Contact from "./pages/Contact Us"
 import PropertyDetailPage from "./pages/PropertyDetaillPage";
 import Sale from "./pages/Sale/index"
 import SaleDetailPage from "./pages/Sale/SalesDetailPage";
+import ScrollToTop from "./component/common/scrolltop";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         />
 
        <ModalProvider>
+         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />

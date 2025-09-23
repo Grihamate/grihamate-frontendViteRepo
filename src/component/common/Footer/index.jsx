@@ -51,7 +51,7 @@ const Footer = () => {
                         </div>
                          <div className='icon-text'>
                             <img src={vector2}/>
-                            <p>Grihamateoffical@gmail.com</p>
+                            <p>grihamate@gmail.com</p>
                         </div>
                          <div className='icon-text'>
                             <img src={vector3}/>

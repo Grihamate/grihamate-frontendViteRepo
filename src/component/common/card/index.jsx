@@ -39,7 +39,18 @@ const PropertyCard = ({ property }) => {
               {property.location.fullAddress}, {property.location.city}
             </p>
             <p className="para-card">{property.description}</p>
-            <p className="price">₹ {property?.basicDetails?.monthlyRent || property?.basicDetails?.price}<span>/month</span></p>
+            {/* <p className="price">₹ {property?.basicDetails?.monthlyRent || property?.basicDetails?.price}<span>/month</span></p> */}
+
+            <p className="price">
+            {property.listingType === "For Rent" ? (
+            <>₹ {property.basicDetails.monthlyRent} <span>/month</span></>
+            ) : (
+            <>₹ {property.basicDetails.price >= 10000000 
+            ? (property.basicDetails.price / 10000000).toFixed(2) + " Cr" 
+            : property.basicDetails.price} </>
+            )}
+            </p>
+          
           </div>
 
           <div className="icons-bar">
