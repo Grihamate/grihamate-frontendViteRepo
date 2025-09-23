@@ -48,9 +48,15 @@ export const getProperty = async (filters = {}) => {
     if (filters.locality) query.append("locality", filters.locality);
     if (filters.propertyType) query.append("propertyType", filters.propertyType);
     if (filters.rentOrBuy) query.append("listingType", filters.rentOrBuy);
-    if (filters.priceRange?.min) query.append("minPrice", filters.priceRange.min);
-    if (filters.priceRange?.max) query.append("maxPrice", filters.priceRange.max);
-    if (filters.bedrooms) query.append("bhkType", `${filters.bedrooms}BHK`);
+
+    if (filters.priceRange) query.append("priceRange", filters.priceRange); // 👈 full string bhej rahe hain
+    if (filters.minPrice) query.append("minPrice", filters.minPrice);
+    if (filters.maxPrice) query.append("maxPrice", filters.maxPrice);
+
+    if (filters.bhkType) query.append("bhkType", filters.bhkType);
+    if (filters.furnished) query.append("furnished", filters.furnished);
+
+
 
     const response = await fetch(`${BASE_URL}/api/property/all?${query.toString()}`);
     if (!response.ok) throw new Error("API error");

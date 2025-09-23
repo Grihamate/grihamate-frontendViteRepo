@@ -331,12 +331,12 @@ const PropertyDetailPage = () => {
 </div>
 
 
-{property.whatsNearby && (
+{/* {property.whatsNearby && (
    <div className="nearby-section">
   <h3 className="nearby-heading">What's Nearby</h3>
 
 
-  {/* Education */}
+
   {property?.whatsNearby?.education.length > 0 && (
     <div className="nearby-category">
       <div className="category-header">
@@ -393,6 +393,8 @@ const PropertyDetailPage = () => {
   )}
 
 
+
+
  {property.whatsNearby?.culture?.length > 0 && (
   <div className="nearby-category">
     <div className="category-header">
@@ -400,14 +402,14 @@ const PropertyDetailPage = () => {
       <h4>Culture</h4>
     </div>
     <div className="category-list">
-      {property.whatsNearby.food.map((item) => (
+      {property.whatsNearby.culture.map((item) => (
           <div className="item"  key={item?._id}>
             <span>{item?.name}</span>
             <span>{item?.distance} km</span>
           </div>
       ))
       }
-      
+
     </div>
   </div>
  )}
@@ -417,7 +419,94 @@ const PropertyDetailPage = () => {
 
 )
 
+} */}
+
+
+{property.whatsNearby &&
+  (
+    property.whatsNearby.education.length > 0 ||
+    property.whatsNearby.health.length > 0 ||
+    property.whatsNearby.food.length > 0 ||
+    property.whatsNearby.culture.length > 0
+  ) && (
+    <div className="nearby-section">
+      <h3 className="nearby-heading">What's Nearby</h3>
+
+      {/* Education */}
+      {property.whatsNearby.education.length > 0 && (
+        <div className="nearby-category">
+          <div className="category-header">
+            <GraduationCap className="category-icon" size={20} />
+            <h4>Education</h4>
+          </div>
+          <div className="category-list">
+            {property.whatsNearby.education.map((item) => (
+              <div className="item" key={item._id}>
+                <span>{item.name}</span>
+                <span>{item.distance} km</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Health */}
+      {property.whatsNearby.health.length > 0 && (
+        <div className="nearby-category">
+          <div className="category-header">
+            <Stethoscope className="category-icon" size={20} />
+            <h4>Health</h4>
+          </div>
+          <div className="category-list">
+            {property.whatsNearby.health.map((item) => (
+              <div className="item" key={item._id}>
+                <span>{item.name}</span>
+                <span>{item.distance} km</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Food */}
+      {property.whatsNearby.food.length > 0 && (
+        <div className="nearby-category">
+          <div className="category-header">
+            <Utensils className="category-icon" size={20} />
+            <h4>Food</h4>
+          </div>
+          <div className="category-list">
+            {property.whatsNearby.food.map((item) => (
+              <div className="item" key={item._id}>
+                <span>{item.name}</span>
+                <span>{item.distance} km</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Culture */}
+      {property.whatsNearby.culture.length > 0 && (
+        <div className="nearby-category">
+          <div className="category-header">
+            <Theater className="category-icon" size={20} />
+            <h4>Culture</h4>
+          </div>
+          <div className="category-list">
+            {property.whatsNearby.culture.map((item) => (
+              <div className="item" key={item._id}>
+                <span>{item.name}</span>
+                <span>{item.distance} km</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
 }
+
 
 
 

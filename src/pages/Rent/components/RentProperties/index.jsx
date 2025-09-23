@@ -392,13 +392,17 @@ const RentProperties = () => {
 
   const [selectedProperty, setSelectedProperty] = useState(null); // for details modal
   const [detailLoading, setDetailLoading] = useState(false);
+    
+  const initialFilters = {
+      location: "",
+      bhkType: "",
+      priceRange: "5000-50000",
+      minPrice: 5000,
+      maxPrice: 300000,
+      furnished: "",
+    };
 
-  const [filterValues, setFilterValues] = useState({
-    location: "",
-    propertyType: "",
-    price: 0,
-    furnished: "",
-  });
+    const [filterValues, setFilterValues] = useState(initialFilters);
 
   const totalPages = Math.ceil(properties.length / propertiesPerPage);
   const indexOfLastProperty = currentPage * propertiesPerPage;
@@ -453,6 +457,14 @@ const RentProperties = () => {
     }
   };
 
+
+  // Reset function
+const resetFilters = () => {
+  setFilterValues({ ...initialFilters }); // simple copy
+  setCurrentPage(1);
+  fetchProperties({ ...initialFilters });
+};
+
   if (error) return <p>{error}</p>;
 
   return (
@@ -500,11 +512,11 @@ const RentProperties = () => {
                     type="radio"
                     name="property"
                     value={type}
-                    checked={filterValues.propertyType === type}
+                    checked={filterValues.bhkType === type}
                     onChange={(e) =>
                       setFilterValues({
                         ...filterValues,
-                        propertyType: e.target.value,
+                        bhkType: e.target.value,
                       })
                     }
                   />
@@ -520,11 +532,11 @@ const RentProperties = () => {
               <p>Property Type</p>
               <select
                 className="property-dropdown"
-                value={filterValues.propertyType}
+                value={filterValues.bhkType}
                 onChange={(e) =>
                   setFilterValues({
                     ...filterValues,
-                    propertyType: e.target.value,
+                    bhkType: e.target.value,
                   })
                 }
               >
@@ -554,26 +566,28 @@ const RentProperties = () => {
             </div>
           </div>
 
-          {/* Price Range */}
-          <div className="filter-section">
-            <p>
-              Price Range: <span>₹0 - ₹{filterValues.price}</span>
-            </p>
-            <input
-              type="range"
-              min="0"
-              max="300000"
-              step="1000"
-              value={filterValues.price}
-              onChange={(e) =>
-                setFilterValues({
-                  ...filterValues,
-                  price: Number(e.target.value),
-                })
-              }
-            />
-          </div>
 
+        <div className="filter-section">
+          <p>
+            Price Range: <span>₹{filterValues.minPrice} - ₹{filterValues.maxPrice}</span>
+          </p>
+          <input
+            type="range"
+            min="5000"               
+            max="300000"
+            step="1000"
+            value={filterValues.maxPrice}
+            onChange={(e) => {
+              const max = Number(e.target.value);
+              setFilterValues((prev) => ({
+                ...prev,
+                minPrice: 5000,        
+                maxPrice: max,
+                priceRange: `5000-${max}`,
+              }));
+            }}
+          />
+        </div>
 
           {/* Furnished - Desktop */}
           <div className="filter-section furnished-section desktop-only">
@@ -606,6 +620,12 @@ const RentProperties = () => {
           {/* Search Button */}
           <button
             className="rent-search-btn"
+             disabled={loading} 
+              style={{
+                          opacity: loading ? 0.6 : 1, 
+                          cursor: loading ? "not-allowed" : "pointer",
+                          transition: "all 0.3s ease",
+                        }}
             onClick={() => {
               setCurrentPage(1);
               fetchProperties(filterValues);
@@ -613,6 +633,12 @@ const RentProperties = () => {
           >
             <img src={searchIcon} alt="search" /> Search
           </button>
+
+            <button type="button" className="reset-filters-btn" onClick={resetFilters}>
+               Reset Filters
+            </button>
+
+
         </div>
       </div>
 
