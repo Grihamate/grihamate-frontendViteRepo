@@ -59,14 +59,14 @@
 }  */
 
 
-.links .link {
+/* .links .link {
   font-family: 'Poppins';
   font-weight: 500;
   font-size: 1rem;
   color: #151515;
   text-decoration: none !important;
   white-space: nowrap;
-  transition: color 0.5s ease, transform 0.5s ease; 
+  transition: color 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .links .link:hover {
@@ -77,16 +77,42 @@
 
 .link.active {
   color: #2A3A68;
-  font-weight: 600;
-  font-size: 1.2rem;
   border-bottom: 2px solid #2A3A68;
+  transform: scale(1);
+} */
+
+
+.link {
+  position: relative;
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: color 0.5s ease-in-out;
 }
 
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #2A3A68;
 
+  /* initially hidden */
+  transform: scaleX(0);
+  transform-origin: left; 
+  transition: transform 0.5s ease-in-out;
+}
 
+.link.active {
+  color: #2A3A68;
+}
 
-
-
+.link.active::after {
+  transform: scaleX(1); 
+}
 
 
 .actions {
