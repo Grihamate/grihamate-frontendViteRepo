@@ -190,7 +190,7 @@
 
 // export default Header;
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react"; // added icons
 import { fetchUserProfile } from "../../../service/fetchuserdetail";
 import { deleteUserAccount } from "../../../service/deleteUser";
