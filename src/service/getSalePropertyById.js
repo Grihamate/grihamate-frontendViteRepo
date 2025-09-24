@@ -12,11 +12,18 @@ export const getSalePropertyById = async (id, token) => {
       }
     );
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch property: ${response.status}`);
-    }
+    // if (!response.ok) {
+    //   throw new Error(`Failed to fetch property: ${response.status}`);
+    // }
 
     const data = await response.json();
+
+   if (!response.ok) {
+      const error = new Error(data.message || "Failed to fetch property details");
+      error.status = response.status;
+      throw error;
+    }
+
     return data; // contains { success, Saleproperty }
   } catch (error) {
     console.error("Error fetching sale property by ID:", error);
