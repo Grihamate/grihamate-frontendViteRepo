@@ -1,0 +1,139 @@
+/* .myproperties-container {
+  max-width: 927px;
+flex: 1;
+  padding: 24px;
+  border: 1px solid #dee2e6;
+  box-shadow: 0px 4px 12px 0px #0000001f;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.myproperties-heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #DEE2E6;
+  padding: 16px;
+  border-radius: 8px;
+
+}
+
+.tab-btn {
+  padding: 8px 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background: #f8f9fa;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+  width: 50%;
+}
+
+.tab-btn:hover {
+  background: #e9ecef;
+}
+
+.tab-btn.active {
+  background: #2a3a68;
+  color: #fff;
+  border-color: #2a3a68;
+}
+
+.tab-content {
+  margin-top: 12px;
+}
+
+.properties-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.service-item {
+  padding: 12px;
+  border: 1px solid #f4f4f4;
+  border-radius: 8px;
+  background: #f8f9fa;
+} */
+.myproperties-container {
+  max-width: 1280px;
+  flex: 1;
+  padding: 24px;
+  border: 1px solid #dee2e6;
+  box-shadow: 0px 4px 12px 0px #0000001f;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.myproperties-heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #DEE2E6;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.tab-btn {
+  padding: 8px 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background: #f8f9fa;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+  width: 50%;
+}
+
+.tab-btn:hover {
+  background: #e9ecef;
+}
+
+.tab-btn.active {
+  background: #2a3a68;
+  color: #fff;
+  border-color: #2a3a68;
+}
+
+.tab-content {
+  margin-top: 12px;
+}
+
+/* GRID layout for property cards */
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Keep services list flex column for now */
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.service-item {
+  padding: 12px;
+  border: 1px solid #f4f4f4;
+  border-radius: 8px;
+  background: #f8f9fa;
+}

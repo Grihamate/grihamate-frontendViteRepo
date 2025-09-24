@@ -1,0 +1,16 @@
+.dashboard-container{
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+ 
+}
+.my-div{
+    display: flex !important;
+    max-width: 1280px !important;
+    width: 100% !important;
+    margin: auto !important;
+    gap:25px;
+   
+}

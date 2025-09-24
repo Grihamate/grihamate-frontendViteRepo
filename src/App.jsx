@@ -18,6 +18,7 @@ import PropertyDetailPage from "./pages/PropertyDetaillPage";
 import Sale from "./pages/Sale/index"
 import SaleDetailPage from "./pages/Sale/SalesDetailPage";
 import ScrollToTop from "./component/common/scrolltop";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
             <Route path="sale" element={<Sale/>} />
             <Route path="/property/:id" element={<PropertyDetailPage />} />
             <Route path="sale/details/:id" element={<SaleDetailPage />} />
+              <Route path="dashboard" element={<Dashboard />} />
           </Route>
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register />} /> {/* 👈 add route */}
