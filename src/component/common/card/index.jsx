@@ -10,6 +10,8 @@ import contactIcon from "../../../assets/contactIcon.png";
 import defaultImage from "../../../assets/defaultImage.png";
 import callIcon from "../../../assets/callIcon.png"
 import "./style.css";
+import { formatPrice } from "../../../utils/priceFormat";
+
 
 const PropertyCard = ({ property }) => {
 
@@ -32,53 +34,71 @@ const PropertyCard = ({ property }) => {
                 }
               alt="Property"
               />
+
+              
           <div className="property-details">
             <h3>{property.basicDetails.title}</h3>
             <p className="location">
-              <img src={locationIcon} alt="location" />
-              {property.location.fullAddress}, {property.location.city}
+             
+                <img src={locationIcon} alt="location" />
+                {property?.location?.fullAddress 
+                  ? property.location.fullAddress + (property?.location?.city ? ", " + property.location.city : "")
+                  : property?.location?.city || "Location Not Available"}
+              </p>
+        
+       
+           
+            <p className="para-card">
+              {property?.description || "No description provided"}
             </p>
-            <p className="para-card">{property.description}</p>
-            {/* <p className="price">₹ {property?.basicDetails?.monthlyRent || property?.basicDetails?.price}<span>/month</span></p> */}
 
-            <p className="price">
-            {property.listingType === "For Rent" ? (
-            <>₹ {property.basicDetails.monthlyRent} <span>/month</span></>
-            ) : (
-            <>₹ {property.basicDetails.price >= 10000000 
-            ? (property.basicDetails.price / 10000000).toFixed(2) + " Cr" 
-            : property.basicDetails.price} </>
-            )}
-            </p>
           
+          
+
+              <p className="price">
+                    {property?.listingType === "For Rent" ? (
+                      <>
+                        ₹{" "} {property?.basicDetails?.monthlyRent ? property.basicDetails.monthlyRent.toLocaleString("en-IN") : "N/A"}
+                         {property?.basicDetails?.monthlyRent && <span>/month</span>}
+                      </>
+                    ) : (
+                      <>₹ {formatPrice(property?.basicDetails?.price)}</>
+                    )}
+              </p>
           </div>
 
           <div className="icons-bar">
-            <div className="icon-bar">
-              <div className="icon-box">
-                <img src={bedroomIcon} alt="Bedrooms" />
-                <p>{property.basicDetails.bhkType}</p>
+          
+           
+              <div className="icon-bar">
+                <div className="icon-box">
+                  <img src={bedroomIcon} alt="Bedrooms" />
+                  <p>{property?.basicDetails?.bhkType || "N/A"}</p>
+                </div>
+                <p className="text">Bedrooms</p>
               </div>
-              <p className="text">Bedrooms</p>
-            </div>
-            <div className="icon-bar">
-              <div className="icon-box">
-                <img src={bathroomIcon} alt="Bathrooms" />
-                <p>{property.basicDetails.bathrooms}</p>
+            
+              <div className="icon-bar">
+                <div className="icon-box">
+                  <img src={bathroomIcon} alt="Bathrooms" />
+                  <p>{property?.basicDetails?.bathrooms || "N/A"}</p>
+                </div>
+                <p className="text">Bathrooms</p>
               </div>
-              <p className="text">Bathrooms</p>
-            </div>
+
+
             <div className="icon-bar">
               <div className="icon-box">
                 <img src={areaIcon} alt="Area" />
-                <p>{property.basicDetails.area} sqft</p>
+                <p>{property?.basicDetails?.area || "N/A"} sqft</p>
               </div>
               <p className="text">Total Area</p>
             </div>
+
             <div className="icon-bar">
               <div className="icon-box">
                 <img src={garageIcon} alt="Garage" />
-                <p>2</p>
+                  <p>{property?.basicDetails?.garages || "N/A"}</p>
               </div>
               <p className="text">Garage</p>
             </div>
