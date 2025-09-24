@@ -95,44 +95,50 @@ const Header = () => {
           <NavLink to="/contact" className="link">Contact us</NavLink>
         </nav>
 
-<div className="actions">
-  {user ? (
-    <div
-      ref={dropdownRef}
-      style={{ position: "relative", cursor: "pointer" }}
-      onClick={() => setDropdownOpen(!dropdownOpen)}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "4px",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-          <span>{user.fullname}</span>
-          <ChevronDown size={16}  className="desktop-only"/>
-        </div>
-      </div>
+          <div className="actions">
+            
+            <div className="mobile-buttons">
+              <Link to="/rent" className="sell-btn">Rent</Link>
+              <Link to="/sale" className="buy-btn">Buy</Link>
+            </div>
+           
+            {user ? (
+              <div
+                ref={dropdownRef}
+                style={{ position: "relative", cursor: "pointer" }}
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "4px",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                    <span>{user.fullname}</span>
+                    <ChevronDown size={16}  className="desktop-only"/>
+                  </div>
+                </div>
 
-      {dropdownOpen && (
-        <div
-          style={{
-            position: "absolute",
-            top: "100%",
-            right: 0,
-            background: "white",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-            borderRadius: "4px",
-            padding: "8px",
-            zIndex: 10,
-            minWidth: "140px",
-          }}
-        >
-          {/* ✅ Only visible on desktop */}
-          <div className="desktop-only">
-                      <Link
+                {dropdownOpen && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      right: 0,
+                      background: "white",
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                      borderRadius: "4px",
+                      padding: "8px",
+                      zIndex: 10,
+                      minWidth: "140px",
+                    }}
+                  >
+                    {/* ✅ Only visible on desktop */}
+                    <div className="desktop-only">
+                                <Link
                 to="/dashboard"
             
               style={{
@@ -148,58 +154,58 @@ const Header = () => {
               Profile
             </Link>
             <button
-              onClick={handleLogout}
-              style={{
-                background: "none",
-                border: "none",
-                width: "100%",
-                textAlign: "left",
-                padding: "8px",
-                cursor: "pointer",
-                fontSize: "14px",
-              }}
-            >
-              Logout
-            </button>
+                        onClick={handleLogout}
+                        style={{
+                          background: "none",
+                          border: "none",
+                          width: "100%",
+                          textAlign: "left",
+                          padding: "8px",
+                          cursor: "pointer",
+                          fontSize: "14px",
+                        }}
+                      >
+                        Logout
+                      </button>
        
 
+                      <button
+                        onClick={handleRemoveAccount}
+                        style={{
+                          background: "none",
+                          border: "none",
+                          width: "100%",
+                          textAlign: "left",
+                          padding: "8px",
+                          cursor: "pointer",
+                          fontSize: "14px",
+                          color: "red",
+                        }}
+                      >
+                        Remove Account
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button className="login-btn" onClick={handleLoginClick}>
+                <img src={loginIcon} alt="login" /> Login
+              </button>
+            )}
+
+            <button className="list-btn" onClick={() => setIsAddPropertyModalOpen(true)}>
+              <img src={plusIcon} alt="plus" /> List Property
+            </button>
+
+            {/* ✅ Mobile Hamburger Button */}
             <button
-              onClick={handleRemoveAccount}
-              style={{
-                background: "none",
-                border: "none",
-                width: "100%",
-                textAlign: "left",
-                padding: "8px",
-                cursor: "pointer",
-                fontSize: "14px",
-                color: "red",
-              }}
+              className="hamburger-btn"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              Remove Account
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
-        </div>
-      )}
-    </div>
-  ) : (
-    <button className="login-btn" onClick={handleLoginClick}>
-      <img src={loginIcon} alt="login" /> Login
-    </button>
-  )}
-
-  <button className="list-btn" onClick={() => setIsAddPropertyModalOpen(true)}>
-    <img src={plusIcon} alt="plus" /> List Property
-  </button>
-
-  {/* ✅ Mobile Hamburger Button */}
-  <button
-    className="hamburger-btn"
-    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-  >
-    {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-  </button>
-</div>
 
       </div>
 
@@ -208,7 +214,7 @@ const Header = () => {
         <div className="mobile-menu">
           <Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
           <Link to="/rent" onClick={() => setMobileMenuOpen(false)}>Rent</Link>
-          <Link to="/sale" onClick={() => setMobileMenuOpen(false)}>Sale</Link>
+          <Link to="/sale" onClick={() => setMobileMenuOpen(false)}>Buy</Link>
           <Link to="/about" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
           <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
 

@@ -436,26 +436,68 @@ const RentProperties = () => {
     fetchProperties();
   }, []);
 
+  // const handleCardClick = async (id) => {
+  //   const token = getToken(); // ✅ check token from localStorage
+
+  //   if (!token) {
+  //     toast.error("Please login first to view property details.");
+  //     navigate("/login"); // redirect to login page
+  //     return;
+  //   }
+
+  //   try {
+  //     setDetailLoading(true);
+  //     const property = await getPropertyById(id, token);
+  //     setSelectedProperty(property);
+  //   } catch (err) {
+  //     toast.error("Failed to fetch property details.");
+  //     console.error("Error fetching property details:", err);
+  //   } finally {
+  //     setDetailLoading(false);
+  //   }
+  // };
+
+
   const handleCardClick = async (id) => {
-    const token = getToken(); // ✅ check token from localStorage
-
-    if (!token) {
-      toast.error("Please login first to view property details.");
-      navigate("/login"); // redirect to login page
-      return;
-    }
-
-    try {
-      setDetailLoading(true);
-      const property = await getPropertyById(id, token);
-      setSelectedProperty(property);
-    } catch (err) {
-      toast.error("Failed to fetch property details.");
-      console.error("Error fetching property details:", err);
-    } finally {
-      setDetailLoading(false);
-    }
+  
+  
+    const token = getToken(); 
+    console.log("kya tokenh",token)
+  
+      if (!token) {
+        toast.error("Please login first to view details.");
+        navigate("/login");
+        return; 
+      }
+  
+      try {
+        setDetailLoading(true);
+  
+        const property = await getPropertyById(id, token);
+        setSelectedProperty(property);
+  
+      } catch (err) {
+        console.error("Error fetching property details: agr error ayetoh", err);
+  
+        if (err.status === 401) {
+          toast.error("Login required! Please login to view this property.");
+          navigate("/login");
+        } else if (err.status === 404) {
+          toast.error(err.message || "Property not found.");
+        } else {
+          toast.error(err.message || "Something went wrong. Try again.");
+        }
+  
+      } finally {
+        setDetailLoading(false);
+      }
+  
   };
+  
+
+
+
+  
 
 
   // Reset function

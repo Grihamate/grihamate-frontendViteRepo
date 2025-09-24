@@ -140,7 +140,7 @@ border-width: 1px;
 
 .sale-sidebar{
   display: flex;
-  gap: 0px!important;
+  gap: 10px!important;
 }
 
 

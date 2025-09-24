@@ -57,24 +57,40 @@ const FeaturedProperties = ({ filters }) => {
   }, [filters]);
 
 
-  const handleCardClick = async (id) => {
-  const token = getToken(); // use your utility function
+const handleCardClick = async (id) => {
 
-  if (!token) {
-    toast.error("Please login first to view details.");
-    navigate("/login");
-    return;
-  }
 
-  try {
-    setDetailLoading(true);
-    const property = await getPropertyById(id, token);
-    setSelectedProperty(property);
-  } catch (err) {
-    console.error("Error fetching property details:", err);
-  } finally {
-    setDetailLoading(false);
-  }
+  const token = getToken(); 
+  console.log("kya tokenh",token)
+
+    if (!token) {
+      toast.error("Please login first to view details.");
+      navigate("/login");
+      return; 
+    }
+
+    try {
+      setDetailLoading(true);
+
+      const property = await getPropertyById(id, token);
+      setSelectedProperty(property);
+
+    } catch (err) {
+      console.error("Error fetching property details:", err);
+
+      if (err.status === 401) {
+        toast.error("Unauthorized Request! Please login again.");
+        navigate("/login");
+      } else if (err.status === 404) {
+        toast.error(err.message || "Property not found.");
+      } else {
+        toast.error(err.message || "Something went wrong. Try again.");
+      }
+
+    } finally {
+      setDetailLoading(false);
+    }
+
 };
 
 
