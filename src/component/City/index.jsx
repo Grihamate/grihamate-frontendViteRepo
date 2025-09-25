@@ -1,10 +1,10 @@
 import "./style.css"
-import uttarPradesh from "../../assets/uttarPradeshImg.jpg"
+import uttarPradesh from "../../assets/UttarPradeshImg.jpg"
 import Delhi from "../../assets/DelhiImg.jpg"
 import Goa from "../../assets/GoaImg.jpg"
 import Hariyana from "../../assets/hariyana.jpg"
 import Mumbai from "../../assets/Mumbai.jpg"
-import Pune from "../../assets/puneImg.jpg"
+import Pune from "../../assets/puneimg.jpg"
 
 
 const City = () => {
