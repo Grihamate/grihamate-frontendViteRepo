@@ -1,4 +1,4 @@
-import homeImg  from "../../../assets/heroImg.jpg"
+import homeImg  from "../../../assets/comer1.jpg"
 // import bedroomImg from "../../../assets/bedroom.png"
 import bathroomImg from "../../../assets/bathroomIcon.png"
 import areaIcon from "../../../assets/areaIcon.png"

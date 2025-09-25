@@ -41,24 +41,8 @@ const ClientFeedback = () => {
                 <CommercialPropertyCard/>
                <CommercialPropertyCard/>
                <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
+               
             
-             <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
-             <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
-                <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
-             <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
-               <CommercialPropertyCard/>
             
             
 
