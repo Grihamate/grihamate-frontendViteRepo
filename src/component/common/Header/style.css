@@ -209,9 +209,7 @@
 
 
 
-.mobile-buttons {
-  display: none;
-}
+
 
 @keyframes slideDown {
   from {
@@ -241,24 +239,14 @@
     gap: 1rem;
   }
 
-  .login-btn {
-    display: none; /* ❌ hide login on mobile */
+    
+  .login-btn  > img {
+    width: 14px;   /* icon chhota */
+    height: 14px;
   }
 
   .hamburger-btn {
     display: block; /* show hamburger */
-  }
-
-  .list-btn {
-    padding: 8px 12px;   /* button ki height/width chhoti */
-    font-size: 12px;     /* text size chhoti */
-    gap: 4px;            /* icon aur text ke beech gap kam */
-  }
-
-   .buy-btn, .sell-btn {
-    padding: 8px 15px!important;   /* chhoti height/width */
-    font-size: 12px!important;     /* text size chhoti */
-    border-radius: 15px!important; /* radius bhi thoda chhota */
   }
 
   .list-btn img {
@@ -272,16 +260,7 @@
     display: none;
   }
 
-   .buy-btn, .sell-btn {
-    padding: 5px 10px!important;   
-    font-size: 11px!important;  
-  }
-
-  .list-btn {
-   padding: 8px 10px!important;  
-   font-size: 12px!important;   
-    
-  }
+ 
 }
 /* Default: visible */
 .desktop-only {
@@ -302,49 +281,15 @@
 
 /* Mobile & Tablet view: show buy/sell buttons */
 @media (max-width: 1024px) {
-  .mobile-buttons {
-    display: flex;
-    gap: 20px;
-    margin-right: 10px;
-  }
 
   .links {
     display: none; 
   }
 
-.buy-btn, .sell-btn {
-  padding: 8px 18px;
-  border-radius: 25px;       /* thoda aur rounded look */
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);  /* soft shadow */
-  display: inline-block;
-  cursor: pointer;
-}
 
+  .hamburger-btn {
+    display: block; /* show hamburger */
+  }
 
-.buy-btn {
-  background: linear-gradient(135deg, #0057FF, #3b82f6);
-  color: white;
-}
-
-.buy-btn:hover {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  transform: translateY(-2px) scale(1.05);  
-  box-shadow: 0 6px 14px rgba(0, 87, 255, 0.3);
-}
-
-.sell-btn {
-  background: linear-gradient(135deg, #8EDA53, #4ade80);
-  color: white;
-}
-
-.sell-btn:hover {
-  background: linear-gradient(135deg, #65a30d, #4d7c0f);
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 14px rgba(142, 218, 83, 0.3);
-}
 
 }

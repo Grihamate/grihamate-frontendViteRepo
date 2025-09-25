@@ -2,6 +2,7 @@
 import girlImg from "../../assets/girlImg.jpg";
 import CommercialPropertyCard from "../common/CommercialPropertyCard";
 import "./style.css";
+import ankushImag from "../../assets/flatImg.jpg"
 
 const ClientFeedback = () => {
   return (
@@ -12,16 +13,14 @@ const ClientFeedback = () => {
             <h1>What our clients say about us</h1>
             <h1>"</h1>
             <p>
-              Arcu laoreet malesuada nunc eget. Fermentum ut dui etiam aliquam
-              habitant elit euismod erat praesent. Tincidunt semper interdum
-              fames cras.
+              I was looking for a 3BHK apartment for my family. The search was super easy here and within 5 days, I found the perfect flat. The best part – I didn’t have to pay any brokerage.
             </p>
             <div className="mia-container">
-              <h1>Miya More</h1>
+              <h1>Ritu Sharma</h1>
               <p>Buyer</p>
             </div>
           </div>
-          <img src={girlImg} alt="Client" />
+          <img src={ankushImag} alt="Client" />
          
         </div>
       </div>

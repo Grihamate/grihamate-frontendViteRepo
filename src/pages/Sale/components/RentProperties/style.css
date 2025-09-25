@@ -1,6 +1,7 @@
 
 .rent-properties {
-  display: flex;         
+  display: flex;     
+  position: relative;    
   gap: 20px;              
   width: 100%;
   min-height: 70vh;     
