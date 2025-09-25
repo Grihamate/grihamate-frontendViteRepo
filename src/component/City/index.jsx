@@ -49,7 +49,7 @@ const cities = [
        <div className="city-text">
           <h1>What city you live in ?</h1>
           <p>Explore top residential and commercial properties in Noida, Delhi, Ghaziabad, and Gurugram.
-From affordable flats to premium office spaces — find the perfect match for your lifestyle and business goals.</p>
+             From affordable flats to premium office spaces — find the perfect match for your lifestyle and business goals.</p>
        </div>
        <div className="city-photo">
               {cities.map((city, index) => (
