@@ -42,9 +42,13 @@ export const getSaleProperty = async (filters = {}) => {
     if (filters.area?.min) query.append("minArea", filters.area.min);
     if (filters.area?.max) query.append("maxArea", filters.area.max);
     if (filters.amenities?.length > 0) query.append("amenities", filters.amenities.join(","));
-    if (filters.status) query.append("status", filters.status);
+    if (filters.status) query.append("propertyStatus", filters.status);
     if (filters.facing) query.append("facing", filters.facing);
-    if (filters.age) query.append("age", filters.age);
+    if (filters.age) query.append("ageOfProperty", filters.age);
+
+    if (filters.priceRange) query.append("priceRange", filters.priceRange); // 👈 full string bhej rahe hain
+    if (filters.minPrice) query.append("minPrice", filters.minPrice);
+    if (filters.maxPrice) query.append("maxPrice", filters.maxPrice);
 
     const response = await fetch(`${BASE_URL}/api/sale/all?${query.toString()}`);
     if (!response.ok) throw new Error("API error");

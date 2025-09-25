@@ -38,12 +38,11 @@ const RentProperties = () => {
 
  
 
-  const initialFilters = {
+const initialFilters = {
   location: "",
   propertyType: "",
-  rentOrBuy: "For Sale", 
   bhk: [],
-  priceRange: "5000-50000",
+  priceRange: "5000-300000",
   minPrice: 5000,
   maxPrice: 300000,
   furnished: "",
@@ -57,7 +56,7 @@ const RentProperties = () => {
   
     
 
-    const [filterValues, setFilterValues] = useState(initialFilters);
+  const [filterValues, setFilterValues] = useState(initialFilters);
 
 
   const totalPages = Math.ceil(properties.length / propertiesPerPage);
@@ -150,6 +149,31 @@ const resetFilters = () => {
 
   return (
     <div className="rent-properties">
+
+          {
+                isMobile && (
+                <button
+                onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+                style={{
+                position:"absolute",
+                top:"12px",
+                right:"10px",
+                padding: "10px 18px",
+                backgroundColor: isMobileFilterOpen ? "#2A3A68" : "#4CAF50",
+                color: "white",
+                border: "none",
+                borderRadius: "8px",
+                fontSize: "14px",
+                fontWeight: "600",
+                cursor: "pointer",
+                boxShadow: "0px 4px 6px rgba(0,0,0,0.2)",
+                transition: "all 0.3s ease-in-out",
+                }}
+                >
+                {isMobileFilterOpen ? "Close Filters" : "Open Filters"}
+                </button>
+                )
+              }
  
             
        {/* ✅ Mobile Filter Sidebar */}
@@ -251,21 +275,28 @@ const resetFilters = () => {
                             {/* common in both screen */}
 
                           <div className="filter-section">
-                            <p>
-                              Price Range: <span>₹0 - ₹{filterValues.price}</span>
-                            </p>
-                            <input
-                              type="range"
-                              min="0"
-                              max="300000"
-                              step="1000"
-                              value={filterValues.price}
-                              onChange={(e) =>
-                                setFilterValues({ ...filterValues, price: Number(e.target.value) })
-                              }
-                            />
-                          </div>
-
+          <p>
+            Price Range: <span>₹{filterValues.minPrice} - ₹{filterValues.maxPrice}</span>
+          </p>
+          <input
+            type="range"
+            min="5000"               
+            max="300000"
+            step="1000"
+            value={filterValues.maxPrice}
+            onChange={(e) => {
+              const max = Number(e.target.value);
+              setFilterValues((prev) => ({
+                ...prev,
+                minPrice: 5000,        
+                maxPrice: max,
+                priceRange: `5000-${max}`,
+              }));
+            }}
+          />
+        </div>
+                          
+                             
 
                         {/* Area both screen */}
                           <div className="filter-section">
@@ -325,20 +356,21 @@ const resetFilters = () => {
                               </div>
                             </div>
 
-                            <div className="filter-section">
-                              <p>Property Status</p>
-                              <div className="area-filter">
-                                  <select className="custom-drop-down-full custom-drop-down"
-                                    value={filterValues.status}
-                                    onChange={(e) => setFilterValues({ ...filterValues, status: e.target.value })}
-                                  >
-                                    <option>Select Status</option>
-                                    <option value="">Select Status</option>
-                                    <option value="Ready to Move">Ready to Move</option>
-                                    <option value="Under Construction">Under Construction</option>
-                                  </select>
-                              </div>
-                            </div>
+
+                        <div className="filter-section">
+                          <p>Property Status</p>
+                          <div className="area-filter">
+                              <select className="custom-drop-down-full custom-drop-down"
+                                value={filterValues.status}
+                                onChange={(e) => setFilterValues({ ...filterValues, status: e.target.value })}
+                              >
+                                <option>Select Status</option>
+                                <option value="active">Active</option>
+                                <option value="Ready to Move">Ready to Move</option>
+                                <option value="Under Construction">Under Construction</option>
+                              </select>
+                          </div>
+                        </div>
 
                         
 
@@ -531,9 +563,9 @@ const resetFilters = () => {
 
                         {/* common in both screen */}
 
-                      <div className="filter-section">
+                      {/* <div className="filter-section">
                         <p>
-                          Price Range: <span>₹0 - ₹{filterValues.price}</span>
+                          Price Rannge: <span>₹0 - ₹{filterValues.price}</span>
                         </p>
                         <input
                           type="range"
@@ -545,7 +577,30 @@ const resetFilters = () => {
                             setFilterValues({ ...filterValues, price: Number(e.target.value) })
                           }
                         />
-                      </div>
+                      </div> */}
+
+                        <div className="filter-section">
+                          <p>
+                            Price Range: <span>₹{filterValues.minPrice} - ₹{filterValues.maxPrice}</span>
+                          </p>
+                          <input
+                            type="range"
+                            min="5000"               
+                            max="300000"
+                            step="1000"
+                            value={filterValues.maxPrice}
+                            onChange={(e) => {
+                              const max = Number(e.target.value);
+                              setFilterValues((prev) => ({
+                                ...prev,
+                                minPrice: 5000,        
+                                maxPrice: max,
+                                priceRange: `5000-${max}`,
+                              }));
+                            }}
+                          />
+                        </div>
+
 
 
                     {/* Area both screen */}
@@ -611,6 +666,7 @@ const resetFilters = () => {
                                 onChange={(e) => setFilterValues({ ...filterValues, status: e.target.value })}
                               >
                                 <option>Select Status</option>
+                                <option value="active">Active</option>
                                 <option value="Ready to Move">Ready to Move</option>
                                 <option value="Under Construction">Under Construction</option>
                               </select>
@@ -702,34 +758,14 @@ const resetFilters = () => {
                 <p>Discover your perfect home from our curated collection...</p>
              
 
-                {
-                isMobile && (
-                <button
-                onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
-                style={{
-                padding: "10px 18px",
-                backgroundColor: isMobileFilterOpen ? "#2A3A68" : "#4CAF50",
-                color: "white",
-                border: "none",
-                borderRadius: "8px",
-                fontSize: "14px",
-                fontWeight: "600",
-                cursor: "pointer",
-                boxShadow: "0px 4px 6px rgba(0,0,0,0.2)",
-                transition: "all 0.3s ease-in-out",
-                }}
-                >
-                {isMobileFilterOpen ? "Close Filters" : "Open Filters"}
-                </button>
-                )
-                }
+            
 
 
               </div>
 
         
 
-          <div className="filters-icons-box">
+          {/* <div className="filters-icons-box">
             <select>
               <option>Newest First</option>
             </select>
@@ -737,7 +773,7 @@ const resetFilters = () => {
               <img src={listIcon} alt="list" />
               <img src={gridIcon} alt="grid" />
             </div>
-          </div>
+          </div> */}
         </div>
 
 

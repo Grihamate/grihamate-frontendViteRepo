@@ -392,6 +392,9 @@ const RentProperties = () => {
 
   const [selectedProperty, setSelectedProperty] = useState(null); // for details modal
   const [detailLoading, setDetailLoading] = useState(false);
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
     
   const initialFilters = {
       location: "",
@@ -511,6 +514,30 @@ const resetFilters = () => {
 
   return (
     <div className="rent-properties">
+        {/* {
+                isMobile && (
+                <button
+                onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+                style={{
+                position:"absolute",
+                top:"12px",
+                right:"10px",
+                padding: "10px 18px",
+                backgroundColor: isMobileFilterOpen ? "#2A3A68" : "#4CAF50",
+                color: "white",
+                border: "none",
+                borderRadius: "8px",
+                fontSize: "14px",
+                fontWeight: "600",
+                cursor: "pointer",
+                boxShadow: "0px 4px 6px rgba(0,0,0,0.2)",
+                transition: "all 0.3s ease-in-out",
+                }}
+                >
+                {isMobileFilterOpen ? "Close Filters" : "Open Filters"}
+                </button>
+                )
+              } */}
       {/* Sidebar */}
       <div className="filter-sidebar">
         <div className="page-location">
@@ -601,9 +628,9 @@ const resetFilters = () => {
                 }
               >
                 <option value="">Select Furnishing</option>
-                <option value="fully">Fully Furnished</option>
-                <option value="semi">Semi Furnished</option>
-                <option value="unfurnished">Unfurnished</option>
+                <option value="Fully furnished">Fully Furnished</option>
+                <option value="Semi furnished">Semi Furnished</option>
+                <option value="Unfurnished">Unfurnished</option>
               </select>
             </div>
           </div>
@@ -632,10 +659,10 @@ const resetFilters = () => {
         </div>
 
           {/* Furnished - Desktop */}
-          <div className="filter-section furnished-section desktop-only">
+          {/* <div className="filter-section furnished-section desktop-only">
             <p>Furnished</p>
              <div className="property-radio-group">
-              {["fully", "semi", "unfurnished"].map((type) => (
+              {["Fully Furnished", "Semi Furnished", "Unfurnished"].map((type) => (
               <label key={type}>
                 <input
                   type="radio"
@@ -649,15 +676,39 @@ const resetFilters = () => {
                     })
                   }
                 />
-                {type === "fully"
-                  ? "Fully Furnished"
-                  : type === "semi"
-                  ? "Semi Furnished"
-                  : "Unfurnished"}
+                
               </label>
                ))}
             </div>
+          </div> */}
+
+
+        <div className="filter-section furnished-section desktop-only">
+          <p>Furnished</p>
+          <div className="property-radio-group">
+            {[
+              { value: "Fully furnished", label: "Fully Furnished" },
+              { value: "Semi furnished", label: "Semi Furnished" },
+              { value: "Unfurnished", label: "Unfurnished" },
+            ].map((item) => (
+              <label key={item.value}>
+                <input
+                  type="radio"
+                  name="furnished"
+                  value={item.value}
+                  checked={filterValues.furnished === item.value}
+                  onChange={(e) =>
+                    setFilterValues({
+                      ...filterValues,
+                      furnished: e.target.value,
+                    })
+                  }
+                />
+                {item.label}
+              </label>
+            ))}
           </div>
+        </div>
 
           {/* Search Button */}
           <button
@@ -692,7 +743,7 @@ const resetFilters = () => {
             <p>Discover your perfect home from our curated collection</p>
           </div>
 
-          <div className="filters-icons-box">
+          {/* <div className="filters-icons-box">
             <select>
               <option>Newest First</option>
             </select>
@@ -700,7 +751,7 @@ const resetFilters = () => {
               <img src={listIcon} alt="list" />
               <img src={gridIcon} alt="grid" />
             </div>
-          </div>
+          </div> */}
         </div>
 
         {loading ? (

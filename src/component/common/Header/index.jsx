@@ -96,11 +96,11 @@ const Header = () => {
         </nav>
 
           <div className="actions">
-            
+{/*             
             <div className="mobile-buttons">
               <Link to="/rent" className="sell-btn">Rent</Link>
               <Link to="/sale" className="buy-btn">Buy</Link>
-            </div>
+            </div> */}
            
             {user ? (
               <div

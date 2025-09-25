@@ -3,7 +3,7 @@
   max-width: 1278px;
   padding: 1.5rem;
   margin-bottom: 94px;
-  margin-top: 42px;
+  margin-top: 40px;
   border-radius: 12px;
   background-color: #FFFFFF;
   display: flex;
@@ -143,9 +143,9 @@ color: #100E2C!important;
     grid-template-columns: repeat(1, minmax(160px, 1fr));
   }
 
-  .search-filter{
+  /* .search-filter{
     margin-bottom: 50px;
-  }
+  } */
 
 }
 
