@@ -1,5 +1,11 @@
 import "./style.css"
-import stateImg from "../../assets/heroImg.jpg"
+import uttarPradesh from "../../assets/uttarPradeshImg.jpg"
+import Delhi from "../../assets/DelhiImg.jpg"
+import Goa from "../../assets/GoaImg.jpg"
+import Hariyana from "../../assets/hariyana.jpg"
+import Mumbai from "../../assets/Mumbai.jpg"
+import Pune from "../../assets/puneImg.jpg"
+
 
 const City = () => {
 
@@ -7,32 +13,32 @@ const cities = [
   { 
     name: "New Delhi", 
     properties: 28, 
-    img: stateImg,
+    img: Delhi,
   },
   { 
     name: "Mumbai", 
     properties: 12, 
-     img: stateImg,
+     img: Mumbai,
   },
   { 
     name: "Haryana", 
     properties: 18, 
-     img: stateImg,
+     img: Hariyana,
   },
   { 
     name: "Pune", 
     properties: 32, 
-     img: stateImg,
+     img: Pune,
   },
   { 
     name: "Goa", 
     properties: 32, 
-     img: stateImg,
+     img: Goa,
   },
   { 
     name: "Uttar Pradesh", 
     properties: 56, 
-     img: stateImg,
+     img: uttarPradesh,
   },
 ];
 
