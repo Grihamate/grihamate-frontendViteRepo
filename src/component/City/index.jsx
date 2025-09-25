@@ -48,7 +48,8 @@ const cities = [
     <div className="city-container">
        <div className="city-text">
           <h1>What city you live in ?</h1>
-          <p>Leo morbi faucibus mattis pharetra tellus velit ultricies duis rhoncus. Porttitor fermentum eu urna eget</p>
+          <p>Explore top residential and commercial properties in Noida, Delhi, Ghaziabad, and Gurugram.
+From affordable flats to premium office spaces — find the perfect match for your lifestyle and business goals.</p>
        </div>
        <div className="city-photo">
               {cities.map((city, index) => (
