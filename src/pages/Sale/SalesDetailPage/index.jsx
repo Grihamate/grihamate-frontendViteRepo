@@ -20,30 +20,31 @@ const SaleDetailPage = () => {
   const [property, setProperty] = useState(null);
   const [loading, setLoading] = useState(true);
 
- const handleBookVisit = async () => {
-    try {
-      const token = localStorage.getItem("token");
+const handleBookVisit = async () => {
+  try {
+    const token = localStorage.getItem("token");
 
-      if (!token) {
-        setModalMessage("No token found. Please login first.");
-        setIsModalOpen(true);
-        return;
-      }
-
-      const result = await bookSiteVisit(token);
-
-      if (result.success) {
-        setModalMessage(result.message); // show API success message
-      } else {
-        setModalMessage("Failed to book site visit");
-      }
-
-      setIsModalOpen(true); // open modal
-    } catch (err) {
-      setModalMessage("Error booking visit. Please try again.");
+    if (!token) {
+      setModalMessage("No token found. Please login first.");
       setIsModalOpen(true);
+      return;
     }
-  };
+
+    const result = await bookSiteVisit(id, token); // ✅ pass id
+
+    if (result.success) {
+      setModalMessage(result.message); // show API success message
+    } else {
+      setModalMessage(result.message || "Failed to book site visit");
+    }
+
+    setIsModalOpen(true); // open modal
+  } catch (err) {
+    setModalMessage("Error booking visit. Please try again.");
+    setIsModalOpen(true);
+  }
+};
+
 //   get in touch api integration
   const [formData, setFormData] = useState({
     fullname: "",
