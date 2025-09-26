@@ -42,6 +42,10 @@ export const updateUserProfile = async (id, updatedData, token) => {
 
     const data = await response.json();
 
+    // console.log(data);
+
+    // console.log("status:", response.status, "data:", data);
+
     if (!response.ok) {
       throw new Error(data.message || "Failed to update profile");
     }

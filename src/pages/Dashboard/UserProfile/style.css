@@ -147,3 +147,34 @@
 .cancel-btn:hover {
   background: #999;
 }
+
+@media (max-width: 500px) {
+ 
+
+  .user-name{
+    font-size: 16px;
+  }
+
+  .user-detail-item > span{
+    font-size: 13px;
+
+  }
+
+ 
+ 
+}
+
+@media (max-width: 350px) {
+  .userprofile-container{
+     padding: 20px 23px;
+  }
+
+   .user-info {
+    gap: 10px !important;
+  }
+
+  .edit-btn{
+    font-size: 11px;
+    padding: 9px 12px;
+  }
+}
