@@ -8,21 +8,7 @@ import "./style.css"
 import { getProperty } from "../../../service/getProperty"
 
 const CommercialPropertyCard = () => {
-//       const [properties, setProperties] = useState([]);
 
-//   useEffect(() => {
-//     const fetchProperties = async () => {
-//       try {
-//         const data = await getProperty(); // call the API service
-//         console.log("API Response:", data); // check the result in console
-//         setProperties(data.allProperties || []); // save data to state
-//       } catch (error) {
-//         console.error("Failed to fetch properties:", error);
-//       }
-//     };
-
-//     fetchProperties();
-//   }, []);
 
     return (
         <div className="com-card-box">

@@ -30,7 +30,7 @@ const ClientFeedback = () => {
              <h1 className="commercial-heading">
                 Commercial Property
              </h1>
-             <p className="commercial-para">Leo morbi faucibus mattis pharetra tellus velit ultricies duis rhoncus</p>
+             <p className="commercial-para">Find the perfect commercial property that matches your vision and supports long-term growth.</p>
          </div>
 
          <div className="comr-cards-container">

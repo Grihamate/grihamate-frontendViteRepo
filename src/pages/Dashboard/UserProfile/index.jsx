@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Edit3, User } from "lucide-react";
 import { updateUserProfile } from "../../../service/dashboard";
+import { toast } from "react-toastify"; // ✅ import toast
 import "./style.css";
 
 const UserProfile = ({ user, setUser }) => {
+    const [loading, setLoading] = useState(false); // ✅ new state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     fullname: "",
@@ -27,6 +29,7 @@ const UserProfile = ({ user, setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+       setLoading(true); // ✅ show loading
     try {
       const token = localStorage.getItem("token"); // get token
       const updated = await updateUserProfile(user.id, formData, token);
@@ -34,11 +37,13 @@ const UserProfile = ({ user, setUser }) => {
       if (updated?.user) {
         // update parent state so UI refreshes instantly
         setUser(updated.user);
+                toast.success("Profile updated successfully!");
       }
 
       setIsModalOpen(false);
     } catch (error) {
       console.error("Error updating profile:", error);
+            toast.error("Failed to update profile. Please try again.");
     }
   };
 
@@ -105,8 +110,12 @@ const UserProfile = ({ user, setUser }) => {
               </div>
 
               <div className="modal-actions">
-                <button type="submit" className="save-btn">
-                  Save
+                    <button
+                  type="submit"
+                  className="save-btn"
+                  disabled={loading} // ✅ disable while saving
+                >
+                  {loading ? "Saving..." : "Save"} {/* ✅ change label */}
                 </button>
                 <button
                   type="button"

@@ -114,7 +114,7 @@ export default function ContactSection() {
 
         <div className="contact-text">
           <h1>Putting a plan to action, to assure your satisfaction!</h1>
-          <p>Arcu laoreet malesuada nunc eget. Fermentum ut dui etiam aliquam habitant elit</p>
+          <p>We’re committed to providing the right solutions for you. Get in touch and let’s make it happen.</p>
         </div>
       </div>
     </div>

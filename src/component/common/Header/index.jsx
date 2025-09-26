@@ -96,11 +96,7 @@ const Header = () => {
         </nav>
 
           <div className="actions">
-{/*             
-            <div className="mobile-buttons">
-              <Link to="/rent" className="sell-btn">Rent</Link>
-              <Link to="/sale" className="buy-btn">Buy</Link>
-            </div> */}
+
            
             {user ? (
               <div
@@ -122,71 +118,22 @@ const Header = () => {
                   </div>
                 </div>
 
-                {dropdownOpen && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "100%",
-                      right: 0,
-                      background: "white",
-                      boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                      borderRadius: "4px",
-                      padding: "8px",
-                      zIndex: 10,
-                      minWidth: "140px",
-                    }}
-                  >
-                    {/* ✅ Only visible on desktop */}
-                    <div className="desktop-only">
-                                <Link
-                to="/dashboard"
-            
-              style={{
-                background: "none",
-                border: "none",
-                width: "100%",
-                textAlign: "left",
-                padding: "8px",
-                cursor: "pointer",
-                fontSize: "14px",
-              }}
-            >
-              Profile
-            </Link>
-            <button
-                        onClick={handleLogout}
-                        style={{
-                          background: "none",
-                          border: "none",
-                          width: "100%",
-                          textAlign: "left",
-                          padding: "8px",
-                          cursor: "pointer",
-                          fontSize: "14px",
-                        }}
-                      >
-                        Logout
-                      </button>
-       
+             {dropdownOpen && (
+  <div className="dropdown-menu">
+    <div className="desktop-only">
+      <Link to="/dashboard" className="dropdown-item">
+        Profile
+      </Link>
+      <button onClick={handleLogout} className="dropdown-item">
+        Logout
+      </button>
+      <button onClick={handleRemoveAccount} className="dropdown-item remove">
+        Remove Account
+      </button>
+    </div>
+  </div>
+)}
 
-                      <button
-                        onClick={handleRemoveAccount}
-                        style={{
-                          background: "none",
-                          border: "none",
-                          width: "100%",
-                          textAlign: "left",
-                          padding: "8px",
-                          cursor: "pointer",
-                          fontSize: "14px",
-                          color: "red",
-                        }}
-                      >
-                        Remove Account
-                      </button>
-                    </div>
-                  </div>
-                )}
               </div>
             ) : (
               <button className="login-btn" onClick={handleLoginClick}>

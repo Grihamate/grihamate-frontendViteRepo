@@ -135,7 +135,7 @@ const PropertyDetailModal = ({ property, loading, onClose, navigate,  detailPath
                   <button
                   className="btn-mail"
                   onClick={() =>
-                  window.open("mailto:Grihamateofficial@gmail.com")
+                  window.open("mailto:Grihamateoffical@gmail.com")
                   }
                   >
                   <Mail size={18} /> Mail

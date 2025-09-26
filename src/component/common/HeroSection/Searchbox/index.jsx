@@ -4,6 +4,7 @@ import searchIcon from "../../../../assets/searchIcon.png";
 import "./style.css";
 
 const SearchBox = ({ onSearch }) => {
+  const [searching, setSearching] = useState(false); // ✅ add this
   const [filters, setFilters] = useState({
   propertyType: "",
   category: "",
@@ -34,6 +35,7 @@ const SearchBox = ({ onSearch }) => {
   };
 
 const handleSearch = () => {
+   setSearching(true); // ✅ start loading
   onSearch({
     ...filters,
     city: filters.location,  // backend ke liye map karna h
@@ -48,20 +50,13 @@ const handleSearch = () => {
           <p className="filter-text">Property Type</p>
           <select name="propertyType" onChange={handleChange}>
             <option value="">Select Type</option>
-            <option value="House">House</option>
+         
             <option value="Apartment">Apartment</option>
             <option value="Independent House">Independent House</option>
           </select>
         </div>
 
-        {/* <div className="filter-option">
-          <p className="filter-text">Category</p>
-          <select name="category" onChange={handleChange}>
-            <option value="">Select Type</option>
-            <option value="Residential">Residential</option>
-            <option value="Commercial">Commercial</option>
-          </select>
-        </div> */}
+ 
 
         <div className="filter-option">
           <p className="filter-text">Location</p>
@@ -102,10 +97,20 @@ const handleSearch = () => {
         </div>
       </div>
 
-      <button className="search-btn" onClick={handleSearch}  > 
-        <img src={searchIcon} alt="search" />
-        <p>Search Properties</p>
-      </button>
+    <button 
+  className="search-btn" 
+  onClick={handleSearch}  
+  disabled={searching}  // ✅ disable while searching
+> 
+  {searching ? (
+    <p>Searching...</p>   // ✅ show loading text
+  ) : (
+    <>
+      <img src={searchIcon} alt="search" />
+      <p>Search Properties</p>
+    </>
+  )}
+</button>
     </div>
   );
 };
