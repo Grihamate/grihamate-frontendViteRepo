@@ -253,26 +253,26 @@ const handleAddPropertySubmit = (data) => {
                                       const label = `${num} BHK`;  // UI display
                                       return (
                                       <label className="checkbox-btn" key={index}>
-                                      <input
-                                      type="checkbox"
-                                      name="property"
-                                      value={value}
-                                      checked={filterValues.bhk?.includes(value)}
-                                      onChange={(e) => {
-                                        if (e.target.checked) {
-                                          setFilterValues({
-                                            ...filterValues,
-                                            bhk: [...(filterValues.bhk || []), value],
-                                          });
-                                        } else {
-                                          setFilterValues({
-                                            ...filterValues,
-                                            bhk: filterValues.bhk.filter((item) => item !== value),
-                                          });
-                                        }
-                                      }}
-                                      />
-                                      <span>{label}</span>
+                                        <input
+                                        type="checkbox"
+                                        name="property"
+                                        value={value}
+                                        checked={filterValues.bhk?.includes(value)}
+                                        onChange={(e) => {
+                                          if (e.target.checked) {
+                                            setFilterValues({
+                                              ...filterValues,
+                                              bhk: [...(filterValues.bhk || []), value],
+                                            });
+                                          } else {
+                                            setFilterValues({
+                                              ...filterValues,
+                                              bhk: filterValues.bhk.filter((item) => item !== value),
+                                            });
+                                          }
+                                        }}
+                                        />
+                                        <span>{label}</span>
                                       </label>
                                       );
                                 })}
