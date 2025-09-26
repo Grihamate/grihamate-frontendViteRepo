@@ -51,7 +51,7 @@ export const getProperty = async (filters = {}) => {
     if (filters.minPrice) query.append("minPrice", filters.minPrice);
     if (filters.maxPrice) query.append("maxPrice", filters.maxPrice);
     if (filters.bhkType) query.append("bhkType", filters.bhkType);
-    if (filters.furnished) query.append("furnished", filters.furnished);
+    if (filters.furnished) query.append("furnishingStatus", filters.furnished);
 
     const response = await fetch(`${BASE_URL}/api/property/all?${query.toString()}`);
     if (!response.ok) throw new Error("API error");

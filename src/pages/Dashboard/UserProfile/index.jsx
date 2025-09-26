@@ -34,16 +34,22 @@ const UserProfile = ({ user, setUser }) => {
       const token = localStorage.getItem("token"); // get token
       const updated = await updateUserProfile(user.id, formData, token);
 
+       console.log("updated from API:", updated); 
+
       if (updated?.user) {
-        // update parent state so UI refreshes instantly
-        setUser(updated.user);
-                toast.success("Profile updated successfully!");
+          setUser(prev => ({
+            ...prev,        
+            user: updated.user 
+          }));
+          toast.success("Profile updated successfully!");
       }
 
       setIsModalOpen(false);
     } catch (error) {
       console.error("Error updating profile:", error);
             toast.error("Failed to update profile. Please try again.");
+    } finally {
+    setLoading(false);  // ✅ always reset loading
     }
   };
 

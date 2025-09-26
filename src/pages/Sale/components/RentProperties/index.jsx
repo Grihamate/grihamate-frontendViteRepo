@@ -42,9 +42,9 @@ const initialFilters = {
   location: "",
   propertyType: "",
   bhk: [],
-  priceRange: "5000-300000",
+  priceRange: "5000-50000000",
   minPrice: 5000,
-  maxPrice: 300000,
+  maxPrice: 50000000,
   furnished: "",
   area: { min: "", max: "" },
   amenities: [],
@@ -281,7 +281,7 @@ const resetFilters = () => {
           <input
             type="range"
             min="5000"               
-            max="300000"
+            max="50000000"
             step="1000"
             value={filterValues.maxPrice}
             onChange={(e) => {
@@ -348,10 +348,19 @@ const resetFilters = () => {
                                     setFilterValues({ ...filterValues, amenities: values });
                                     }}
                                   >
-                                    <option>Select Animities</option>
-                                    <option value="Gym">Gym</option>
-                                    <option value="Swimming Pool">Swimming Pool</option>
-                                    <option value="Parking">Parking</option>
+                                                                   <option>Select Animities</option>
+                                <option value="AC">AC</option>
+                                <option value="Gym">Gym</option>
+                                <option value="Parking">Parking</option>
+                                <option value="Water Supply">Water Supply</option>
+                                <option value="Power Backup">Power Backup</option>
+                                <option value="Wooden Almirah">Wooden Almirah</option>
+                                <option value="Geyser">Geyser</option>
+                                <option value="Sofa">Sofa</option>
+                                <option value="Washing Machine">Washing Machine</option>
+                                <option value="Garden">Garden</option>
+                                <option value="Bed">Bed</option>
+                              
                                   </select>
                               </div>
                             </div>
@@ -365,7 +374,7 @@ const resetFilters = () => {
                                 onChange={(e) => setFilterValues({ ...filterValues, status: e.target.value })}
                               >
                                 <option>Select Status</option>
-                                <option value="active">Active</option>
+                                <option value="Active">Active</option>
                                 <option value="Ready to Move">Ready to Move</option>
                                 <option value="Under Construction">Under Construction</option>
                               </select>
@@ -586,7 +595,7 @@ const resetFilters = () => {
                           <input
                             type="range"
                             min="5000"               
-                            max="300000"
+                            max="50000000"
                             step="1000"
                             value={filterValues.maxPrice}
                             onChange={(e) => {
@@ -640,7 +649,8 @@ const resetFilters = () => {
                       {/* other desktop view */}
                       <div className="filters-desktop-view">
                                 
-                        <div className="filter-section">
+                  
+      <div className="filter-section">
                           <p>Amenities & Feature</p>
                           <div className="area-filter">
                               <select className="custom-drop-down-full custom-drop-down" 
@@ -651,12 +661,51 @@ const resetFilters = () => {
                                 }}
                               >
                                 <option>Select Animities</option>
-                                <option value="Lift">Lift</option>
-                                <option value="Parking">Parking</option>
+                                <option value="AC">AC</option>
                                 <option value="Gym">Gym</option>
+                                <option value="Parking">Parking</option>
+                                <option value="Water Supply">Water Supply</option>
+                                <option value="Power Backup">Power Backup</option>
+                                <option value="Wooden Almirah">Wooden Almirah</option>
+                                <option value="Geyser">Geyser</option>
+                                <option value="Sofa">Sofa</option>
+                                <option value="Washing Machine">Washing Machine</option>
+                                <option value="Garden">Garden</option>
+                                <option value="Bed">Bed</option>
+                              
+              
                               </select>
                           </div>
                         </div>
+
+{/* 
+                        <div className="filter-section">
+  <p>Amenities & Feature</p>
+  <div className="area-filter">
+    <select
+      multiple    // 👈 ye lagana zaroori hai
+      className="custom-drop-down-full custom-drop-down"
+      value={filterValues.amenities}
+      onChange={(e) => {
+        const values = Array.from(e.target.selectedOptions, (option) => option.value);
+        setFilterValues({ ...filterValues, amenities: values });
+      }}
+    >
+      <option value="AC">AC</option>
+      <option value="Gym">Gym</option>
+      <option value="Parking">Parking</option>
+      <option value="Water Supply">Water Supply</option>
+      <option value="Power Backup">Power Backup</option>
+      <option value="Wooden Almirah">Wooden Almirah</option>
+      <option value="Geyser">Geyser</option>
+      <option value="Sofa">Sofa</option>
+      <option value="Washing Machine">Washing Machine</option>
+      <option value="Garden">Garden</option>
+      <option value="Bed">Bed</option>
+    </select>
+  </div>
+</div> */}
+
 
                         <div className="filter-section">
                           <p>Property Status</p>

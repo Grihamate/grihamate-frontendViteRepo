@@ -13,15 +13,17 @@ import "./style.css";
 
 const Home = () => {
   const [filters, setFilters] = useState({});
+   const [searching, setSearching] = useState(false);
 
   const handleSearch = (newFilters) => {
     setFilters(newFilters);
+    setSearching(true);
   };
 
   return (
     <div className="home-page">
-      <HeroSection onSearch={handleSearch} />
-      <FeaturedProperties filters={filters} />
+      <HeroSection onSearch={handleSearch} searching={searching} />
+      <FeaturedProperties filters={filters} setSearching={setSearching} />
       <ClientFeedback />
       <ContactSection />
       <City />

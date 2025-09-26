@@ -8,6 +8,7 @@ import "./style.css";
 
 function Dashboard() {
   const [userData, setUserData] = useState(null);
+  console.log("user-->",userData);
 
   const bookingsData = [
     { title: "Modern Luxury Home", address: "123 Palm Street, New York", date: "25 Sep 2025", time: "10:00 AM", status: "Upcoming" },
@@ -38,19 +39,22 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      {/* pass only the `user` part */}
-      <UserProfile user={userData ? userData.user : null} />
+  
+      <UserProfile 
+        user={userData ? userData.user : null} 
+        setUser={setUserData} 
+      />
 
       <div className="my-div">
 
         <MyProperties
-  myProperties={userData && userData.user ? userData.user.my_properties : []}
-  mySellProperties={userData && userData.user ? userData.user.my_sell_properties : []}
-/>
+        myProperties={userData && userData.user ? userData.user.my_properties : []}
+        mySellProperties={userData && userData.user ? userData.user.my_sell_properties : []}
+        />
 
       </div>
 
-  <MyBookings bookings={userData && userData.user ? userData.user.booking_history : []} />
+     <MyBookings bookings={userData && userData.user ? userData.user.booking_history : []} />
 
     </div>
   );

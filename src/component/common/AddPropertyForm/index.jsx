@@ -365,8 +365,8 @@ const handleSubmit = async (e) => {
                           }
                         >
                           <option value="">Select Furnishing</option>
-                          <option value="Furnished">Furnished</option>
-                          <option value="Semi-Furnished">Semi-Furnished</option>
+                          <option value="Fully Furnished">Fully Furnished</option>
+                          <option value="Semi Furnished">Semi Furnished</option>
                           <option value="Unfurnished">Unfurnished</option>
                         </select>
                       </div>

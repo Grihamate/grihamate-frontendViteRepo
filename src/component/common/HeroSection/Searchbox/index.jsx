@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import searchIcon from "../../../../assets/searchIcon.png";
 import "./style.css";
 
-const SearchBox = ({ onSearch }) => {
-  const [searching, setSearching] = useState(false); // ✅ add this
+const SearchBox = ({ onSearch,searching }) => {
   const [filters, setFilters] = useState({
   propertyType: "",
   category: "",
@@ -35,7 +34,6 @@ const SearchBox = ({ onSearch }) => {
   };
 
 const handleSearch = () => {
-   setSearching(true); // ✅ start loading
   onSearch({
     ...filters,
     city: filters.location,  // backend ke liye map karna h
@@ -97,20 +95,20 @@ const handleSearch = () => {
         </div>
       </div>
 
-    <button 
-  className="search-btn" 
-  onClick={handleSearch}  
-  disabled={searching}  // ✅ disable while searching
-> 
-  {searching ? (
-    <p>Searching...</p>   // ✅ show loading text
-  ) : (
-    <>
-      <img src={searchIcon} alt="search" />
-      <p>Search Properties</p>
-    </>
-  )}
-</button>
+        <button 
+          className="search-btn" 
+          onClick={handleSearch}  
+          disabled={searching}  // ✅ disable while searching
+        > 
+          {searching ? (
+            <p>Searching...</p>   // ✅ show loading text
+          ) : (
+            <>
+              <img src={searchIcon} alt="search" />
+              <p>Search Properties</p>
+            </>
+          )}
+        </button>
     </div>
   );
 };
