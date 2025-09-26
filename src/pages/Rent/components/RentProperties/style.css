@@ -323,7 +323,16 @@ line-height: 1rem;
   padding: 10px;
 }
 
-
+.filter-section .property-dropdown{
+       width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 10px 5px !important;
+    border: 1px solid #DCDEE3;
+    color: #727A90;
+    font-weight: 200;
+    font-size: 9px;
+}
 
 
 @media (max-width: 1200px) and (min-width: 1000px) {

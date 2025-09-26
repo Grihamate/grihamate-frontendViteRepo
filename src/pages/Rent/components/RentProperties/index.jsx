@@ -210,7 +210,7 @@ const resetFilters = () => {
             {/* Furnished - Mobile */}
             <div className="filter-section furnished-section mobile-only">
               <p>Furnished</p>
-              <select
+              <select className="property-dropdown"
                 value={filterValues.furnished}
                 onChange={(e) =>
                   setFilterValues({
