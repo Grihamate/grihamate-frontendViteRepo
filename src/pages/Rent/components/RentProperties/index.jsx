@@ -220,8 +220,8 @@ const resetFilters = () => {
                 }
               >
                 <option value="">Select Furnishing</option>
-                <option value="Fully furnished">Fully Furnished</option>
-                <option value="Semi furnished">Semi Furnished</option>
+                <option value="Fully Furnished">Fully Furnished</option>
+                <option value="Semi Furnished">Semi Furnished</option>
                 <option value="Unfurnished">Unfurnished</option>
               </select>
             </div>
@@ -279,8 +279,8 @@ const resetFilters = () => {
           <p>Furnished</p>
           <div className="property-radio-group">
             {[
-              { value: "Fully furnished", label: "Fully Furnished" },
-              { value: "Semi furnished", label: "Semi Furnished" },
+              { value: "Fully Furnished", label: "Fully Furnished" },
+              { value: "Semi Furnished", label: "Semi Furnished" },
               { value: "Unfurnished", label: "Unfurnished" },
             ].map((item) => (
               <label key={item.value}>
