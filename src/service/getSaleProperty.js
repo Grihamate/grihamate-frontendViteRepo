@@ -44,7 +44,7 @@ export const getSaleProperty = async (filters = {}) => {
     if (filters.amenities?.length > 0) query.append("amenities", filters.amenities.join(","));
     if (filters.status) query.append("propertyStatus", filters.status);
     if (filters.facing) query.append("facing", filters.facing);
-    if (filters.age) query.append("ageOfProperty", filters.age);
+    if (filters.age) query.append("propertyAge", filters.age);
 
     if (filters.priceRange) query.append("priceRange", filters.priceRange); // 👈 full string bhej rahe hain
     if (filters.minPrice) query.append("minPrice", filters.minPrice);
