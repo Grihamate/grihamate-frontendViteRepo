@@ -17,11 +17,13 @@ import { getToken } from "../../../../utils/authUtils";
 import { getSalePropertyById } from "../../../../service/getSalePropertyById";
 import { getPropertyById } from "../../../../service/getPropertybyId";
 
+import AddPropertyModal from "../AddPropertyModal";
 const RentProperties = () => {
    const navigate = useNavigate(); // hook for navigation
   const propertiesPerPage = 4;
   const [properties, setProperties] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -143,6 +145,12 @@ const resetFilters = () => {
   setCurrentPage(1);
   fetchProperties({ ...initialFilters });
 };
+const handleAddPropertySubmit = (data) => {
+  console.log("Form data:", data);
+  // You can call your API here later
+  setIsModalOpen(false);
+};
+
   
 
   if (error) return <p>{error}</p>;
@@ -570,24 +578,6 @@ const resetFilters = () => {
                     
 
 
-                        {/* common in both screen */}
-
-                      {/* <div className="filter-section">
-                        <p>
-                          Price Rannge: <span>₹0 - ₹{filterValues.price}</span>
-                        </p>
-                        <input
-                          type="range"
-                          min="0"
-                          max="300000"
-                          step="1000"
-                          value={filterValues.price}
-                          onChange={(e) =>
-                            setFilterValues({ ...filterValues, price: Number(e.target.value) })
-                          }
-                        />
-                      </div> */}
-
                         <div className="filter-section">
                           <p>
                             Price Range: <span>₹{filterValues.minPrice} - ₹{filterValues.maxPrice}</span>
@@ -678,33 +668,7 @@ const resetFilters = () => {
                           </div>
                         </div>
 
-{/* 
-                        <div className="filter-section">
-  <p>Amenities & Feature</p>
-  <div className="area-filter">
-    <select
-      multiple    // 👈 ye lagana zaroori hai
-      className="custom-drop-down-full custom-drop-down"
-      value={filterValues.amenities}
-      onChange={(e) => {
-        const values = Array.from(e.target.selectedOptions, (option) => option.value);
-        setFilterValues({ ...filterValues, amenities: values });
-      }}
-    >
-      <option value="AC">AC</option>
-      <option value="Gym">Gym</option>
-      <option value="Parking">Parking</option>
-      <option value="Water Supply">Water Supply</option>
-      <option value="Power Backup">Power Backup</option>
-      <option value="Wooden Almirah">Wooden Almirah</option>
-      <option value="Geyser">Geyser</option>
-      <option value="Sofa">Sofa</option>
-      <option value="Washing Machine">Washing Machine</option>
-      <option value="Garden">Garden</option>
-      <option value="Bed">Bed</option>
-    </select>
-  </div>
-</div> */}
+
 
 
                         <div className="filter-section">
@@ -814,15 +778,7 @@ const resetFilters = () => {
 
         
 
-          {/* <div className="filters-icons-box">
-            <select>
-              <option>Newest First</option>
-            </select>
-            <div className="filter-icon-left">
-              <img src={listIcon} alt="list" />
-              <img src={gridIcon} alt="grid" />
-            </div>
-          </div> */}
+
         </div>
 
 
@@ -843,6 +799,7 @@ const resetFilters = () => {
                       
                     ))}
                   </div>
+
 
                       {/* Pagination */}
                       {totalPages > 1 && (
@@ -874,6 +831,14 @@ const resetFilters = () => {
                       )}
             </>
           ) }
+     <button onClick={() => setIsModalOpen(true)}>Add Properties</button>
+     <AddPropertyModal
+  isOpen={isModalOpen}
+  onClose={() => setIsModalOpen(false)}
+  onSubmit={handleAddPropertySubmit}
+/>
+
+
 
           </div>
 
