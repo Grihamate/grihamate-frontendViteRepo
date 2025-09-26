@@ -4,7 +4,7 @@ import SearchBox from "./Searchbox";
 import heroImg from '../../../assets/heroImg.jpg';
 import "./style.css";
 
-const HeroSection = ({ onSearch }) => {
+const HeroSection = ({ onSearch, searching }) => {
   return (
     <div className="hero-container">
       
@@ -35,7 +35,7 @@ const HeroSection = ({ onSearch }) => {
             </div>
 
           </div>
-        <SearchBox onSearch={onSearch} />
+            <SearchBox onSearch={onSearch} searching={searching} />
       </div>
     </div>
   );

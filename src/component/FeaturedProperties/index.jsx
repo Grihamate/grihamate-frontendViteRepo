@@ -19,7 +19,7 @@ import PropertyDetailModal from "./PropertyDetailModal";
 import { toast } from "react-toastify"; // if you're using react-toastify
 import "react-toastify/dist/ReactToastify.css";
 
-const FeaturedProperties = ({ filters }) => {
+const FeaturedProperties = ({ filters, setSearching }) => {
     const navigate = useNavigate();
   const propertiesPerPage = 6;
   const [properties, setProperties] = useState([]);
@@ -49,6 +49,7 @@ const FeaturedProperties = ({ filters }) => {
       setError("Failed to fetch properties");
     } finally {
       setLoading(false);
+      setSearching(false); 
     }
   };
 
