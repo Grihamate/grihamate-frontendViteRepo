@@ -118,21 +118,21 @@ const Header = () => {
                   </div>
                 </div>
 
-                {dropdownOpen && (
-                  <div className="dropdown-menu">
-                    <div className="desktop-only">
-                      <Link to="/dashboard" className="dropdown-item">
-                        Profile
-                      </Link>
-                      <button onClick={handleLogout} className="dropdown-item">
-                        Logout
-                      </button>
-                      <button onClick={handleRemoveAccount} className="dropdown-item remove">
-                        Remove Account
-                      </button>
-                    </div>
-                  </div>
-                )}
+             {dropdownOpen && (
+  <div className="dropdown-menu">
+    <div className="desktop-only">
+      <Link to="/dashboard" className="dropdown-item">
+        Profile
+      </Link>
+      <button onClick={handleLogout} className="dropdown-item">
+        Logout
+      </button>
+      <button onClick={handleRemoveAccount} className="dropdown-item remove">
+        Remove Account
+      </button>
+    </div>
+  </div>
+)}
 
               </div>
             ) : (
@@ -169,7 +169,7 @@ const Header = () => {
 
           {user ? (
             <>
-                   <Link
+                      <Link
                 to="/dashboard"
             
               style={{
@@ -181,8 +181,6 @@ const Header = () => {
                 cursor: "pointer",
                 fontSize: "14px",
               }}
-
-               onClick={() => setMobileMenuOpen(false)}
             >
               Profile
             </Link>

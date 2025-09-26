@@ -157,17 +157,16 @@ border-width: 1px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+ 
 }
-
-.property-checkbox-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
 
 .property-checkbox-group  label{
-  max-width: 100px;
+  width: 129px;
+  display: flex;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1F2535;
 }
 
 
@@ -197,6 +196,11 @@ border-width: 1px;
 
 
 /* Group container */
+.property-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
 /* Hide default checkbox */
 .checkbox-btn input {
@@ -206,10 +210,9 @@ border-width: 1px;
 /* Custom button */
 .checkbox-btn span {
   display: inline-block;
-  width: 100%;
+  width: 129px;
   height: 56px;
   line-height: 56px;
-  font-weight: 500;
   text-align: center;
   border: 1px solid #DEE2E6;
   border-radius: 6px;
@@ -690,22 +693,19 @@ line-height: 1rem;
     gap: 6px;
   }
 
-   .property-checkbox-group{
-    gap: 8px;
-    display: flex;
-    flex-wrap: wrap;
-   }
-
   .property-checkbox-group label {
-     width: 50px;
-     height: 40px;
+     width: 100%;
      padding: 2px;
   }
 
 
-  .property-checkbox-group span {
+  .bhk-chip input {
+    display: none; 
+  }
+
+   .bhk-chip span {
     height: 30px;
-    height: 100%;
+    min-height:30px;
     line-height: 0%;
     padding: 5px 8px;
     display: flex;
@@ -713,16 +713,15 @@ line-height: 1rem;
     justify-content: center;
     font-size: 10px;
     font-weight: 400;
+    
+   
    }
 
-.property-checkbox-group input:checked + span {
-    font-size: 11px;
+  .bhk-chip input:checked + span {
+    font-size: 10px;
     white-space: nowrap;
-    font-weight: 600;
 
   }
-
-
 }
 
   
