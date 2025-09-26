@@ -48,11 +48,14 @@
   width: 100%;
   max-width: 414px;
   height: auto;
-  aspect-ratio: 414 / 440;
+  aspect-ratio: 300 / 440;
   object-fit: cover;
   border-radius: 12px;
   transform: scaleX(-1);
+ 
 }
+
+
 
 /* Text container */
 .client-text {

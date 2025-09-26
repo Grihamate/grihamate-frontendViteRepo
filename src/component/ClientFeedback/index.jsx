@@ -1,8 +1,7 @@
 
-import girlImg from "../../assets/girlImg.jpg";
 import CommercialPropertyCard from "../common/CommercialPropertyCard";
 import "./style.css";
-import ankushImag from "../../assets/flatImg.jpg"
+import girlImg from "../../assets/girl.jpg"
 
 const ClientFeedback = () => {
   return (
@@ -20,7 +19,7 @@ const ClientFeedback = () => {
               <p>Buyer</p>
             </div>
           </div>
-          <img src={ankushImag} alt="Client" />
+          <img src={girlImg} alt="Client" />
          
         </div>
       </div>

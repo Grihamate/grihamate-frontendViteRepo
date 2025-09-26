@@ -42,9 +42,9 @@ const initialFilters = {
   location: "",
   propertyType: "",
   bhk: [],
-  priceRange: "5000-300000",
+priceRange: "5000-50000000",
   minPrice: 5000,
-  maxPrice: 300000,
+  maxPrice: 50000000,
   furnished: "",
   area: { min: "", max: "" },
   amenities: [],
@@ -281,7 +281,7 @@ const resetFilters = () => {
           <input
             type="range"
             min="5000"               
-            max="300000"
+            max="50000000"
             step="1000"
             value={filterValues.maxPrice}
             onChange={(e) => {
@@ -586,7 +586,7 @@ const resetFilters = () => {
                           <input
                             type="range"
                             min="5000"               
-                            max="300000"
+                            max="50000000"
                             step="1000"
                             value={filterValues.maxPrice}
                             onChange={(e) => {
