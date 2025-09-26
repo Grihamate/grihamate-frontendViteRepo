@@ -52,23 +52,146 @@ const AddPropertyModal = ({ setIsModalOpen }) => {
     };
   }, []);
 
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+
+//   // ✅ Only check if token exists
+//   const token = localStorage.getItem("token");
+//   if (!token) {
+//     toast.error("Please login first to post the property!", {
+//       position: "top-center",
+//       autoClose: 2000,
+//     });
+//     setTimeout(() => {
+//       window.location.href = "/login";
+//     }, 2000);
+//     return;
+//   }
+
+//   // Validate required fields
+//   const missingFields = [];
+//   if (!formData.propertyTitle) missingFields.push("Property Title");
+//   if (!formData.area) missingFields.push("Area");
+//   if (!formData.bhkType) missingFields.push("BHK/Type");
+//   if (!formData.monthlyRent) missingFields.push("Monthly Rent");
+//   if (!formData.securityDeposit) missingFields.push("Security Deposit");
+//   if (!formData.maintenanceCharge) missingFields.push("Maintenance Charge");
+//   if (!formData.contactName) missingFields.push("Owner Name");
+//   if (!formData.phoneNumber) missingFields.push("Phone Number");
+//   if (!formData.email) missingFields.push("Email Address");
+//   if (!formData.city) missingFields.push("City");
+//   if (!formData.locality) missingFields.push("Locality");
+
+//   if (missingFields.length > 0) {
+//     toast.warning(`Please fill in the following fields: ${missingFields.join(", ")}`, {
+//       position: "top-center",
+//       autoClose: 3000,
+//     });
+//     return;
+//   }
+
+//   // Phone number validation
+//   const phoneRegex = /^\d{10}$/;
+//   if (!phoneRegex.test(formData.phoneNumber)) {
+//     toast.error("Phone number must be 10 digits!", {
+//       position: "top-center",
+//       autoClose: 3000,
+//     });
+//     return;
+//   }
+
+//   try {
+  
+
+
+// const propertyData = {
+//   propertyType: formData.propertyType,
+//   listingType: formData.listingType,
+
+//   basicDetails: {
+//     title: formData.propertyTitle,
+//     area: formData.area,
+//     bhkType: formData.bhkType,
+//     bathrooms: formData.bathrooms,
+//     furnishingStatus: formData.furnishingStatus,
+//     propertyFacing: formData.propertyFacing,
+//     propertyAge: formData.propertyAge,
+//     floor: formData.floor,
+//   },
+
+//   pricing: {
+//     monthlyRent: formData.monthlyRent,
+//     securityDeposit: formData.securityDeposit,
+//     maintenanceCharges: formData.maintenanceCharge,
+//   },
+
+//   location: {
+//     city: formData.city,
+//     locality: formData.locality,
+//     fullAddress: formData.fullAddress,
+//   },
+
+//   description: formData.description,
+
+//   contactInfo: {
+//     owner: formData.contactName,   
+//     phone: formData.phoneNumber,
+//     email: formData.email,
+//   },
+
+//   images: formData.images,
+//   amenities: formData.amenities || [],
+
+//   nearby: {
+//     education: {
+//       name: formData.educationName,
+//       distance: formData.educationDistance,
+//     },
+//     health: {
+//       name: formData.healthName,
+//       distance: formData.healthDistance,
+//     },
+//     food: {
+//       name: formData.foodName,
+//       distance: formData.foodDistance,
+//     },
+//     travel: {
+//       name: formData.travelName,
+//       distance: formData.travelDistance,
+//     },
+//   },
+// }
+
+
+//       console.log("propertData--->", propertyData);
+
+//     const response = await addProperty(propertyData, token);
+
+//     toast.success("Property listed successfully!", {
+//       position: "top-center",
+//       autoClose: 2000,
+//     });
+//     setTimeout(() => setIsModalOpen(false), 2000);
+
+//   } catch (error) {
+//     console.error("Error adding property:", error);
+//     toast.error(error.message || "Something went wrong. Please try again.", {
+//       position: "top-center",
+//       autoClose: 3000,
+//     });
+//   }
+// };
 const handleSubmit = async (e) => {
   e.preventDefault();
 
-  // ✅ Only check if token exists
   const token = localStorage.getItem("token");
   if (!token) {
-    toast.error("Please login first to post the property!", {
-      position: "top-center",
-      autoClose: 2000,
-    });
-    setTimeout(() => {
-      window.location.href = "/login";
-    }, 2000);
+    toast.error("Please login first to post the property!", { position: "top-center", autoClose: 2000 });
+    setTimeout(() => window.location.href = "/login", 2000);
     return;
   }
 
-  // Validate required fields
+  // Validation (same as before)
   const missingFields = [];
   if (!formData.propertyTitle) missingFields.push("Property Title");
   if (!formData.area) missingFields.push("Area");
@@ -83,134 +206,76 @@ const handleSubmit = async (e) => {
   if (!formData.locality) missingFields.push("Locality");
 
   if (missingFields.length > 0) {
-    toast.warning(`Please fill in the following fields: ${missingFields.join(", ")}`, {
-      position: "top-center",
-      autoClose: 3000,
-    });
+    toast.warning(`Please fill in the following fields: ${missingFields.join(", ")}`, { position: "top-center", autoClose: 3000 });
     return;
   }
 
-  // Phone number validation
   const phoneRegex = /^\d{10}$/;
   if (!phoneRegex.test(formData.phoneNumber)) {
-    toast.error("Phone number must be 10 digits!", {
-      position: "top-center",
-      autoClose: 3000,
-    });
+    toast.error("Phone number must be 10 digits!", { position: "top-center", autoClose: 3000 });
     return;
   }
 
   try {
-    // const propertyData = {
-    //   propertyType: formData.propertyType,
-    //   listingType: formData.listingType,
-    //   title: formData.propertyTitle,
-    //   area: formData.area,
-    //   bhkType: formData.bhkType,
-    //   bathrooms: formData.bathrooms,
-    //   furnishingStatus: formData.furnishingStatus,
-    //   monthlyRent: formData.monthlyRent,
-    //   securityDeposit: formData.securityDeposit,
-    //   maintenanceCharges: formData.maintenanceCharge,
-    //   city: formData.city,
-    //   locality: formData.locality,
-    //   fullAddress: formData.fullAddress,
-    //   description: formData.description,
-    //   owner: formData.contactName,
-    //   phone: formData.phoneNumber,
-    //   email: formData.email,
-    //   images: formData.images,
-    //   amenities:formData.amenities || [],
-    //   educationName:formData.educationName,
-    //   educationDistance:formData.educationDistance,
-    //   healthName:formData.healthName,
-    //   healthDistance:formData.healthDistance,
-    //   foodName:formData.foodName,
-    //   foodDistance:formData.foodDistance,
-    //   travelName:formData.travelName,
-    //   travelDistance:formData.travelDistance,
-    //   propertyFacing:formData.propertyFacing,
-    //   propertyAge:formData.propertyAge,
-    //   floor:formData.floor,
-       
-    // };
+    const formDataToSend = new FormData();
 
+    formDataToSend.append("propertyType", formData.propertyType);
+    formDataToSend.append("listingType", formData.listingType);
+    formDataToSend.append("title", formData.propertyTitle);
+    formDataToSend.append("area", formData.area);
+    formDataToSend.append("bhkType", formData.bhkType);
+    formDataToSend.append("bathrooms", formData.bathrooms);
+    formDataToSend.append("furnishingStatus", formData.furnishingStatus);
+    formDataToSend.append("monthlyRent", formData.monthlyRent);
+    formDataToSend.append("securityDeposit", formData.securityDeposit);
+    formDataToSend.append("maintenanceCharges", formData.maintenanceCharge);
+    formDataToSend.append("city", formData.city);
+    formDataToSend.append("locality", formData.locality);
+    formDataToSend.append("fullAddress", formData.fullAddress);
+    formDataToSend.append("description", formData.description);
+    formDataToSend.append("owner", formData.contactName);
+    formDataToSend.append("phone", formData.phoneNumber);
+    formDataToSend.append("email", formData.email);
 
-const propertyData = {
-  propertyType: formData.propertyType,
-  listingType: formData.listingType,
+    // Append amenities as a comma-separated string
+    formDataToSend.append("amenities", formData.amenities.join(","));
 
-  basicDetails: {
-    title: formData.propertyTitle,
-    area: formData.area,
-    bhkType: formData.bhkType,
-    bathrooms: formData.bathrooms,
-    furnishingStatus: formData.furnishingStatus,
-    propertyFacing: formData.propertyFacing,
-    propertyAge: formData.propertyAge,
-    floor: formData.floor,
-  },
+    // Append nearby details as JSON string
+    formDataToSend.append("nearby", JSON.stringify({
+      education: { name: formData.educationName, distance: formData.educationDistance },
+      health: { name: formData.healthName, distance: formData.healthDistance },
+      food: { name: formData.foodName, distance: formData.foodDistance },
+      travel: { name: formData.travelName, distance: formData.travelDistance }
+    }));
 
-  pricing: {
-    monthlyRent: formData.monthlyRent,
-    securityDeposit: formData.securityDeposit,
-    maintenanceCharges: formData.maintenanceCharge,
-  },
+    // Append property facing, age, floor
+    formDataToSend.append("propertyFacing", formData.propertyFacing);
+    formDataToSend.append("propertyAge", formData.propertyAge);
+    formDataToSend.append("floor", formData.floor);
 
-  location: {
-    city: formData.city,
-    locality: formData.locality,
-    fullAddress: formData.fullAddress,
-  },
-
-  description: formData.description,
-
-  contactInfo: {
-    owner: formData.contactName,   
-    phone: formData.phoneNumber,
-    email: formData.email,
-  },
-
-  images: formData.images,
-  amenities: formData.amenities || [],
-
-  nearby: {
-    education: {
-      name: formData.educationName,
-      distance: formData.educationDistance,
-    },
-    health: {
-      name: formData.healthName,
-      distance: formData.healthDistance,
-    },
-    food: {
-      name: formData.foodName,
-      distance: formData.foodDistance,
-    },
-    travel: {
-      name: formData.travelName,
-      distance: formData.travelDistance,
-    },
-  },
-}
-
-
-      console.log("propertData--->", propertyData);
-
-    const response = await addProperty(propertyData, token);
-
-    toast.success("Property listed successfully!", {
-      position: "top-center",
-      autoClose: 2000,
+    // Append images (multiple files)
+    formData.images.forEach(file => {
+      formDataToSend.append("images", file);
     });
+
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/property/add`, {
+      method: "POST",
+      body: formDataToSend,
+      headers: { Authorization: `Bearer ${token}` }
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || "Failed to add property");
+    }
+
+    toast.success("Property listed successfully!", { position: "top-center", autoClose: 2000 });
     setTimeout(() => setIsModalOpen(false), 2000);
 
   } catch (error) {
     console.error("Error adding property:", error);
-    toast.error(error.message || "Something went wrong. Please try again.", {
-      position: "top-center",
-      autoClose: 3000,
-    });
+    toast.error(error.message || "Something went wrong. Please try again.", { position: "top-center", autoClose: 3000 });
   }
 };
 
