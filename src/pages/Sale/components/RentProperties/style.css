@@ -721,6 +721,9 @@ line-height: 1rem;
     font-size: 10px;
     white-space: nowrap;
 
+    font-weight: 600;
+    /* width: 100%; */
+
   }
 }
 
