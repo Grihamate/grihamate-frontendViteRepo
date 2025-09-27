@@ -1,4 +1,4 @@
-.modal-overlay {
+.property-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.modal-content {
+.property-modal-content {
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -22,14 +22,14 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.modal-header {
+.property-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.close-btn {
+.property-close-btn {
   background: none;
   border: none;
   font-size: 24px;
@@ -42,33 +42,33 @@
   gap: 20px;
 }
 
-.form-section {
+.property-form-section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
 
-.form-section h3 {
-  grid-column: span 2; /* Section title spans both columns */
+.property-form-section h3 {
+  grid-column: span 2;
   color: #2A3A68;
   margin-bottom: 10px;
 }
 
-.label-input-pair {
+.property-label-input-pair {
   display: flex;
   flex-direction: column;
 }
 
-label {
+.property-label-input-pair label {
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-input,
-select,
-textarea {
+.property-label-input-pair input,
+.property-label-input-pair select,
+.property-label-input-pair textarea {
   width: 100%;
   padding: 10px;
   border-radius: 6px;
@@ -77,35 +77,35 @@ textarea {
   box-sizing: border-box;
 }
 
-input::placeholder,
-textarea::placeholder {
+.property-label-input-pair input::placeholder,
+.property-label-input-pair textarea::placeholder {
   color: #aaa;
 }
 
-textarea {
+.property-label-input-pair textarea {
   min-height: 60px;
 }
 
-.modal-buttons {
+.property-modal-buttons {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 20px;
 }
 
-.btn {
+.property-btn {
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.btn-primary {
+.property-btn-primary {
   background: #2A3A68;
   color: white;
 }
 
-.btn-secondary {
+.property-btn-secondary {
   background: #ccc;
   color: black;
 }
