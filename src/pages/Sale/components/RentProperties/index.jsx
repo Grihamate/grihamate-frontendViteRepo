@@ -831,7 +831,7 @@ const handleAddPropertySubmit = (data) => {
                       )}
             </>
           ) }
-     <button onClick={() => setIsModalOpen(true)}>Add Properties</button>
+     <button className="btn-addProperties" onClick={() => setIsModalOpen(true)}>Add Properties</button>
      <AddPropertyModal
   isOpen={isModalOpen}
   onClose={() => setIsModalOpen(false)}
