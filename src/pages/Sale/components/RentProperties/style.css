@@ -747,6 +747,9 @@ line-height: 1rem;
   width: 100%;
 }
 .btn-addProperties{
-  background-color: yellow;
+   background-color: #FBDB5B;
+  color: #100E2C;
+  padding: 10px;
+  border-radius: 10px;
 }
 

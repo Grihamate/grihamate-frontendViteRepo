@@ -48,6 +48,9 @@
   gap: 20px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .property-form-section h3 {
@@ -88,7 +91,7 @@
 
 .property-modal-buttons {
   display: flex;
-  justify-content: flex-end;
+width: 100%;
   gap: 10px;
   margin-top: 20px;
 }
@@ -98,6 +101,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 50%;
 }
 
 .property-btn-primary {
@@ -108,4 +112,5 @@
 .property-btn-secondary {
   background: #ccc;
   color: black;
+    width: 50%;
 }
