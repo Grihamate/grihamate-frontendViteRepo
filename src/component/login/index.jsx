@@ -14,26 +14,10 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // ✅ Handle phone change (same logic as Register)
-  const handlePhoneChange = (e) => {
-    const value = e.target.value.replace(/\D/g, ""); // remove non-numeric
-    if (value.length <= 10) {
-      setPhone(value);
-    }
-  };
-
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
-
-    // ✅ Validate 10-digit phone number
-    if (!/^\d{10}$/.test(phone)) {
-      setLoading(false);
-      setError("Phone number must be exactly 10 digits");
-      toast.error("Phone number must be exactly 10 digits");
-      return;
-    }
 
     try {
       const data = await loginUser(phone, password);
@@ -78,11 +62,9 @@ const Login = () => {
             <br />
             <input
               type="text"
-              inputMode="numeric"
-              pattern="[0-9]*"
-              placeholder="Enter here..."
+              placeholder="Enter phone number..."
               value={phone}
-              onChange={handlePhoneChange}
+              onChange={(e) => setPhone(e.target.value)}
               required
             />
             <br />
