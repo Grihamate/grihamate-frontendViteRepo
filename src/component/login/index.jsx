@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { loginUser } from "../../service/Registeruser";
-import { ArrowLeft } from "lucide-react"; // Importing the arrow icon
+import { ArrowLeft } from "lucide-react";
 
 const Login = () => {
   const [phone, setPhone] = useState("");
@@ -14,12 +14,20 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // ✅ Handle phone change (same logic as Register)
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/\D/g, ""); // remove non-numeric
+    if (value.length <= 10) {
+      setPhone(value);
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
 
-    // ✅ Validation: Phone must be exactly 10 digits
+    // ✅ Validate 10-digit phone number
     if (!/^\d{10}$/.test(phone)) {
       setLoading(false);
       setError("Phone number must be exactly 10 digits");
@@ -29,26 +37,16 @@ const Login = () => {
 
     try {
       const data = await loginUser(phone, password);
-
-      // Save token and user info in localStorage (or wherever you prefer)
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
       toast.success(data.message || "Login successful");
-      navigate("/"); // Redirect to homepage or dashboard
+      navigate("/"); // redirect to homepage
     } catch (err) {
       setError(err.message || "Login failed");
       toast.error(err.message || "Login failed");
     } finally {
       setLoading(false);
-    }
-  };
-
-  // Prevent more than 10 digits in input
-  const handlePhoneChange = (e) => {
-    const value = e.target.value.replace(/\D/g, ""); // allow only numbers
-    if (value.length <= 10) {
-      setPhone(value);
     }
   };
 
@@ -68,10 +66,10 @@ const Login = () => {
         <ArrowLeft size={24} />
         <span>Back To Home</span>
       </Link>
+
       <AuthLayout>
         <div className="inner-container">
           <AuthHeader />
-
           <p className="heading">Welcome Back</p>
           <p className="subheading">Sign in to your account to continue</p>
 
@@ -80,12 +78,15 @@ const Login = () => {
             <br />
             <input
               type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
               placeholder="Enter here..."
               value={phone}
               onChange={handlePhoneChange}
               required
             />
             <br />
+
             <label>Password</label>
             <br />
             <input
@@ -96,6 +97,7 @@ const Login = () => {
               required
             />
             <br />
+
             <input
               type="submit"
               value={loading ? "Logging in..." : "Login"}
