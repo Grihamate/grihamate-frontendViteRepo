@@ -1,5 +1,7 @@
 // services/propertyService.js
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export const addSaleProperty = async (propertyData, token) => {
   try {
     const formData = new FormData();
@@ -79,9 +81,7 @@ export const addSaleProperty = async (propertyData, token) => {
     formData.append("phone", propertyData.phone);
     formData.append("email", propertyData.email);
 
-    const response = await fetch(
-      "https://grihamate-backend-2.onrender.com/api/sale/add",
-      {
+  const response = await fetch(`${API_BASE_URL}/api/sale/add`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`, // ✅ Required

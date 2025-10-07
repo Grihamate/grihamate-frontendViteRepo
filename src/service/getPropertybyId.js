@@ -1,23 +1,20 @@
 // service/getPropertyById.js
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export const getPropertyById = async (id, token) => {
   try {
-    const response = await fetch(
-      `https://grihamate-backend-2.onrender.com/api/property/${id}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // send token in header
-        },
-      }
+    const response = await fetch(`${API_BASE_URL}/api/property/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, // send token in header
+      },
+    });
 
-  
-    );
-  
-  
-   const data = await response.json();
+    const data = await response.json();
 
-   if (!response.ok) {
+    if (!response.ok) {
       const error = new Error(data.message || "Failed to fetch property details");
       error.status = response.status;
       throw error;
@@ -29,3 +26,4 @@ export const getPropertyById = async (id, token) => {
     throw error;
   }
 };
+

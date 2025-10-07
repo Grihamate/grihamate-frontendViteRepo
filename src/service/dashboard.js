@@ -1,15 +1,14 @@
 // src/service/userService.js
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const getUserProfile = async (token) => {
   try {
-    const response = await fetch(
-      "https://grihamate-backend-2.onrender.com/api/user/profile",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+    const response = await fetch(`${API_BASE_URL}/api/user/profile`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       }
     );
 
@@ -28,9 +27,7 @@ export const getUserProfile = async (token) => {
 // Update user profile
 export const updateUserProfile = async (id, updatedData, token) => {
   try {
-    const response = await fetch(
-      `https://grihamate-backend-2.onrender.com/api/user/update/${id}`,
-      {
+  const response = await fetch(`${API_BASE_URL}/api/user/update/${id}`, {
         method: "PUT", // backend expects PUT for update
         headers: {
           "Content-Type": "application/json",
